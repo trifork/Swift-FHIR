@@ -14,7 +14,7 @@ import Foundation
  *
  *  A container for a collection of resources.
  */
-public class Bundle: Resource {
+public class Bundle: DomainResource {
 	override public class var resourceType: String {
 		get { return "Bundle" }
 	}

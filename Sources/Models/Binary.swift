@@ -14,7 +14,7 @@ import Foundation
  *
  *  A binary resource can contain any content, whether text, image, pdf, zip archive, etc.
  */
-public class Binary: Resource {
+public class Binary: DomainResource {
 	override public class var resourceType: String {
 		get { return "Binary" }
 	}
