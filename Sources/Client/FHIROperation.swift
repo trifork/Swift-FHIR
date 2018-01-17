@@ -25,6 +25,9 @@ Named operations to be performed against a FHIR REST endpoint.
 */
 open class FHIROperation: CustomStringConvertible {
 	
+	/// The HTTP method used by the operation
+	let method: FHIRRequestMethod
+
 	/// The name of the operation.
 	let name: String
 	
@@ -34,6 +37,9 @@ open class FHIROperation: CustomStringConvertible {
 	/// Input parameters.
 	var inParams: FHIRJSON?
 	
+	/// The resource to be put in request body.
+	let bodyResource: Resource?
+
 	/// The resource type the operation is to be performed against.
 	var type: Resource.Type? {
 		didSet {
@@ -53,8 +59,18 @@ open class FHIROperation: CustomStringConvertible {
 		}
 	}
 	
-	public init(_ name: String) {
+	public init(method: FHIRRequestMethod, name: String, bodyResource: Resource?) {
+		self.method = method
 		self.name = name
+		self.bodyResource = bodyResource
+	}
+	
+	public convenience init(_ name: String) {
+		self.init(method: .GET, name: name, bodyResource: nil)
+	}
+	
+	public func setSystemContext() {
+		context = .system
 	}
 	
 	
@@ -165,7 +181,7 @@ open class FHIROperation: CustomStringConvertible {
 	*/
 	open func perform(onServer server: FHIRServer, callback: @escaping ((_ response: FHIRServerResponse) -> Void)) throws {
 		let path = try serverPath()
-		server.performRequest(.GET, path: path, resource: nil, additionalHeaders: nil, callback: callback)
+		server.performRequest(method, path: path, resource: bodyResource, additionalHeaders: nil, callback: callback)
 	}
 	
 	
