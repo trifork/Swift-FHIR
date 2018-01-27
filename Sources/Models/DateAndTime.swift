@@ -611,33 +611,37 @@ class DateNSDateConverter {
 		return _create(date: date, time: time, timeZone: timeZone)
 	}
 	
-	func _create(date: FHIRDate?, time: FHIRTime?, timeZone: TimeZone?) -> Date {
-		var comp = DateComponents()
-		comp.timeZone = timeZone ?? utc
-		
-		if let yr = date?.year {
-			comp.year = yr
-		}
-		if let mth = date?.month {
-			comp.month = Int(mth)
-		}
-		if let d = date?.day {
-			comp.day = Int(d)
-		}
-		
-		if let hr = time?.hour {
-			comp.hour = Int(hr)
-		}
-		if let min = time?.minute {
-			comp.minute = Int(min)
-		}
-		if let sec = time?.second {
-			comp.second = Int(floor(sec))
-			comp.nanosecond = Int(sec.truncatingRemainder(dividingBy: 1000000000))
-		}
-		
-		return calendar.date(from: comp) ?? Date()
-	}
+    func _create(date: FHIRDate?, time: FHIRTime?, timeZone: TimeZone?) -> Date {
+        var comp = DateComponents()
+        comp.timeZone = timeZone ?? utc
+        
+        if let date = date {
+            comp.year = date.year
+            comp.month = Int(date.month ?? 0)
+            comp.day = Int(date.day ?? 0)
+        } else {
+            //It is not a good idea to leave date to 01.01.0001, as fx. comp.hour will not give the right result
+            //therefore, if no date is specified we use the reference date
+            let referenceDate = Date(timeIntervalSinceReferenceDate: 0)
+            comp.year = calendar.component(.year, from: referenceDate)
+            comp.month = calendar.component(.month, from: referenceDate)
+            comp.day = calendar.component(.day, from: referenceDate)
+        }
+        
+        if let hr = time?.hour {
+            comp.hour = Int(hr)
+        }
+        if let min = time?.minute {
+            comp.minute = Int(min)
+        }
+        if let sec = time?.second {
+            comp.second = Int(floor(sec))
+            comp.nanosecond = Int(sec.truncatingRemainder(dividingBy: 1000000000))
+        }
+        
+        return calendar.date(from: comp) ?? Date()
+    }
+    
 }
 
 
