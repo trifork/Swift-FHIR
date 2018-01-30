@@ -132,8 +132,8 @@ open class FHIRServerDataResponse: FHIRServerResponse {
 		}
 		
 		// was there an error?
-		if let error = error, NSURLErrorDomain == error._domain {
-			self.error = FHIRError.requestError(status, .message(error.humanized))
+		if let error = error as? URLError {
+			self.error = FHIRError.requestError(status, .connectivity(error))
 		}
 		else if let error = error as? FHIRError {
 			self.error = error
@@ -150,8 +150,8 @@ open class FHIRServerDataResponse: FHIRServerResponse {
 	public required init(error: Error) {
 		self.status = 0
 		self.headers = [String: String]()
-		if NSURLErrorDomain == error._domain {
-			self.error = FHIRError.requestError(status, .message(error.humanized))
+        if let error = error as? URLError {
+            self.error = FHIRError.requestError(status, .connectivity(error))
 		}
 		else if let error = error as? FHIRError {
 			self.error = error

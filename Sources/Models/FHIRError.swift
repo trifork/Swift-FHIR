@@ -45,6 +45,7 @@ public enum FHIRError: Error, CustomStringConvertible {
     public enum RequestErrorDetails {
         case message(String)
         case issues([OperationOutcomeIssue])
+        case connectivity(URLError)
         
         public var errorString: String {
             switch self {
@@ -53,6 +54,8 @@ public enum FHIRError: Error, CustomStringConvertible {
             case .issues(let issues):
                 let errorItem = issues.first
                 return "[\(errorItem?.severity ?? "unknown")] \(errorItem?.diagnostics ?? "unknown")"
+            case .connectivity(let urlError):
+                return urlError.humanized
             }
         }
     }
