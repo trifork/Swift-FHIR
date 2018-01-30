@@ -133,7 +133,7 @@ open class FHIRServerDataResponse: FHIRServerResponse {
 		
 		// was there an error?
 		if let error = error, NSURLErrorDomain == error._domain {
-			self.error = FHIRError.requestError(status, error.humanized)
+			self.error = FHIRError.requestError(status, .message(error.humanized))
 		}
 		else if let error = error as? FHIRError {
 			self.error = error
@@ -151,7 +151,7 @@ open class FHIRServerDataResponse: FHIRServerResponse {
 		self.status = 0
 		self.headers = [String: String]()
 		if NSURLErrorDomain == error._domain {
-			self.error = FHIRError.requestError(status, error.humanized)
+			self.error = FHIRError.requestError(status, .message(error.humanized))
 		}
 		else if let error = error as? FHIRError {
 			self.error = error
@@ -210,12 +210,11 @@ open class FHIRServerJSONResponse: FHIRServerDataResponse {
 				
 				// inspect OperationOutcome if there was an error
 				if status >= 400 {
-					if let erritem = self.outcome?.issue?.first {
-						let errstr = "[\(erritem.severity ?? "unknown")] \(erritem.diagnostics ?? "unknown")"
-						self.error = FHIRError.requestError(status, errstr)
+					if let issues = self.outcome?.issue, !issues.isEmpty {
+						self.error = FHIRError.requestError(status, .issues(issues))
 					}
 					else if let errstr = json?["error"] as? String {
-						self.error = FHIRError.requestError(status, errstr)
+						self.error = FHIRError.requestError(status, .message(errstr))
 					}
 				}
 			}
