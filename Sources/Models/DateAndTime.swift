@@ -709,7 +709,8 @@ class DateAndTimeParser {
 						tz = TimeZone(abbreviation: "UTC")
 						tzString = "Z"
 					}
-					else if var tzStr = (scanner.fhir_scanString("-") ?? scanner.fhir_scanString("+")) {
+					else if let tzSign = (scanner.fhir_scanString("-") ?? scanner.fhir_scanString("+")) {
+                        var tzStr = tzSign
 						if let hourStr = scanner.fhir_scanCharacters(from: digitSet) {
 							tzStr += hourStr
 							var tzhour = 0
@@ -729,7 +730,7 @@ class DateAndTimeParser {
 							}
 							
 							let offset = tzhour * 3600 + tzmin * 60
-							tz = TimeZone(secondsFromGMT: "+" == tzStr ? offset : -1 * offset)
+							tz = TimeZone(secondsFromGMT: "+" == tzSign ? offset : -1 * offset)
 							tzString = tzStr
 						}
 					}

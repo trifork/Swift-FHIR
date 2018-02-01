@@ -284,6 +284,7 @@ class DateTimeTests: XCTestCase {
 		XCTAssertEqual(UInt8(33), d!.time!.minute)
 		XCTAssertEqual(29, d!.time!.second!)
 		XCTAssertFalse(nil == d!.timeZone)
+        XCTAssertEqual("GMT+1", d!.timeZone?.abbreviation()!)
 		XCTAssertTrue(3600 == d!.timeZone!.secondsFromGMT(), "Should be 3600 seconds ahead, but am \(d!.timeZone!.secondsFromGMT) seconds")
 		
 		d = DateTime(string: "2015-03-28T02:33:29-05:00")
@@ -296,6 +297,7 @@ class DateTimeTests: XCTestCase {
 		XCTAssertEqual(UInt8(33), d!.time!.minute)
 		XCTAssertEqual(29, d!.time!.second!)
 		XCTAssertFalse(nil == d!.timeZone)
+        XCTAssertEqual("GMT-5", d!.timeZone?.abbreviation()!)
 		XCTAssertTrue(-18000 == d!.timeZone!.secondsFromGMT(), "Should be 18000 seconds ahead, but am \(d!.timeZone!.secondsFromGMT()) seconds")
 		
 		d = DateTime(string: "2015-03-28T02:33:29.1285-05:00")
