@@ -203,28 +203,32 @@ open class FHIRServerJSONResponse: FHIRServerDataResponse {
 		
 		// parse data as JSON
 		if let data = inData, data.count > 0 {
-			do {
-				let json = try JSONSerialization.jsonObject(with: data, options: []) as? FHIRJSON
-				self.json = json
-				self.outcome = responseResource(ofType: OperationOutcome.self)
-				
-				// inspect OperationOutcome if there was an error
-				if status >= 400 {
-					if let issues = self.outcome?.issue, !issues.isEmpty {
-						self.error = FHIRError.requestError(status, .issues(issues))
-					}
-					else if let errstr = json?["error"] as? String {
-						self.error = FHIRError.requestError(status, .message(errstr))
-					}
-				}
-			}
-			catch let error as NSError {
-				// Cocoa error 3840 is JSON parsing error; some error responses may not return JSON, don't report an error on those
-				if 3840 != error.code || NSCocoaErrorDomain != error.domain || status < 400 {
-					let raw = String(data: data, encoding: String.Encoding.utf8) ?? ""
-					self.error = FHIRError.jsonParsingError(error.localizedDescription, raw)
-				}
-			}
+            do {
+                do {
+                    self.json = try JSONSerialization.jsonObject(with: data, options: []) as? FHIRJSON
+                }
+                catch CocoaError.propertyListReadCorrupt where status >= 400 {
+                    // Some error responses may not return JSON, don't report a parsing error on those
+                }
+                self.outcome = responseResource(ofType: OperationOutcome.self)
+                
+                // inspect OperationOutcome if there was an error
+                if status >= 400 {
+                    if let issues = self.outcome?.issue, !issues.isEmpty {
+                        self.error = FHIRError.requestError(status, .issues(issues))
+                    }
+                    else if let errstr = self.json?["error"] as? String ?? String(data: data, encoding: .utf8) {
+                        self.error = FHIRError.requestError(status, .message(errstr))
+                    }
+                    else {
+                        self.error = FHIRError.requestError(status, nil)
+                    }
+                }
+            }
+            catch let error as CocoaError where error.code == .propertyListReadCorrupt {
+                let raw = String(data: data, encoding: String.Encoding.utf8) ?? ""
+                self.error = FHIRError.jsonParsingError(error.localizedDescription, raw)
+            }
 			catch let error as FHIRError {
 				self.error = error
 			}

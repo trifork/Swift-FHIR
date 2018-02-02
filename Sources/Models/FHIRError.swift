@@ -24,7 +24,7 @@ public enum FHIRError: Error, CustomStringConvertible {
 	
 	case requestCannotPrepareBody
 	case requestNotSent(String)
-	case requestError(Int, RequestErrorDetails)
+	case requestError(Int, RequestErrorDetails?)
 	case noRequestHandlerAvailable(String)
 	case noResponseReceived
 	case responseLocationHeaderResourceTypeMismatch(String, String)
@@ -83,7 +83,7 @@ public enum FHIRError: Error, CustomStringConvertible {
 		case .requestNotSent(let reason):
 			return "\("Request not sent".fhir_localized): \(reason)"
 		case .requestError(let status, let details):
-			return "\("Error".fhir_localized) \(status): \(details.errorString)"
+			return "\("Error".fhir_localized) \(status): \(details?.errorString ?? "no message")"
 		case .noRequestHandlerAvailable(let type):
 			return "\("No request handler is available for requests of type".fhir_localized) “\(type)”"
 		case .noResponseReceived:
