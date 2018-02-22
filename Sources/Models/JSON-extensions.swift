@@ -37,6 +37,7 @@ extension UInt {
 public struct URLTranslations {
     internal static var jsonToUrl: [String: URL]?
     internal static var urlstringToJson: [String: String]?
+    internal static var urlProblemLogger: ((String) -> ())?
     
     public static func setTranslations(_ translations: [String: URL]?) {
         jsonToUrl = translations
@@ -50,11 +51,20 @@ public struct URLTranslations {
 extension URL {
 	
 	public init?(json: String) {
+        var ok = false
+        defer {
+            if !ok {
+                if let logger = URLTranslations.urlProblemLogger {
+                    logger("Bad URL in JSON: \"\(json)\"")
+                }
+            }
+        }
         if let url = URLTranslations.jsonToUrl?[json] {
             self.init(string: url.absoluteString) // encode/decode - alas
         } else {
             self.init(string: json)
         }
+        ok = true
 	}
 	
 	public static func instantiate(fromArray json: [String]) -> [URL] {
