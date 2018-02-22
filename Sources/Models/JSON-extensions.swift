@@ -33,16 +33,34 @@ extension UInt {
 	}
 }
 
+/// Added in order to handle a protocol wart.
+public struct URLTranslations {
+    internal static var jsonToUrl: [String: URL]?
+    internal static var urlstringToJson: [String: String]?
+    
+    public static func setTranslations(_ translations: [String: URL]?) {
+        jsonToUrl = translations
+        urlstringToJson = translations.map { j2u in
+            //let j2s = j2u.mapValues { $0.absoluteString }
+            [String: String](uniqueKeysWithValues: j2u.map {(j,u) in (u.absoluteString, j)})
+        }
+    }
+}
+
 extension URL {
 	
 	public init?(json: String) {
-		self.init(string: json)
+        if let url = URLTranslations.jsonToUrl?[json] {
+            self.init(string: url.absoluteString) // encode/decode - alas
+        } else {
+            self.init(string: json)
+        }
 	}
 	
 	public static func instantiate(fromArray json: [String]) -> [URL] {
 		var arr: [URL] = []
-		for string in json {
-			if let url = URL(string: string) {
+		for jsonString in json {
+			if let url = URL(json: jsonString) {
 				arr.append(url)
 			}
 		}
@@ -50,7 +68,7 @@ extension URL {
 	}
 	
 	public func asJSON() -> String {
-		return self.description
+		return URLTranslations.urlstringToJson?[absoluteString] ?? self.description
 	}
 }
 
