@@ -46,6 +46,10 @@ public struct URLTranslations {
             [String: String](uniqueKeysWithValues: j2u.map {(j,u) in (u.absoluteString, j)})
         }
     }
+    
+    public static func setUrlProblemLogger(_ logger: ((String) -> ())?) {
+        urlProblemLogger = logger
+    }
 }
 
 extension URL {
