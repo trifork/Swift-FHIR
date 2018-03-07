@@ -23,104 +23,405 @@ public class Extension: Element {
 	public var url: URL?
 	
 	/// Value of extension.
-	public var valueAddress: Address?
+	public var valueAddress: Address? {
+		get {
+			if case .address(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .address($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueAnnotation: Annotation?
+	public var valueAnnotation: Annotation? {
+		get {
+			if case .annotation(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .annotation($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueAttachment: Attachment?
+	public var valueAttachment: Attachment? {
+		get {
+			if case .attachment(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .attachment($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueBase64Binary: Base64Binary?
+	public var valueBase64Binary: Base64Binary? {
+		get {
+			if case .base64Binary(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .base64Binary($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueBoolean: Bool?
+	public var valueBoolean: Bool? {
+		get {
+			if case .boolean(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .boolean($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueCode: String?
+	public var valueCode: String? {
+		get {
+			if case .code(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .code($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueCodeableConcept: CodeableConcept?
+	public var valueCodeableConcept: CodeableConcept? {
+		get {
+			if case .codeableConcept(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .codeableConcept($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueCoding: Coding?
+	public var valueCoding: Coding? {
+		get {
+			if case .coding(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .coding($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueContactPoint: ContactPoint?
+	public var valueContactPoint: ContactPoint? {
+		get {
+			if case .contactPoint(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .contactPoint($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueDate: FHIRDate?
+	public var valueDate: FHIRDate? {
+		get {
+			if case .date(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .date($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueDateTime: DateTime?
+	public var valueDateTime: DateTime? {
+		get {
+			if case .dateTime(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .dateTime($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueDecimal: NSDecimalNumber?
+	public var valueDecimal: NSDecimalNumber? {
+		get {
+			if case .decimal(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .decimal($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueHumanName: HumanName?
+	public var valueHumanName: HumanName? {
+		get {
+			if case .humanName(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .humanName($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueId: String?
+	public var valueId: String? {
+		get {
+			if case .id(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .id($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueIdentifier: Identifier?
+	public var valueIdentifier: Identifier? {
+		get {
+			if case .identifier(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .identifier($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueInstant: Instant?
+	public var valueInstant: Instant? {
+		get {
+			if case .instant(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .instant($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueInteger: Int?
+	public var valueInteger: Int? {
+		get {
+			if case .integer(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .integer($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueMarkdown: String?
+	public var valueMarkdown: String? {
+		get {
+			if case .markdown(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .markdown($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueMeta: Meta?
+	public var valueMeta: Meta? {
+		get {
+			if case .meta(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .meta($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueOid: String?
+	public var valueOid: String? {
+		get {
+			if case .oid(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .oid($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valuePeriod: Period?
+	public var valuePeriod: Period? {
+		get {
+			if case .period(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .period($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valuePositiveInt: UInt?
+	public var valuePositiveInt: UInt? {
+		get {
+			if case .positiveInt(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .positiveInt($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueQuantity: Quantity?
+	public var valueQuantity: Quantity? {
+		get {
+			if case .quantity(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .quantity($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueRange: Range?
+	public var valueRange: Range? {
+		get {
+			if case .range(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .range($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueRatio: Ratio?
+	public var valueRatio: Ratio? {
+		get {
+			if case .ratio(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .ratio($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueReference: Reference?
+	public var valueReference: Reference? {
+		get {
+			if case .reference(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .reference($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueSampledData: SampledData?
+	public var valueSampledData: SampledData? {
+		get {
+			if case .sampledData(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .sampledData($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueSignature: Signature?
+	public var valueSignature: Signature? {
+		get {
+			if case .signature(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .signature($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueString: String?
+	public var valueString: String? {
+		get {
+			if case .string(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .string($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueTime: FHIRTime?
+	public var valueTime: FHIRTime? {
+		get {
+			if case .time(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .time($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueTiming: Timing?
+	public var valueTiming: Timing? {
+		get {
+			if case .timing(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .timing($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueUnsignedInt: UInt?
+	public var valueUnsignedInt: UInt? {
+		get {
+			if case .unsignedInt(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .unsignedInt($0) }
+		}
+	}
 	
 	/// Value of extension.
-	public var valueUri: URL?
+	public var valueUri: URL? {
+		get {
+			if case .uri(let value)? = value { return value }
+			else { return nil }
+		}
+		set {
+			value = newValue.map { .uri($0) }
+		}
+	}
 	
+	private enum Value {
+		case address(Address)
+		case annotation(Annotation)
+		case attachment(Attachment)
+		case base64Binary(Base64Binary)
+		case boolean(Bool)
+		case code(String)
+		case codeableConcept(CodeableConcept)
+		case coding(Coding)
+		case contactPoint(ContactPoint)
+		case date(FHIRDate)
+		case dateTime(DateTime)
+		case decimal(NSDecimalNumber)
+		case humanName(HumanName)
+		case id(String)
+		case identifier(Identifier)
+		case instant(Instant)
+		case integer(Int)
+		case markdown(String)
+		case meta(Meta)
+		case oid(String)
+		case period(Period)
+		case positiveInt(UInt)
+		case quantity(Quantity)
+		case range(Range)
+		case ratio(Ratio)
+		case reference(Reference)
+		case sampledData(SampledData)
+		case signature(Signature)
+		case string(String)
+		case time(FHIRTime)
+		case timing(Timing)
+		case unsignedInt(UInt)
+		case uri(URL)
+	}
+	
+	private var value: Value?
 	
 	/** Initialize with a JSON object. */
 	public required init(json: FHIRJSON?, owner: FHIRAbstractBase? = nil) {
