@@ -665,6 +665,10 @@ class DateAndTimeParser {
 	*/
 	func parse(string: String, isTimeOnly: Bool=false) -> (date: FHIRDate?, time: FHIRTime?, tz: TimeZone?, tzString: String?) {
 		let scanner = Scanner(string: string)
+        return autoreleasepool { parse(with: scanner, isTimeOnly: isTimeOnly) }
+    }
+    
+    private func parse(with scanner: Scanner, isTimeOnly: Bool) -> (date: FHIRDate?, time: FHIRTime?, tz: TimeZone?, tzString: String?) {
 		var date: FHIRDate?
 		var time: FHIRTime?
 		var tz: TimeZone?
