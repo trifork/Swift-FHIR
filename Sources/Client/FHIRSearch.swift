@@ -109,10 +109,15 @@ open class FHIRSearch
 		- parameter callback: The callback, receives the response Bundle or an Error message describing what went wrong
 	 */
 	open func perform(_ server: FHIRServer, callback: @escaping FHIRSearchBundleErrorCallback) {
+        // Following if statement is commented out in order to allow creation of requests with missing profile type information:
+        // /fhir-server/fhir/?_query=readByIdsIncludeShallowCitizens&_id=7717c66f-b6ed-47b3-bad8-35d988af740a&_format=json
+        // Method that needed: performCuraSearch(query:searchParameters:) in FhirServiceOnlineWrapper
+        /*
 		if nil == profileType {
 			callback(nil, FHIRError.searchResourceTypeNotDefined)
 			return
 		}
+        */
 		
 		reset()
 		performSearch(server, queryPath: construct(), callback: callback)
