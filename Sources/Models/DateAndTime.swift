@@ -228,10 +228,10 @@ public struct FHIRTime: DateAndTime {
 	/**
 	Initializes a time from a time string by passing it through `DateAndTimeParser`.
 	
-	Will fail unless the string contains at least hour and minute.
+	Will fail unless the string contains at least hour /*and minute*/
 	*/
 	public init?(string: String) {
-		let parsed = DateAndTimeParser.sharedParser.parse(string: string, isTimeOnly: true)
+		let parsed = DateAndTimeParser.sharedParser.parse(string: string, isTimeOnly: true, beForgiving: true)
 		guard let time = parsed.time else {
 			return nil
 		}
@@ -663,12 +663,12 @@ class DateAndTimeParser {
 	- parameter isTimeOnly: If true assumes that the string describes time only
 	- returns:              A tuple with (FHIRDate?, FHIRTime?, TimeZone?, String? [for time zone])
 	*/
-	func parse(string: String, isTimeOnly: Bool=false) -> (date: FHIRDate?, time: FHIRTime?, tz: TimeZone?, tzString: String?) {
+    func parse(string: String, isTimeOnly: Bool=false, beForgiving: Bool=false) -> (date: FHIRDate?, time: FHIRTime?, tz: TimeZone?, tzString: String?) {
 		let scanner = Scanner(string: string)
-        return autoreleasepool { parse(with: scanner, isTimeOnly: isTimeOnly) }
+        return autoreleasepool { parse(with: scanner, isTimeOnly: isTimeOnly, beForgiving: beForgiving) }
     }
     
-    private func parse(with scanner: Scanner, isTimeOnly: Bool) -> (date: FHIRDate?, time: FHIRTime?, tz: TimeZone?, tzString: String?) {
+    private func parse(with scanner: Scanner, isTimeOnly: Bool, beForgiving: Bool) -> (date: FHIRDate?, time: FHIRTime?, tz: TimeZone?, tzString: String?) {
 		var date: FHIRDate?
 		var time: FHIRTime?
 		var tz: TimeZone?
@@ -693,9 +693,22 @@ class DateAndTimeParser {
 		
 		// scan time
 		if isTimeOnly || nil != scanner.fhir_scanString("T") {
-			if let hour = scanner.fhir_scanInt(), hour >= 0 && hour < 24 && nil != scanner.fhir_scanString(":"),
-				let minute = scanner.fhir_scanInt(), minute >= 0 && minute < 60 {
-				
+            guard let hour = scanner.fhir_scanInt(), hour >= 0 && hour < 24 else {
+                return (date, time, tz, tzString)
+            }
+            if scanner.isAtEnd && beForgiving {
+                time = FHIRTime(hour: UInt8(hour), minute: 0, second: nil)
+                return (date, time, tz, tzString) // Be forgiving: Allow "hh".
+            }
+            guard nil != scanner.fhir_scanString(":") else {
+                return (date, time, tz, tzString)
+            }
+            if scanner.isAtEnd && beForgiving {
+                time = FHIRTime(hour: UInt8(hour), minute: 0, second: nil)
+                return (date, time, tz, tzString) // Be forgiving: Allow "hh:".
+            }
+
+            if let minute = scanner.fhir_scanInt(), minute >= 0 && minute < 60 {
 				let digitSet = CharacterSet.decimalDigits
 				var decimalSet = NSMutableCharacterSet.decimalDigits
 				decimalSet.insert(".")

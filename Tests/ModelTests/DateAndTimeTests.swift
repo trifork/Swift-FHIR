@@ -97,10 +97,53 @@ class DateTests: XCTestCase {
 
 
 class TimeTests: XCTestCase {
-	
+
+    /// Added in 2.8.1-trifork branch because of interop necessity.
+    func testForgivingParsing() {
+        var t: FHIRTime?
+
+        // Hour and nothing else:
+        t = FHIRTime(string: "18")
+        XCTAssertNotEqual(nil, t)
+        XCTAssertEqual(18, t!.hour)
+        XCTAssertEqual(0, t!.minute)
+        XCTAssertEqual(nil, t!.second)
+
+        t = FHIRTime(string: "0")
+        XCTAssertNotEqual(nil, t)
+        XCTAssertEqual(0, t!.hour)
+        XCTAssertEqual(0, t!.minute)
+        XCTAssertEqual(nil, t!.second)
+
+        t = FHIRTime(string: "24")
+        XCTAssertEqual(nil, t)
+
+        t = FHIRTime(string: "-1")
+        XCTAssertEqual(nil, t)
+
+        // Hour and a colon:
+        t = FHIRTime(string: "18:")
+        XCTAssertNotEqual(nil, t)
+        XCTAssertEqual(18, t!.hour)
+        XCTAssertEqual(0, t!.minute)
+        XCTAssertEqual(nil, t!.second)
+
+        t = FHIRTime(string: "0:")
+        XCTAssertNotEqual(nil, t)
+        XCTAssertEqual(0, t!.hour)
+        XCTAssertEqual(0, t!.minute)
+        XCTAssertEqual(nil, t!.second)
+
+        t = FHIRTime(string: "24:")
+        XCTAssertEqual(nil, t)
+    }
+
 	func testParsing() {
+        var t: FHIRTime?
+        /*
 		var t = FHIRTime(string: "18")
 		XCTAssertTrue(nil == t)
+         */
 		
 		t = FHIRTime(string: "18:72")
 		XCTAssertTrue(nil == t)
