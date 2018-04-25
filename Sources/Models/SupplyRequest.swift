@@ -164,41 +164,41 @@ public class SupplyRequest: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let kind = self.kind {
-			json["kind"] = kind.asJSON()
+			json["kind"] = kind.asJSON(with: options)
 		}
 		if let orderedItem = self.orderedItem {
-			json["orderedItem"] = orderedItem.asJSON()
+			json["orderedItem"] = orderedItem.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let reasonCodeableConcept = self.reasonCodeableConcept {
-			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON()
+			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON(with: options)
 		}
 		if let reasonReference = self.reasonReference {
-			json["reasonReference"] = reasonReference.asJSON()
+			json["reasonReference"] = reasonReference.asJSON(with: options)
 		}
 		if let source = self.source {
-			json["source"] = source.asJSON()
+			json["source"] = source.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let supplier = self.supplier {
-			json["supplier"] = supplier.map() { $0.asJSON() }
+			json["supplier"] = supplier.map() { $0.asJSON(with: options) }
 		}
 		if let when = self.when {
-			json["when"] = when.asJSON()
+			json["when"] = when.asJSON(with: options)
 		}
 		
 		return json
@@ -251,14 +251,14 @@ public class SupplyRequestWhen: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let schedule = self.schedule {
-			json["schedule"] = schedule.asJSON()
+			json["schedule"] = schedule.asJSON(with: options)
 		}
 		
 		return json

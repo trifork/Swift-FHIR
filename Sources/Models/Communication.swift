@@ -189,47 +189,47 @@ public class Communication: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let medium = self.medium {
-			json["medium"] = medium.map() { $0.asJSON() }
+			json["medium"] = medium.map() { $0.asJSON(with: options) }
 		}
 		if let payload = self.payload {
-			json["payload"] = payload.map() { $0.asJSON() }
+			json["payload"] = payload.map() { $0.asJSON(with: options) }
 		}
 		if let reason = self.reason {
-			json["reason"] = reason.map() { $0.asJSON() }
+			json["reason"] = reason.map() { $0.asJSON(with: options) }
 		}
 		if let received = self.received {
-			json["received"] = received.asJSON()
+			json["received"] = received.asJSON(with: options)
 		}
 		if let recipient = self.recipient {
-			json["recipient"] = recipient.map() { $0.asJSON() }
+			json["recipient"] = recipient.map() { $0.asJSON(with: options) }
 		}
 		if let requestDetail = self.requestDetail {
-			json["requestDetail"] = requestDetail.asJSON()
+			json["requestDetail"] = requestDetail.asJSON(with: options)
 		}
 		if let sender = self.sender {
-			json["sender"] = sender.asJSON()
+			json["sender"] = sender.asJSON(with: options)
 		}
 		if let sent = self.sent {
-			json["sent"] = sent.asJSON()
+			json["sent"] = sent.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		
 		return json
@@ -309,17 +309,17 @@ public class CommunicationPayload: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contentAttachment = self.contentAttachment {
-			json["contentAttachment"] = contentAttachment.asJSON()
+			json["contentAttachment"] = contentAttachment.asJSON(with: options)
 		}
 		if let contentReference = self.contentReference {
-			json["contentReference"] = contentReference.asJSON()
+			json["contentReference"] = contentReference.asJSON(with: options)
 		}
 		if let contentString = self.contentString {
-			json["contentString"] = contentString.asJSON()
+			json["contentString"] = contentString.asJSON(with: options)
 		}
 		
 		return json

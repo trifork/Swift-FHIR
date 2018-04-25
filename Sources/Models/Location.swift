@@ -177,44 +177,44 @@ public class Location: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let address = self.address {
-			json["address"] = address.asJSON()
+			json["address"] = address.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let managingOrganization = self.managingOrganization {
-			json["managingOrganization"] = managingOrganization.asJSON()
+			json["managingOrganization"] = managingOrganization.asJSON(with: options)
 		}
 		if let mode = self.mode {
-			json["mode"] = mode.asJSON()
+			json["mode"] = mode.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let partOf = self.partOf {
-			json["partOf"] = partOf.asJSON()
+			json["partOf"] = partOf.asJSON(with: options)
 		}
 		if let physicalType = self.physicalType {
-			json["physicalType"] = physicalType.asJSON()
+			json["physicalType"] = physicalType.asJSON(with: options)
 		}
 		if let position = self.position {
-			json["position"] = position.asJSON()
+			json["position"] = position.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -295,17 +295,17 @@ public class LocationPosition: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let altitude = self.altitude {
-			json["altitude"] = altitude.asJSON()
+			json["altitude"] = altitude.asJSON(with: options)
 		}
 		if let latitude = self.latitude {
-			json["latitude"] = latitude.asJSON()
+			json["latitude"] = latitude.asJSON(with: options)
 		}
 		if let longitude = self.longitude {
-			json["longitude"] = longitude.asJSON()
+			json["longitude"] = longitude.asJSON(with: options)
 		}
 		
 		return json

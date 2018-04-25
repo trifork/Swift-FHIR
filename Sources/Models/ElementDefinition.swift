@@ -2717,689 +2717,689 @@ public class ElementDefinition: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let alias = self.alias {
 			var arr = [Any]()
 			for val in alias {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["alias"] = arr
 		}
 		if let base = self.base {
-			json["base"] = base.asJSON()
+			json["base"] = base.asJSON(with: options)
 		}
 		if let binding = self.binding {
-			json["binding"] = binding.asJSON()
+			json["binding"] = binding.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.map() { $0.asJSON() }
+			json["code"] = code.map() { $0.asJSON(with: options) }
 		}
 		if let comments = self.comments {
-			json["comments"] = comments.asJSON()
+			json["comments"] = comments.asJSON(with: options)
 		}
 		if let condition = self.condition {
 			var arr = [Any]()
 			for val in condition {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["condition"] = arr
 		}
 		if let constraint = self.constraint {
-			json["constraint"] = constraint.map() { $0.asJSON() }
+			json["constraint"] = constraint.map() { $0.asJSON(with: options) }
 		}
 		if let defaultValueAddress = self.defaultValueAddress {
-			json["defaultValueAddress"] = defaultValueAddress.asJSON()
+			json["defaultValueAddress"] = defaultValueAddress.asJSON(with: options)
 		}
 		if let defaultValueAnnotation = self.defaultValueAnnotation {
-			json["defaultValueAnnotation"] = defaultValueAnnotation.asJSON()
+			json["defaultValueAnnotation"] = defaultValueAnnotation.asJSON(with: options)
 		}
 		if let defaultValueAttachment = self.defaultValueAttachment {
-			json["defaultValueAttachment"] = defaultValueAttachment.asJSON()
+			json["defaultValueAttachment"] = defaultValueAttachment.asJSON(with: options)
 		}
 		if let defaultValueBase64Binary = self.defaultValueBase64Binary {
-			json["defaultValueBase64Binary"] = defaultValueBase64Binary.asJSON()
+			json["defaultValueBase64Binary"] = defaultValueBase64Binary.asJSON(with: options)
 		}
 		if let defaultValueBoolean = self.defaultValueBoolean {
-			json["defaultValueBoolean"] = defaultValueBoolean.asJSON()
+			json["defaultValueBoolean"] = defaultValueBoolean.asJSON(with: options)
 		}
 		if let defaultValueCode = self.defaultValueCode {
-			json["defaultValueCode"] = defaultValueCode.asJSON()
+			json["defaultValueCode"] = defaultValueCode.asJSON(with: options)
 		}
 		if let defaultValueCodeableConcept = self.defaultValueCodeableConcept {
-			json["defaultValueCodeableConcept"] = defaultValueCodeableConcept.asJSON()
+			json["defaultValueCodeableConcept"] = defaultValueCodeableConcept.asJSON(with: options)
 		}
 		if let defaultValueCoding = self.defaultValueCoding {
-			json["defaultValueCoding"] = defaultValueCoding.asJSON()
+			json["defaultValueCoding"] = defaultValueCoding.asJSON(with: options)
 		}
 		if let defaultValueContactPoint = self.defaultValueContactPoint {
-			json["defaultValueContactPoint"] = defaultValueContactPoint.asJSON()
+			json["defaultValueContactPoint"] = defaultValueContactPoint.asJSON(with: options)
 		}
 		if let defaultValueDate = self.defaultValueDate {
-			json["defaultValueDate"] = defaultValueDate.asJSON()
+			json["defaultValueDate"] = defaultValueDate.asJSON(with: options)
 		}
 		if let defaultValueDateTime = self.defaultValueDateTime {
-			json["defaultValueDateTime"] = defaultValueDateTime.asJSON()
+			json["defaultValueDateTime"] = defaultValueDateTime.asJSON(with: options)
 		}
 		if let defaultValueDecimal = self.defaultValueDecimal {
-			json["defaultValueDecimal"] = defaultValueDecimal.asJSON()
+			json["defaultValueDecimal"] = defaultValueDecimal.asJSON(with: options)
 		}
 		if let defaultValueHumanName = self.defaultValueHumanName {
-			json["defaultValueHumanName"] = defaultValueHumanName.asJSON()
+			json["defaultValueHumanName"] = defaultValueHumanName.asJSON(with: options)
 		}
 		if let defaultValueId = self.defaultValueId {
-			json["defaultValueId"] = defaultValueId.asJSON()
+			json["defaultValueId"] = defaultValueId.asJSON(with: options)
 		}
 		if let defaultValueIdentifier = self.defaultValueIdentifier {
-			json["defaultValueIdentifier"] = defaultValueIdentifier.asJSON()
+			json["defaultValueIdentifier"] = defaultValueIdentifier.asJSON(with: options)
 		}
 		if let defaultValueInstant = self.defaultValueInstant {
-			json["defaultValueInstant"] = defaultValueInstant.asJSON()
+			json["defaultValueInstant"] = defaultValueInstant.asJSON(with: options)
 		}
 		if let defaultValueInteger = self.defaultValueInteger {
-			json["defaultValueInteger"] = defaultValueInteger.asJSON()
+			json["defaultValueInteger"] = defaultValueInteger.asJSON(with: options)
 		}
 		if let defaultValueMarkdown = self.defaultValueMarkdown {
-			json["defaultValueMarkdown"] = defaultValueMarkdown.asJSON()
+			json["defaultValueMarkdown"] = defaultValueMarkdown.asJSON(with: options)
 		}
 		if let defaultValueMeta = self.defaultValueMeta {
-			json["defaultValueMeta"] = defaultValueMeta.asJSON()
+			json["defaultValueMeta"] = defaultValueMeta.asJSON(with: options)
 		}
 		if let defaultValueOid = self.defaultValueOid {
-			json["defaultValueOid"] = defaultValueOid.asJSON()
+			json["defaultValueOid"] = defaultValueOid.asJSON(with: options)
 		}
 		if let defaultValuePeriod = self.defaultValuePeriod {
-			json["defaultValuePeriod"] = defaultValuePeriod.asJSON()
+			json["defaultValuePeriod"] = defaultValuePeriod.asJSON(with: options)
 		}
 		if let defaultValuePositiveInt = self.defaultValuePositiveInt {
-			json["defaultValuePositiveInt"] = defaultValuePositiveInt.asJSON()
+			json["defaultValuePositiveInt"] = defaultValuePositiveInt.asJSON(with: options)
 		}
 		if let defaultValueQuantity = self.defaultValueQuantity {
-			json["defaultValueQuantity"] = defaultValueQuantity.asJSON()
+			json["defaultValueQuantity"] = defaultValueQuantity.asJSON(with: options)
 		}
 		if let defaultValueRange = self.defaultValueRange {
-			json["defaultValueRange"] = defaultValueRange.asJSON()
+			json["defaultValueRange"] = defaultValueRange.asJSON(with: options)
 		}
 		if let defaultValueRatio = self.defaultValueRatio {
-			json["defaultValueRatio"] = defaultValueRatio.asJSON()
+			json["defaultValueRatio"] = defaultValueRatio.asJSON(with: options)
 		}
 		if let defaultValueReference = self.defaultValueReference {
-			json["defaultValueReference"] = defaultValueReference.asJSON()
+			json["defaultValueReference"] = defaultValueReference.asJSON(with: options)
 		}
 		if let defaultValueSampledData = self.defaultValueSampledData {
-			json["defaultValueSampledData"] = defaultValueSampledData.asJSON()
+			json["defaultValueSampledData"] = defaultValueSampledData.asJSON(with: options)
 		}
 		if let defaultValueSignature = self.defaultValueSignature {
-			json["defaultValueSignature"] = defaultValueSignature.asJSON()
+			json["defaultValueSignature"] = defaultValueSignature.asJSON(with: options)
 		}
 		if let defaultValueString = self.defaultValueString {
-			json["defaultValueString"] = defaultValueString.asJSON()
+			json["defaultValueString"] = defaultValueString.asJSON(with: options)
 		}
 		if let defaultValueTime = self.defaultValueTime {
-			json["defaultValueTime"] = defaultValueTime.asJSON()
+			json["defaultValueTime"] = defaultValueTime.asJSON(with: options)
 		}
 		if let defaultValueTiming = self.defaultValueTiming {
-			json["defaultValueTiming"] = defaultValueTiming.asJSON()
+			json["defaultValueTiming"] = defaultValueTiming.asJSON(with: options)
 		}
 		if let defaultValueUnsignedInt = self.defaultValueUnsignedInt {
-			json["defaultValueUnsignedInt"] = defaultValueUnsignedInt.asJSON()
+			json["defaultValueUnsignedInt"] = defaultValueUnsignedInt.asJSON(with: options)
 		}
 		if let defaultValueUri = self.defaultValueUri {
-			json["defaultValueUri"] = defaultValueUri.asJSON()
+			json["defaultValueUri"] = defaultValueUri.asJSON(with: options)
 		}
 		if let definition = self.definition {
-			json["definition"] = definition.asJSON()
+			json["definition"] = definition.asJSON(with: options)
 		}
 		if let exampleAddress = self.exampleAddress {
-			json["exampleAddress"] = exampleAddress.asJSON()
+			json["exampleAddress"] = exampleAddress.asJSON(with: options)
 		}
 		if let exampleAnnotation = self.exampleAnnotation {
-			json["exampleAnnotation"] = exampleAnnotation.asJSON()
+			json["exampleAnnotation"] = exampleAnnotation.asJSON(with: options)
 		}
 		if let exampleAttachment = self.exampleAttachment {
-			json["exampleAttachment"] = exampleAttachment.asJSON()
+			json["exampleAttachment"] = exampleAttachment.asJSON(with: options)
 		}
 		if let exampleBase64Binary = self.exampleBase64Binary {
-			json["exampleBase64Binary"] = exampleBase64Binary.asJSON()
+			json["exampleBase64Binary"] = exampleBase64Binary.asJSON(with: options)
 		}
 		if let exampleBoolean = self.exampleBoolean {
-			json["exampleBoolean"] = exampleBoolean.asJSON()
+			json["exampleBoolean"] = exampleBoolean.asJSON(with: options)
 		}
 		if let exampleCode = self.exampleCode {
-			json["exampleCode"] = exampleCode.asJSON()
+			json["exampleCode"] = exampleCode.asJSON(with: options)
 		}
 		if let exampleCodeableConcept = self.exampleCodeableConcept {
-			json["exampleCodeableConcept"] = exampleCodeableConcept.asJSON()
+			json["exampleCodeableConcept"] = exampleCodeableConcept.asJSON(with: options)
 		}
 		if let exampleCoding = self.exampleCoding {
-			json["exampleCoding"] = exampleCoding.asJSON()
+			json["exampleCoding"] = exampleCoding.asJSON(with: options)
 		}
 		if let exampleContactPoint = self.exampleContactPoint {
-			json["exampleContactPoint"] = exampleContactPoint.asJSON()
+			json["exampleContactPoint"] = exampleContactPoint.asJSON(with: options)
 		}
 		if let exampleDate = self.exampleDate {
-			json["exampleDate"] = exampleDate.asJSON()
+			json["exampleDate"] = exampleDate.asJSON(with: options)
 		}
 		if let exampleDateTime = self.exampleDateTime {
-			json["exampleDateTime"] = exampleDateTime.asJSON()
+			json["exampleDateTime"] = exampleDateTime.asJSON(with: options)
 		}
 		if let exampleDecimal = self.exampleDecimal {
-			json["exampleDecimal"] = exampleDecimal.asJSON()
+			json["exampleDecimal"] = exampleDecimal.asJSON(with: options)
 		}
 		if let exampleHumanName = self.exampleHumanName {
-			json["exampleHumanName"] = exampleHumanName.asJSON()
+			json["exampleHumanName"] = exampleHumanName.asJSON(with: options)
 		}
 		if let exampleId = self.exampleId {
-			json["exampleId"] = exampleId.asJSON()
+			json["exampleId"] = exampleId.asJSON(with: options)
 		}
 		if let exampleIdentifier = self.exampleIdentifier {
-			json["exampleIdentifier"] = exampleIdentifier.asJSON()
+			json["exampleIdentifier"] = exampleIdentifier.asJSON(with: options)
 		}
 		if let exampleInstant = self.exampleInstant {
-			json["exampleInstant"] = exampleInstant.asJSON()
+			json["exampleInstant"] = exampleInstant.asJSON(with: options)
 		}
 		if let exampleInteger = self.exampleInteger {
-			json["exampleInteger"] = exampleInteger.asJSON()
+			json["exampleInteger"] = exampleInteger.asJSON(with: options)
 		}
 		if let exampleMarkdown = self.exampleMarkdown {
-			json["exampleMarkdown"] = exampleMarkdown.asJSON()
+			json["exampleMarkdown"] = exampleMarkdown.asJSON(with: options)
 		}
 		if let exampleMeta = self.exampleMeta {
-			json["exampleMeta"] = exampleMeta.asJSON()
+			json["exampleMeta"] = exampleMeta.asJSON(with: options)
 		}
 		if let exampleOid = self.exampleOid {
-			json["exampleOid"] = exampleOid.asJSON()
+			json["exampleOid"] = exampleOid.asJSON(with: options)
 		}
 		if let examplePeriod = self.examplePeriod {
-			json["examplePeriod"] = examplePeriod.asJSON()
+			json["examplePeriod"] = examplePeriod.asJSON(with: options)
 		}
 		if let examplePositiveInt = self.examplePositiveInt {
-			json["examplePositiveInt"] = examplePositiveInt.asJSON()
+			json["examplePositiveInt"] = examplePositiveInt.asJSON(with: options)
 		}
 		if let exampleQuantity = self.exampleQuantity {
-			json["exampleQuantity"] = exampleQuantity.asJSON()
+			json["exampleQuantity"] = exampleQuantity.asJSON(with: options)
 		}
 		if let exampleRange = self.exampleRange {
-			json["exampleRange"] = exampleRange.asJSON()
+			json["exampleRange"] = exampleRange.asJSON(with: options)
 		}
 		if let exampleRatio = self.exampleRatio {
-			json["exampleRatio"] = exampleRatio.asJSON()
+			json["exampleRatio"] = exampleRatio.asJSON(with: options)
 		}
 		if let exampleReference = self.exampleReference {
-			json["exampleReference"] = exampleReference.asJSON()
+			json["exampleReference"] = exampleReference.asJSON(with: options)
 		}
 		if let exampleSampledData = self.exampleSampledData {
-			json["exampleSampledData"] = exampleSampledData.asJSON()
+			json["exampleSampledData"] = exampleSampledData.asJSON(with: options)
 		}
 		if let exampleSignature = self.exampleSignature {
-			json["exampleSignature"] = exampleSignature.asJSON()
+			json["exampleSignature"] = exampleSignature.asJSON(with: options)
 		}
 		if let exampleString = self.exampleString {
-			json["exampleString"] = exampleString.asJSON()
+			json["exampleString"] = exampleString.asJSON(with: options)
 		}
 		if let exampleTime = self.exampleTime {
-			json["exampleTime"] = exampleTime.asJSON()
+			json["exampleTime"] = exampleTime.asJSON(with: options)
 		}
 		if let exampleTiming = self.exampleTiming {
-			json["exampleTiming"] = exampleTiming.asJSON()
+			json["exampleTiming"] = exampleTiming.asJSON(with: options)
 		}
 		if let exampleUnsignedInt = self.exampleUnsignedInt {
-			json["exampleUnsignedInt"] = exampleUnsignedInt.asJSON()
+			json["exampleUnsignedInt"] = exampleUnsignedInt.asJSON(with: options)
 		}
 		if let exampleUri = self.exampleUri {
-			json["exampleUri"] = exampleUri.asJSON()
+			json["exampleUri"] = exampleUri.asJSON(with: options)
 		}
 		if let fixedAddress = self.fixedAddress {
-			json["fixedAddress"] = fixedAddress.asJSON()
+			json["fixedAddress"] = fixedAddress.asJSON(with: options)
 		}
 		if let fixedAnnotation = self.fixedAnnotation {
-			json["fixedAnnotation"] = fixedAnnotation.asJSON()
+			json["fixedAnnotation"] = fixedAnnotation.asJSON(with: options)
 		}
 		if let fixedAttachment = self.fixedAttachment {
-			json["fixedAttachment"] = fixedAttachment.asJSON()
+			json["fixedAttachment"] = fixedAttachment.asJSON(with: options)
 		}
 		if let fixedBase64Binary = self.fixedBase64Binary {
-			json["fixedBase64Binary"] = fixedBase64Binary.asJSON()
+			json["fixedBase64Binary"] = fixedBase64Binary.asJSON(with: options)
 		}
 		if let fixedBoolean = self.fixedBoolean {
-			json["fixedBoolean"] = fixedBoolean.asJSON()
+			json["fixedBoolean"] = fixedBoolean.asJSON(with: options)
 		}
 		if let fixedCode = self.fixedCode {
-			json["fixedCode"] = fixedCode.asJSON()
+			json["fixedCode"] = fixedCode.asJSON(with: options)
 		}
 		if let fixedCodeableConcept = self.fixedCodeableConcept {
-			json["fixedCodeableConcept"] = fixedCodeableConcept.asJSON()
+			json["fixedCodeableConcept"] = fixedCodeableConcept.asJSON(with: options)
 		}
 		if let fixedCoding = self.fixedCoding {
-			json["fixedCoding"] = fixedCoding.asJSON()
+			json["fixedCoding"] = fixedCoding.asJSON(with: options)
 		}
 		if let fixedContactPoint = self.fixedContactPoint {
-			json["fixedContactPoint"] = fixedContactPoint.asJSON()
+			json["fixedContactPoint"] = fixedContactPoint.asJSON(with: options)
 		}
 		if let fixedDate = self.fixedDate {
-			json["fixedDate"] = fixedDate.asJSON()
+			json["fixedDate"] = fixedDate.asJSON(with: options)
 		}
 		if let fixedDateTime = self.fixedDateTime {
-			json["fixedDateTime"] = fixedDateTime.asJSON()
+			json["fixedDateTime"] = fixedDateTime.asJSON(with: options)
 		}
 		if let fixedDecimal = self.fixedDecimal {
-			json["fixedDecimal"] = fixedDecimal.asJSON()
+			json["fixedDecimal"] = fixedDecimal.asJSON(with: options)
 		}
 		if let fixedHumanName = self.fixedHumanName {
-			json["fixedHumanName"] = fixedHumanName.asJSON()
+			json["fixedHumanName"] = fixedHumanName.asJSON(with: options)
 		}
 		if let fixedId = self.fixedId {
-			json["fixedId"] = fixedId.asJSON()
+			json["fixedId"] = fixedId.asJSON(with: options)
 		}
 		if let fixedIdentifier = self.fixedIdentifier {
-			json["fixedIdentifier"] = fixedIdentifier.asJSON()
+			json["fixedIdentifier"] = fixedIdentifier.asJSON(with: options)
 		}
 		if let fixedInstant = self.fixedInstant {
-			json["fixedInstant"] = fixedInstant.asJSON()
+			json["fixedInstant"] = fixedInstant.asJSON(with: options)
 		}
 		if let fixedInteger = self.fixedInteger {
-			json["fixedInteger"] = fixedInteger.asJSON()
+			json["fixedInteger"] = fixedInteger.asJSON(with: options)
 		}
 		if let fixedMarkdown = self.fixedMarkdown {
-			json["fixedMarkdown"] = fixedMarkdown.asJSON()
+			json["fixedMarkdown"] = fixedMarkdown.asJSON(with: options)
 		}
 		if let fixedMeta = self.fixedMeta {
-			json["fixedMeta"] = fixedMeta.asJSON()
+			json["fixedMeta"] = fixedMeta.asJSON(with: options)
 		}
 		if let fixedOid = self.fixedOid {
-			json["fixedOid"] = fixedOid.asJSON()
+			json["fixedOid"] = fixedOid.asJSON(with: options)
 		}
 		if let fixedPeriod = self.fixedPeriod {
-			json["fixedPeriod"] = fixedPeriod.asJSON()
+			json["fixedPeriod"] = fixedPeriod.asJSON(with: options)
 		}
 		if let fixedPositiveInt = self.fixedPositiveInt {
-			json["fixedPositiveInt"] = fixedPositiveInt.asJSON()
+			json["fixedPositiveInt"] = fixedPositiveInt.asJSON(with: options)
 		}
 		if let fixedQuantity = self.fixedQuantity {
-			json["fixedQuantity"] = fixedQuantity.asJSON()
+			json["fixedQuantity"] = fixedQuantity.asJSON(with: options)
 		}
 		if let fixedRange = self.fixedRange {
-			json["fixedRange"] = fixedRange.asJSON()
+			json["fixedRange"] = fixedRange.asJSON(with: options)
 		}
 		if let fixedRatio = self.fixedRatio {
-			json["fixedRatio"] = fixedRatio.asJSON()
+			json["fixedRatio"] = fixedRatio.asJSON(with: options)
 		}
 		if let fixedReference = self.fixedReference {
-			json["fixedReference"] = fixedReference.asJSON()
+			json["fixedReference"] = fixedReference.asJSON(with: options)
 		}
 		if let fixedSampledData = self.fixedSampledData {
-			json["fixedSampledData"] = fixedSampledData.asJSON()
+			json["fixedSampledData"] = fixedSampledData.asJSON(with: options)
 		}
 		if let fixedSignature = self.fixedSignature {
-			json["fixedSignature"] = fixedSignature.asJSON()
+			json["fixedSignature"] = fixedSignature.asJSON(with: options)
 		}
 		if let fixedString = self.fixedString {
-			json["fixedString"] = fixedString.asJSON()
+			json["fixedString"] = fixedString.asJSON(with: options)
 		}
 		if let fixedTime = self.fixedTime {
-			json["fixedTime"] = fixedTime.asJSON()
+			json["fixedTime"] = fixedTime.asJSON(with: options)
 		}
 		if let fixedTiming = self.fixedTiming {
-			json["fixedTiming"] = fixedTiming.asJSON()
+			json["fixedTiming"] = fixedTiming.asJSON(with: options)
 		}
 		if let fixedUnsignedInt = self.fixedUnsignedInt {
-			json["fixedUnsignedInt"] = fixedUnsignedInt.asJSON()
+			json["fixedUnsignedInt"] = fixedUnsignedInt.asJSON(with: options)
 		}
 		if let fixedUri = self.fixedUri {
-			json["fixedUri"] = fixedUri.asJSON()
+			json["fixedUri"] = fixedUri.asJSON(with: options)
 		}
 		if let isModifier = self.isModifier {
-			json["isModifier"] = isModifier.asJSON()
+			json["isModifier"] = isModifier.asJSON(with: options)
 		}
 		if let isSummary = self.isSummary {
-			json["isSummary"] = isSummary.asJSON()
+			json["isSummary"] = isSummary.asJSON(with: options)
 		}
 		if let label = self.label {
-			json["label"] = label.asJSON()
+			json["label"] = label.asJSON(with: options)
 		}
 		if let mapping = self.mapping {
-			json["mapping"] = mapping.map() { $0.asJSON() }
+			json["mapping"] = mapping.map() { $0.asJSON(with: options) }
 		}
 		if let max = self.max {
-			json["max"] = max.asJSON()
+			json["max"] = max.asJSON(with: options)
 		}
 		if let maxLength = self.maxLength {
-			json["maxLength"] = maxLength.asJSON()
+			json["maxLength"] = maxLength.asJSON(with: options)
 		}
 		if let maxValueAddress = self.maxValueAddress {
-			json["maxValueAddress"] = maxValueAddress.asJSON()
+			json["maxValueAddress"] = maxValueAddress.asJSON(with: options)
 		}
 		if let maxValueAnnotation = self.maxValueAnnotation {
-			json["maxValueAnnotation"] = maxValueAnnotation.asJSON()
+			json["maxValueAnnotation"] = maxValueAnnotation.asJSON(with: options)
 		}
 		if let maxValueAttachment = self.maxValueAttachment {
-			json["maxValueAttachment"] = maxValueAttachment.asJSON()
+			json["maxValueAttachment"] = maxValueAttachment.asJSON(with: options)
 		}
 		if let maxValueBase64Binary = self.maxValueBase64Binary {
-			json["maxValueBase64Binary"] = maxValueBase64Binary.asJSON()
+			json["maxValueBase64Binary"] = maxValueBase64Binary.asJSON(with: options)
 		}
 		if let maxValueBoolean = self.maxValueBoolean {
-			json["maxValueBoolean"] = maxValueBoolean.asJSON()
+			json["maxValueBoolean"] = maxValueBoolean.asJSON(with: options)
 		}
 		if let maxValueCode = self.maxValueCode {
-			json["maxValueCode"] = maxValueCode.asJSON()
+			json["maxValueCode"] = maxValueCode.asJSON(with: options)
 		}
 		if let maxValueCodeableConcept = self.maxValueCodeableConcept {
-			json["maxValueCodeableConcept"] = maxValueCodeableConcept.asJSON()
+			json["maxValueCodeableConcept"] = maxValueCodeableConcept.asJSON(with: options)
 		}
 		if let maxValueCoding = self.maxValueCoding {
-			json["maxValueCoding"] = maxValueCoding.asJSON()
+			json["maxValueCoding"] = maxValueCoding.asJSON(with: options)
 		}
 		if let maxValueContactPoint = self.maxValueContactPoint {
-			json["maxValueContactPoint"] = maxValueContactPoint.asJSON()
+			json["maxValueContactPoint"] = maxValueContactPoint.asJSON(with: options)
 		}
 		if let maxValueDate = self.maxValueDate {
-			json["maxValueDate"] = maxValueDate.asJSON()
+			json["maxValueDate"] = maxValueDate.asJSON(with: options)
 		}
 		if let maxValueDateTime = self.maxValueDateTime {
-			json["maxValueDateTime"] = maxValueDateTime.asJSON()
+			json["maxValueDateTime"] = maxValueDateTime.asJSON(with: options)
 		}
 		if let maxValueDecimal = self.maxValueDecimal {
-			json["maxValueDecimal"] = maxValueDecimal.asJSON()
+			json["maxValueDecimal"] = maxValueDecimal.asJSON(with: options)
 		}
 		if let maxValueHumanName = self.maxValueHumanName {
-			json["maxValueHumanName"] = maxValueHumanName.asJSON()
+			json["maxValueHumanName"] = maxValueHumanName.asJSON(with: options)
 		}
 		if let maxValueId = self.maxValueId {
-			json["maxValueId"] = maxValueId.asJSON()
+			json["maxValueId"] = maxValueId.asJSON(with: options)
 		}
 		if let maxValueIdentifier = self.maxValueIdentifier {
-			json["maxValueIdentifier"] = maxValueIdentifier.asJSON()
+			json["maxValueIdentifier"] = maxValueIdentifier.asJSON(with: options)
 		}
 		if let maxValueInstant = self.maxValueInstant {
-			json["maxValueInstant"] = maxValueInstant.asJSON()
+			json["maxValueInstant"] = maxValueInstant.asJSON(with: options)
 		}
 		if let maxValueInteger = self.maxValueInteger {
-			json["maxValueInteger"] = maxValueInteger.asJSON()
+			json["maxValueInteger"] = maxValueInteger.asJSON(with: options)
 		}
 		if let maxValueMarkdown = self.maxValueMarkdown {
-			json["maxValueMarkdown"] = maxValueMarkdown.asJSON()
+			json["maxValueMarkdown"] = maxValueMarkdown.asJSON(with: options)
 		}
 		if let maxValueMeta = self.maxValueMeta {
-			json["maxValueMeta"] = maxValueMeta.asJSON()
+			json["maxValueMeta"] = maxValueMeta.asJSON(with: options)
 		}
 		if let maxValueOid = self.maxValueOid {
-			json["maxValueOid"] = maxValueOid.asJSON()
+			json["maxValueOid"] = maxValueOid.asJSON(with: options)
 		}
 		if let maxValuePeriod = self.maxValuePeriod {
-			json["maxValuePeriod"] = maxValuePeriod.asJSON()
+			json["maxValuePeriod"] = maxValuePeriod.asJSON(with: options)
 		}
 		if let maxValuePositiveInt = self.maxValuePositiveInt {
-			json["maxValuePositiveInt"] = maxValuePositiveInt.asJSON()
+			json["maxValuePositiveInt"] = maxValuePositiveInt.asJSON(with: options)
 		}
 		if let maxValueQuantity = self.maxValueQuantity {
-			json["maxValueQuantity"] = maxValueQuantity.asJSON()
+			json["maxValueQuantity"] = maxValueQuantity.asJSON(with: options)
 		}
 		if let maxValueRange = self.maxValueRange {
-			json["maxValueRange"] = maxValueRange.asJSON()
+			json["maxValueRange"] = maxValueRange.asJSON(with: options)
 		}
 		if let maxValueRatio = self.maxValueRatio {
-			json["maxValueRatio"] = maxValueRatio.asJSON()
+			json["maxValueRatio"] = maxValueRatio.asJSON(with: options)
 		}
 		if let maxValueReference = self.maxValueReference {
-			json["maxValueReference"] = maxValueReference.asJSON()
+			json["maxValueReference"] = maxValueReference.asJSON(with: options)
 		}
 		if let maxValueSampledData = self.maxValueSampledData {
-			json["maxValueSampledData"] = maxValueSampledData.asJSON()
+			json["maxValueSampledData"] = maxValueSampledData.asJSON(with: options)
 		}
 		if let maxValueSignature = self.maxValueSignature {
-			json["maxValueSignature"] = maxValueSignature.asJSON()
+			json["maxValueSignature"] = maxValueSignature.asJSON(with: options)
 		}
 		if let maxValueString = self.maxValueString {
-			json["maxValueString"] = maxValueString.asJSON()
+			json["maxValueString"] = maxValueString.asJSON(with: options)
 		}
 		if let maxValueTime = self.maxValueTime {
-			json["maxValueTime"] = maxValueTime.asJSON()
+			json["maxValueTime"] = maxValueTime.asJSON(with: options)
 		}
 		if let maxValueTiming = self.maxValueTiming {
-			json["maxValueTiming"] = maxValueTiming.asJSON()
+			json["maxValueTiming"] = maxValueTiming.asJSON(with: options)
 		}
 		if let maxValueUnsignedInt = self.maxValueUnsignedInt {
-			json["maxValueUnsignedInt"] = maxValueUnsignedInt.asJSON()
+			json["maxValueUnsignedInt"] = maxValueUnsignedInt.asJSON(with: options)
 		}
 		if let maxValueUri = self.maxValueUri {
-			json["maxValueUri"] = maxValueUri.asJSON()
+			json["maxValueUri"] = maxValueUri.asJSON(with: options)
 		}
 		if let meaningWhenMissing = self.meaningWhenMissing {
-			json["meaningWhenMissing"] = meaningWhenMissing.asJSON()
+			json["meaningWhenMissing"] = meaningWhenMissing.asJSON(with: options)
 		}
 		if let min = self.min {
-			json["min"] = min.asJSON()
+			json["min"] = min.asJSON(with: options)
 		}
 		if let minValueAddress = self.minValueAddress {
-			json["minValueAddress"] = minValueAddress.asJSON()
+			json["minValueAddress"] = minValueAddress.asJSON(with: options)
 		}
 		if let minValueAnnotation = self.minValueAnnotation {
-			json["minValueAnnotation"] = minValueAnnotation.asJSON()
+			json["minValueAnnotation"] = minValueAnnotation.asJSON(with: options)
 		}
 		if let minValueAttachment = self.minValueAttachment {
-			json["minValueAttachment"] = minValueAttachment.asJSON()
+			json["minValueAttachment"] = minValueAttachment.asJSON(with: options)
 		}
 		if let minValueBase64Binary = self.minValueBase64Binary {
-			json["minValueBase64Binary"] = minValueBase64Binary.asJSON()
+			json["minValueBase64Binary"] = minValueBase64Binary.asJSON(with: options)
 		}
 		if let minValueBoolean = self.minValueBoolean {
-			json["minValueBoolean"] = minValueBoolean.asJSON()
+			json["minValueBoolean"] = minValueBoolean.asJSON(with: options)
 		}
 		if let minValueCode = self.minValueCode {
-			json["minValueCode"] = minValueCode.asJSON()
+			json["minValueCode"] = minValueCode.asJSON(with: options)
 		}
 		if let minValueCodeableConcept = self.minValueCodeableConcept {
-			json["minValueCodeableConcept"] = minValueCodeableConcept.asJSON()
+			json["minValueCodeableConcept"] = minValueCodeableConcept.asJSON(with: options)
 		}
 		if let minValueCoding = self.minValueCoding {
-			json["minValueCoding"] = minValueCoding.asJSON()
+			json["minValueCoding"] = minValueCoding.asJSON(with: options)
 		}
 		if let minValueContactPoint = self.minValueContactPoint {
-			json["minValueContactPoint"] = minValueContactPoint.asJSON()
+			json["minValueContactPoint"] = minValueContactPoint.asJSON(with: options)
 		}
 		if let minValueDate = self.minValueDate {
-			json["minValueDate"] = minValueDate.asJSON()
+			json["minValueDate"] = minValueDate.asJSON(with: options)
 		}
 		if let minValueDateTime = self.minValueDateTime {
-			json["minValueDateTime"] = minValueDateTime.asJSON()
+			json["minValueDateTime"] = minValueDateTime.asJSON(with: options)
 		}
 		if let minValueDecimal = self.minValueDecimal {
-			json["minValueDecimal"] = minValueDecimal.asJSON()
+			json["minValueDecimal"] = minValueDecimal.asJSON(with: options)
 		}
 		if let minValueHumanName = self.minValueHumanName {
-			json["minValueHumanName"] = minValueHumanName.asJSON()
+			json["minValueHumanName"] = minValueHumanName.asJSON(with: options)
 		}
 		if let minValueId = self.minValueId {
-			json["minValueId"] = minValueId.asJSON()
+			json["minValueId"] = minValueId.asJSON(with: options)
 		}
 		if let minValueIdentifier = self.minValueIdentifier {
-			json["minValueIdentifier"] = minValueIdentifier.asJSON()
+			json["minValueIdentifier"] = minValueIdentifier.asJSON(with: options)
 		}
 		if let minValueInstant = self.minValueInstant {
-			json["minValueInstant"] = minValueInstant.asJSON()
+			json["minValueInstant"] = minValueInstant.asJSON(with: options)
 		}
 		if let minValueInteger = self.minValueInteger {
-			json["minValueInteger"] = minValueInteger.asJSON()
+			json["minValueInteger"] = minValueInteger.asJSON(with: options)
 		}
 		if let minValueMarkdown = self.minValueMarkdown {
-			json["minValueMarkdown"] = minValueMarkdown.asJSON()
+			json["minValueMarkdown"] = minValueMarkdown.asJSON(with: options)
 		}
 		if let minValueMeta = self.minValueMeta {
-			json["minValueMeta"] = minValueMeta.asJSON()
+			json["minValueMeta"] = minValueMeta.asJSON(with: options)
 		}
 		if let minValueOid = self.minValueOid {
-			json["minValueOid"] = minValueOid.asJSON()
+			json["minValueOid"] = minValueOid.asJSON(with: options)
 		}
 		if let minValuePeriod = self.minValuePeriod {
-			json["minValuePeriod"] = minValuePeriod.asJSON()
+			json["minValuePeriod"] = minValuePeriod.asJSON(with: options)
 		}
 		if let minValuePositiveInt = self.minValuePositiveInt {
-			json["minValuePositiveInt"] = minValuePositiveInt.asJSON()
+			json["minValuePositiveInt"] = minValuePositiveInt.asJSON(with: options)
 		}
 		if let minValueQuantity = self.minValueQuantity {
-			json["minValueQuantity"] = minValueQuantity.asJSON()
+			json["minValueQuantity"] = minValueQuantity.asJSON(with: options)
 		}
 		if let minValueRange = self.minValueRange {
-			json["minValueRange"] = minValueRange.asJSON()
+			json["minValueRange"] = minValueRange.asJSON(with: options)
 		}
 		if let minValueRatio = self.minValueRatio {
-			json["minValueRatio"] = minValueRatio.asJSON()
+			json["minValueRatio"] = minValueRatio.asJSON(with: options)
 		}
 		if let minValueReference = self.minValueReference {
-			json["minValueReference"] = minValueReference.asJSON()
+			json["minValueReference"] = minValueReference.asJSON(with: options)
 		}
 		if let minValueSampledData = self.minValueSampledData {
-			json["minValueSampledData"] = minValueSampledData.asJSON()
+			json["minValueSampledData"] = minValueSampledData.asJSON(with: options)
 		}
 		if let minValueSignature = self.minValueSignature {
-			json["minValueSignature"] = minValueSignature.asJSON()
+			json["minValueSignature"] = minValueSignature.asJSON(with: options)
 		}
 		if let minValueString = self.minValueString {
-			json["minValueString"] = minValueString.asJSON()
+			json["minValueString"] = minValueString.asJSON(with: options)
 		}
 		if let minValueTime = self.minValueTime {
-			json["minValueTime"] = minValueTime.asJSON()
+			json["minValueTime"] = minValueTime.asJSON(with: options)
 		}
 		if let minValueTiming = self.minValueTiming {
-			json["minValueTiming"] = minValueTiming.asJSON()
+			json["minValueTiming"] = minValueTiming.asJSON(with: options)
 		}
 		if let minValueUnsignedInt = self.minValueUnsignedInt {
-			json["minValueUnsignedInt"] = minValueUnsignedInt.asJSON()
+			json["minValueUnsignedInt"] = minValueUnsignedInt.asJSON(with: options)
 		}
 		if let minValueUri = self.minValueUri {
-			json["minValueUri"] = minValueUri.asJSON()
+			json["minValueUri"] = minValueUri.asJSON(with: options)
 		}
 		if let mustSupport = self.mustSupport {
-			json["mustSupport"] = mustSupport.asJSON()
+			json["mustSupport"] = mustSupport.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let nameReference = self.nameReference {
-			json["nameReference"] = nameReference.asJSON()
+			json["nameReference"] = nameReference.asJSON(with: options)
 		}
 		if let path = self.path {
-			json["path"] = path.asJSON()
+			json["path"] = path.asJSON(with: options)
 		}
 		if let patternAddress = self.patternAddress {
-			json["patternAddress"] = patternAddress.asJSON()
+			json["patternAddress"] = patternAddress.asJSON(with: options)
 		}
 		if let patternAnnotation = self.patternAnnotation {
-			json["patternAnnotation"] = patternAnnotation.asJSON()
+			json["patternAnnotation"] = patternAnnotation.asJSON(with: options)
 		}
 		if let patternAttachment = self.patternAttachment {
-			json["patternAttachment"] = patternAttachment.asJSON()
+			json["patternAttachment"] = patternAttachment.asJSON(with: options)
 		}
 		if let patternBase64Binary = self.patternBase64Binary {
-			json["patternBase64Binary"] = patternBase64Binary.asJSON()
+			json["patternBase64Binary"] = patternBase64Binary.asJSON(with: options)
 		}
 		if let patternBoolean = self.patternBoolean {
-			json["patternBoolean"] = patternBoolean.asJSON()
+			json["patternBoolean"] = patternBoolean.asJSON(with: options)
 		}
 		if let patternCode = self.patternCode {
-			json["patternCode"] = patternCode.asJSON()
+			json["patternCode"] = patternCode.asJSON(with: options)
 		}
 		if let patternCodeableConcept = self.patternCodeableConcept {
-			json["patternCodeableConcept"] = patternCodeableConcept.asJSON()
+			json["patternCodeableConcept"] = patternCodeableConcept.asJSON(with: options)
 		}
 		if let patternCoding = self.patternCoding {
-			json["patternCoding"] = patternCoding.asJSON()
+			json["patternCoding"] = patternCoding.asJSON(with: options)
 		}
 		if let patternContactPoint = self.patternContactPoint {
-			json["patternContactPoint"] = patternContactPoint.asJSON()
+			json["patternContactPoint"] = patternContactPoint.asJSON(with: options)
 		}
 		if let patternDate = self.patternDate {
-			json["patternDate"] = patternDate.asJSON()
+			json["patternDate"] = patternDate.asJSON(with: options)
 		}
 		if let patternDateTime = self.patternDateTime {
-			json["patternDateTime"] = patternDateTime.asJSON()
+			json["patternDateTime"] = patternDateTime.asJSON(with: options)
 		}
 		if let patternDecimal = self.patternDecimal {
-			json["patternDecimal"] = patternDecimal.asJSON()
+			json["patternDecimal"] = patternDecimal.asJSON(with: options)
 		}
 		if let patternHumanName = self.patternHumanName {
-			json["patternHumanName"] = patternHumanName.asJSON()
+			json["patternHumanName"] = patternHumanName.asJSON(with: options)
 		}
 		if let patternId = self.patternId {
-			json["patternId"] = patternId.asJSON()
+			json["patternId"] = patternId.asJSON(with: options)
 		}
 		if let patternIdentifier = self.patternIdentifier {
-			json["patternIdentifier"] = patternIdentifier.asJSON()
+			json["patternIdentifier"] = patternIdentifier.asJSON(with: options)
 		}
 		if let patternInstant = self.patternInstant {
-			json["patternInstant"] = patternInstant.asJSON()
+			json["patternInstant"] = patternInstant.asJSON(with: options)
 		}
 		if let patternInteger = self.patternInteger {
-			json["patternInteger"] = patternInteger.asJSON()
+			json["patternInteger"] = patternInteger.asJSON(with: options)
 		}
 		if let patternMarkdown = self.patternMarkdown {
-			json["patternMarkdown"] = patternMarkdown.asJSON()
+			json["patternMarkdown"] = patternMarkdown.asJSON(with: options)
 		}
 		if let patternMeta = self.patternMeta {
-			json["patternMeta"] = patternMeta.asJSON()
+			json["patternMeta"] = patternMeta.asJSON(with: options)
 		}
 		if let patternOid = self.patternOid {
-			json["patternOid"] = patternOid.asJSON()
+			json["patternOid"] = patternOid.asJSON(with: options)
 		}
 		if let patternPeriod = self.patternPeriod {
-			json["patternPeriod"] = patternPeriod.asJSON()
+			json["patternPeriod"] = patternPeriod.asJSON(with: options)
 		}
 		if let patternPositiveInt = self.patternPositiveInt {
-			json["patternPositiveInt"] = patternPositiveInt.asJSON()
+			json["patternPositiveInt"] = patternPositiveInt.asJSON(with: options)
 		}
 		if let patternQuantity = self.patternQuantity {
-			json["patternQuantity"] = patternQuantity.asJSON()
+			json["patternQuantity"] = patternQuantity.asJSON(with: options)
 		}
 		if let patternRange = self.patternRange {
-			json["patternRange"] = patternRange.asJSON()
+			json["patternRange"] = patternRange.asJSON(with: options)
 		}
 		if let patternRatio = self.patternRatio {
-			json["patternRatio"] = patternRatio.asJSON()
+			json["patternRatio"] = patternRatio.asJSON(with: options)
 		}
 		if let patternReference = self.patternReference {
-			json["patternReference"] = patternReference.asJSON()
+			json["patternReference"] = patternReference.asJSON(with: options)
 		}
 		if let patternSampledData = self.patternSampledData {
-			json["patternSampledData"] = patternSampledData.asJSON()
+			json["patternSampledData"] = patternSampledData.asJSON(with: options)
 		}
 		if let patternSignature = self.patternSignature {
-			json["patternSignature"] = patternSignature.asJSON()
+			json["patternSignature"] = patternSignature.asJSON(with: options)
 		}
 		if let patternString = self.patternString {
-			json["patternString"] = patternString.asJSON()
+			json["patternString"] = patternString.asJSON(with: options)
 		}
 		if let patternTime = self.patternTime {
-			json["patternTime"] = patternTime.asJSON()
+			json["patternTime"] = patternTime.asJSON(with: options)
 		}
 		if let patternTiming = self.patternTiming {
-			json["patternTiming"] = patternTiming.asJSON()
+			json["patternTiming"] = patternTiming.asJSON(with: options)
 		}
 		if let patternUnsignedInt = self.patternUnsignedInt {
-			json["patternUnsignedInt"] = patternUnsignedInt.asJSON()
+			json["patternUnsignedInt"] = patternUnsignedInt.asJSON(with: options)
 		}
 		if let patternUri = self.patternUri {
-			json["patternUri"] = patternUri.asJSON()
+			json["patternUri"] = patternUri.asJSON(with: options)
 		}
 		if let representation = self.representation {
 			var arr = [Any]()
 			for val in representation {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["representation"] = arr
 		}
 		if let requirements = self.requirements {
-			json["requirements"] = requirements.asJSON()
+			json["requirements"] = requirements.asJSON(with: options)
 		}
 		if let short = self.short {
-			json["short"] = short.asJSON()
+			json["short"] = short.asJSON(with: options)
 		}
 		if let slicing = self.slicing {
-			json["slicing"] = slicing.asJSON()
+			json["slicing"] = slicing.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.map() { $0.asJSON() }
+			json["type"] = type.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -3486,17 +3486,17 @@ public class ElementDefinitionBase: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let max = self.max {
-			json["max"] = max.asJSON()
+			json["max"] = max.asJSON(with: options)
 		}
 		if let min = self.min {
-			json["min"] = min.asJSON()
+			json["min"] = min.asJSON(with: options)
 		}
 		if let path = self.path {
-			json["path"] = path.asJSON()
+			json["path"] = path.asJSON(with: options)
 		}
 		
 		return json
@@ -3584,20 +3584,20 @@ public class ElementDefinitionBinding: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let strength = self.strength {
-			json["strength"] = strength.asJSON()
+			json["strength"] = strength.asJSON(with: options)
 		}
 		if let valueSetReference = self.valueSetReference {
-			json["valueSetReference"] = valueSetReference.asJSON()
+			json["valueSetReference"] = valueSetReference.asJSON(with: options)
 		}
 		if let valueSetUri = self.valueSetUri {
-			json["valueSetUri"] = valueSetUri.asJSON()
+			json["valueSetUri"] = valueSetUri.asJSON(with: options)
 		}
 		
 		return json
@@ -3710,23 +3710,23 @@ public class ElementDefinitionConstraint: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let human = self.human {
-			json["human"] = human.asJSON()
+			json["human"] = human.asJSON(with: options)
 		}
 		if let key = self.key {
-			json["key"] = key.asJSON()
+			json["key"] = key.asJSON(with: options)
 		}
 		if let requirements = self.requirements {
-			json["requirements"] = requirements.asJSON()
+			json["requirements"] = requirements.asJSON(with: options)
 		}
 		if let severity = self.severity {
-			json["severity"] = severity.asJSON()
+			json["severity"] = severity.asJSON(with: options)
 		}
 		if let xpath = self.xpath {
-			json["xpath"] = xpath.asJSON()
+			json["xpath"] = xpath.asJSON(with: options)
 		}
 		
 		return json
@@ -3806,17 +3806,17 @@ public class ElementDefinitionMapping: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let identity = self.identity {
-			json["identity"] = identity.asJSON()
+			json["identity"] = identity.asJSON(with: options)
 		}
 		if let language = self.language {
-			json["language"] = language.asJSON()
+			json["language"] = language.asJSON(with: options)
 		}
 		if let map = self.map {
-			json["map"] = map.asJSON()
+			json["map"] = map.asJSON(with: options)
 		}
 		
 		return json
@@ -3908,24 +3908,24 @@ public class ElementDefinitionSlicing: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let discriminator = self.discriminator {
 			var arr = [Any]()
 			for val in discriminator {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["discriminator"] = arr
 		}
 		if let ordered = self.ordered {
-			json["ordered"] = ordered.asJSON()
+			json["ordered"] = ordered.asJSON(with: options)
 		}
 		if let rules = self.rules {
-			json["rules"] = rules.asJSON()
+			json["rules"] = rules.asJSON(with: options)
 		}
 		
 		return json
@@ -4001,23 +4001,23 @@ public class ElementDefinitionType: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let aggregation = self.aggregation {
 			var arr = [Any]()
 			for val in aggregation {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["aggregation"] = arr
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let profile = self.profile {
 			var arr = [Any]()
 			for val in profile {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["profile"] = arr
 		}

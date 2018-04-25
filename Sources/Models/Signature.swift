@@ -134,26 +134,26 @@ public class Signature: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let blob = self.blob {
-			json["blob"] = blob.asJSON()
+			json["blob"] = blob.asJSON(with: options)
 		}
 		if let contentType = self.contentType {
-			json["contentType"] = contentType.asJSON()
+			json["contentType"] = contentType.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.map() { $0.asJSON() }
+			json["type"] = type.map() { $0.asJSON(with: options) }
 		}
 		if let when = self.when {
-			json["when"] = when.asJSON()
+			json["when"] = when.asJSON(with: options)
 		}
 		if let whoReference = self.whoReference {
-			json["whoReference"] = whoReference.asJSON()
+			json["whoReference"] = whoReference.asJSON(with: options)
 		}
 		if let whoUri = self.whoUri {
-			json["whoUri"] = whoUri.asJSON()
+			json["whoUri"] = whoUri.asJSON(with: options)
 		}
 		
 		return json

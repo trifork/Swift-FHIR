@@ -161,38 +161,38 @@ public class Specimen: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let accessionIdentifier = self.accessionIdentifier {
-			json["accessionIdentifier"] = accessionIdentifier.asJSON()
+			json["accessionIdentifier"] = accessionIdentifier.asJSON(with: options)
 		}
 		if let collection = self.collection {
-			json["collection"] = collection.asJSON()
+			json["collection"] = collection.asJSON(with: options)
 		}
 		if let container = self.container {
-			json["container"] = container.map() { $0.asJSON() }
+			json["container"] = container.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let parent = self.parent {
-			json["parent"] = parent.map() { $0.asJSON() }
+			json["parent"] = parent.map() { $0.asJSON(with: options) }
 		}
 		if let receivedTime = self.receivedTime {
-			json["receivedTime"] = receivedTime.asJSON()
+			json["receivedTime"] = receivedTime.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let treatment = self.treatment {
-			json["treatment"] = treatment.map() { $0.asJSON() }
+			json["treatment"] = treatment.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -307,33 +307,33 @@ public class SpecimenCollection: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let bodySite = self.bodySite {
-			json["bodySite"] = bodySite.asJSON()
+			json["bodySite"] = bodySite.asJSON(with: options)
 		}
 		if let collectedDateTime = self.collectedDateTime {
-			json["collectedDateTime"] = collectedDateTime.asJSON()
+			json["collectedDateTime"] = collectedDateTime.asJSON(with: options)
 		}
 		if let collectedPeriod = self.collectedPeriod {
-			json["collectedPeriod"] = collectedPeriod.asJSON()
+			json["collectedPeriod"] = collectedPeriod.asJSON(with: options)
 		}
 		if let collector = self.collector {
-			json["collector"] = collector.asJSON()
+			json["collector"] = collector.asJSON(with: options)
 		}
 		if let comment = self.comment {
 			var arr = [Any]()
 			for val in comment {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["comment"] = arr
 		}
 		if let method = self.method {
-			json["method"] = method.asJSON()
+			json["method"] = method.asJSON(with: options)
 		}
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		
 		return json
@@ -449,29 +449,29 @@ public class SpecimenContainer: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let additiveCodeableConcept = self.additiveCodeableConcept {
-			json["additiveCodeableConcept"] = additiveCodeableConcept.asJSON()
+			json["additiveCodeableConcept"] = additiveCodeableConcept.asJSON(with: options)
 		}
 		if let additiveReference = self.additiveReference {
-			json["additiveReference"] = additiveReference.asJSON()
+			json["additiveReference"] = additiveReference.asJSON(with: options)
 		}
 		if let capacity = self.capacity {
-			json["capacity"] = capacity.asJSON()
+			json["capacity"] = capacity.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let specimenQuantity = self.specimenQuantity {
-			json["specimenQuantity"] = specimenQuantity.asJSON()
+			json["specimenQuantity"] = specimenQuantity.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -538,17 +538,17 @@ public class SpecimenTreatment: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let additive = self.additive {
-			json["additive"] = additive.map() { $0.asJSON() }
+			json["additive"] = additive.map() { $0.asJSON(with: options) }
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let procedure = self.procedure {
-			json["procedure"] = procedure.asJSON()
+			json["procedure"] = procedure.asJSON(with: options)
 		}
 		
 		return json

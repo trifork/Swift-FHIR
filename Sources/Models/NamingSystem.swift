@@ -214,47 +214,47 @@ public class NamingSystem: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let kind = self.kind {
-			json["kind"] = kind.asJSON()
+			json["kind"] = kind.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let replacedBy = self.replacedBy {
-			json["replacedBy"] = replacedBy.asJSON()
+			json["replacedBy"] = replacedBy.asJSON(with: options)
 		}
 		if let responsible = self.responsible {
-			json["responsible"] = responsible.asJSON()
+			json["responsible"] = responsible.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let uniqueId = self.uniqueId {
-			json["uniqueId"] = uniqueId.map() { $0.asJSON() }
+			json["uniqueId"] = uniqueId.map() { $0.asJSON(with: options) }
 		}
 		if let usage = self.usage {
-			json["usage"] = usage.asJSON()
+			json["usage"] = usage.asJSON(with: options)
 		}
 		if let useContext = self.useContext {
-			json["useContext"] = useContext.map() { $0.asJSON() }
+			json["useContext"] = useContext.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -309,14 +309,14 @@ public class NamingSystemContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -408,20 +408,20 @@ public class NamingSystemUniqueId: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let preferred = self.preferred {
-			json["preferred"] = preferred.asJSON()
+			json["preferred"] = preferred.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json

@@ -164,41 +164,41 @@ public class SupplyDelivery: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let destination = self.destination {
-			json["destination"] = destination.asJSON()
+			json["destination"] = destination.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		if let receiver = self.receiver {
-			json["receiver"] = receiver.map() { $0.asJSON() }
+			json["receiver"] = receiver.map() { $0.asJSON(with: options) }
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let suppliedItem = self.suppliedItem {
-			json["suppliedItem"] = suppliedItem.asJSON()
+			json["suppliedItem"] = suppliedItem.asJSON(with: options)
 		}
 		if let supplier = self.supplier {
-			json["supplier"] = supplier.asJSON()
+			json["supplier"] = supplier.asJSON(with: options)
 		}
 		if let time = self.time {
-			json["time"] = time.asJSON()
+			json["time"] = time.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let whenPrepared = self.whenPrepared {
-			json["whenPrepared"] = whenPrepared.asJSON()
+			json["whenPrepared"] = whenPrepared.asJSON(with: options)
 		}
 		
 		return json

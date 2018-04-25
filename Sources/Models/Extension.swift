@@ -750,110 +750,110 @@ public class Extension: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let valueAddress = self.valueAddress {
-			json["valueAddress"] = valueAddress.asJSON()
+			json["valueAddress"] = valueAddress.asJSON(with: options)
 		}
 		if let valueAnnotation = self.valueAnnotation {
-			json["valueAnnotation"] = valueAnnotation.asJSON()
+			json["valueAnnotation"] = valueAnnotation.asJSON(with: options)
 		}
 		if let valueAttachment = self.valueAttachment {
-			json["valueAttachment"] = valueAttachment.asJSON()
+			json["valueAttachment"] = valueAttachment.asJSON(with: options)
 		}
 		if let valueBase64Binary = self.valueBase64Binary {
-			json["valueBase64Binary"] = valueBase64Binary.asJSON()
+			json["valueBase64Binary"] = valueBase64Binary.asJSON(with: options)
 		}
 		if let valueBoolean = self.valueBoolean {
-			json["valueBoolean"] = valueBoolean.asJSON()
+			json["valueBoolean"] = valueBoolean.asJSON(with: options)
 		}
 		if let valueCode = self.valueCode {
-			json["valueCode"] = valueCode.asJSON()
+			json["valueCode"] = valueCode.asJSON(with: options)
 		}
 		if let valueCodeableConcept = self.valueCodeableConcept {
-			json["valueCodeableConcept"] = valueCodeableConcept.asJSON()
+			json["valueCodeableConcept"] = valueCodeableConcept.asJSON(with: options)
 		}
 		if let valueCoding = self.valueCoding {
-			json["valueCoding"] = valueCoding.asJSON()
+			json["valueCoding"] = valueCoding.asJSON(with: options)
 		}
 		if let valueContactPoint = self.valueContactPoint {
-			json["valueContactPoint"] = valueContactPoint.asJSON()
+			json["valueContactPoint"] = valueContactPoint.asJSON(with: options)
 		}
 		if let valueDate = self.valueDate {
-			json["valueDate"] = valueDate.asJSON()
+			json["valueDate"] = valueDate.asJSON(with: options)
 		}
 		if let valueDateTime = self.valueDateTime {
-			json["valueDateTime"] = valueDateTime.asJSON()
+			json["valueDateTime"] = valueDateTime.asJSON(with: options)
 		}
 		if let valueDecimal = self.valueDecimal {
-			json["valueDecimal"] = valueDecimal.asJSON()
+			json["valueDecimal"] = valueDecimal.asJSON(with: options)
 		}
 		if let valueHumanName = self.valueHumanName {
-			json["valueHumanName"] = valueHumanName.asJSON()
+			json["valueHumanName"] = valueHumanName.asJSON(with: options)
 		}
 		if let valueId = self.valueId {
-			json["valueId"] = valueId.asJSON()
+			json["valueId"] = valueId.asJSON(with: options)
 		}
 		if let valueIdentifier = self.valueIdentifier {
-			json["valueIdentifier"] = valueIdentifier.asJSON()
+			json["valueIdentifier"] = valueIdentifier.asJSON(with: options)
 		}
 		if let valueInstant = self.valueInstant {
-			json["valueInstant"] = valueInstant.asJSON()
+			json["valueInstant"] = valueInstant.asJSON(with: options)
 		}
 		if let valueInteger = self.valueInteger {
-			json["valueInteger"] = valueInteger.asJSON()
+			json["valueInteger"] = valueInteger.asJSON(with: options)
 		}
 		if let valueMarkdown = self.valueMarkdown {
-			json["valueMarkdown"] = valueMarkdown.asJSON()
+			json["valueMarkdown"] = valueMarkdown.asJSON(with: options)
 		}
 		if let valueMeta = self.valueMeta {
-			json["valueMeta"] = valueMeta.asJSON()
+			json["valueMeta"] = valueMeta.asJSON(with: options)
 		}
 		if let valueOid = self.valueOid {
-			json["valueOid"] = valueOid.asJSON()
+			json["valueOid"] = valueOid.asJSON(with: options)
 		}
 		if let valuePeriod = self.valuePeriod {
-			json["valuePeriod"] = valuePeriod.asJSON()
+			json["valuePeriod"] = valuePeriod.asJSON(with: options)
 		}
 		if let valuePositiveInt = self.valuePositiveInt {
-			json["valuePositiveInt"] = valuePositiveInt.asJSON()
+			json["valuePositiveInt"] = valuePositiveInt.asJSON(with: options)
 		}
 		if let valueQuantity = self.valueQuantity {
-			json["valueQuantity"] = valueQuantity.asJSON()
+			json["valueQuantity"] = valueQuantity.asJSON(with: options)
 		}
 		if let valueRange = self.valueRange {
-			json["valueRange"] = valueRange.asJSON()
+			json["valueRange"] = valueRange.asJSON(with: options)
 		}
 		if let valueRatio = self.valueRatio {
-			json["valueRatio"] = valueRatio.asJSON()
+			json["valueRatio"] = valueRatio.asJSON(with: options)
 		}
 		if let valueReference = self.valueReference {
-			json["valueReference"] = valueReference.asJSON()
+			json["valueReference"] = valueReference.asJSON(with: options)
 		}
 		if let valueSampledData = self.valueSampledData {
-			json["valueSampledData"] = valueSampledData.asJSON()
+			json["valueSampledData"] = valueSampledData.asJSON(with: options)
 		}
 		if let valueSignature = self.valueSignature {
-			json["valueSignature"] = valueSignature.asJSON()
+			json["valueSignature"] = valueSignature.asJSON(with: options)
 		}
 		if let valueString = self.valueString {
-			json["valueString"] = valueString.asJSON()
+			json["valueString"] = valueString.asJSON(with: options)
 		}
 		if let valueTime = self.valueTime {
-			json["valueTime"] = valueTime.asJSON()
+			json["valueTime"] = valueTime.asJSON(with: options)
 		}
 		if let valueTiming = self.valueTiming {
-			json["valueTiming"] = valueTiming.asJSON()
+			json["valueTiming"] = valueTiming.asJSON(with: options)
 		}
 		if let valueUnsignedInt = self.valueUnsignedInt {
-			json["valueUnsignedInt"] = valueUnsignedInt.asJSON()
+			json["valueUnsignedInt"] = valueUnsignedInt.asJSON(with: options)
 		}
 		if let valueUri = self.valueUri {
-			json["valueUri"] = valueUri.asJSON()
+			json["valueUri"] = valueUri.asJSON(with: options)
 		}
 		
 		return json

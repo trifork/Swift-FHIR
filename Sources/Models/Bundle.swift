@@ -101,23 +101,23 @@ public class Bundle: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let entry = self.entry {
-			json["entry"] = entry.map() { $0.asJSON() }
+			json["entry"] = entry.map() { $0.asJSON(with: options) }
 		}
 		if let link = self.link {
-			json["link"] = link.map() { $0.asJSON() }
+			json["link"] = link.map() { $0.asJSON(with: options) }
 		}
 		if let signature = self.signature {
-			json["signature"] = signature.asJSON()
+			json["signature"] = signature.asJSON(with: options)
 		}
 		if let total = self.total {
-			json["total"] = total.asJSON()
+			json["total"] = total.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -221,26 +221,26 @@ public class BundleEntry: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let fullUrl = self.fullUrl {
-			json["fullUrl"] = fullUrl.asJSON()
+			json["fullUrl"] = fullUrl.asJSON(with: options)
 		}
 		if let link = self.link {
-			json["link"] = link.map() { $0.asJSON() }
+			json["link"] = link.map() { $0.asJSON(with: options) }
 		}
 		if let request = self.request {
-			json["request"] = request.asJSON()
+			json["request"] = request.asJSON(with: options)
 		}
 		if let resource = self.resource {
-			json["resource"] = resource.asJSON()
+			json["resource"] = resource.asJSON(with: options)
 		}
 		if let response = self.response {
-			json["response"] = response.asJSON()
+			json["response"] = response.asJSON(with: options)
 		}
 		if let search = self.search {
-			json["search"] = search.asJSON()
+			json["search"] = search.asJSON(with: options)
 		}
 		
 		return json
@@ -356,26 +356,26 @@ public class BundleEntryRequest: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let ifMatch = self.ifMatch {
-			json["ifMatch"] = ifMatch.asJSON()
+			json["ifMatch"] = ifMatch.asJSON(with: options)
 		}
 		if let ifModifiedSince = self.ifModifiedSince {
-			json["ifModifiedSince"] = ifModifiedSince.asJSON()
+			json["ifModifiedSince"] = ifModifiedSince.asJSON(with: options)
 		}
 		if let ifNoneExist = self.ifNoneExist {
-			json["ifNoneExist"] = ifNoneExist.asJSON()
+			json["ifNoneExist"] = ifNoneExist.asJSON(with: options)
 		}
 		if let ifNoneMatch = self.ifNoneMatch {
-			json["ifNoneMatch"] = ifNoneMatch.asJSON()
+			json["ifNoneMatch"] = ifNoneMatch.asJSON(with: options)
 		}
 		if let method = self.method {
-			json["method"] = method.asJSON()
+			json["method"] = method.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -463,20 +463,20 @@ public class BundleEntryResponse: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let etag = self.etag {
-			json["etag"] = etag.asJSON()
+			json["etag"] = etag.asJSON(with: options)
 		}
 		if let lastModified = self.lastModified {
-			json["lastModified"] = lastModified.asJSON()
+			json["lastModified"] = lastModified.asJSON(with: options)
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		
 		return json
@@ -531,14 +531,14 @@ public class BundleEntrySearch: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let mode = self.mode {
-			json["mode"] = mode.asJSON()
+			json["mode"] = mode.asJSON(with: options)
 		}
 		if let score = self.score {
-			json["score"] = score.asJSON()
+			json["score"] = score.asJSON(with: options)
 		}
 		
 		return json
@@ -606,14 +606,14 @@ public class BundleLink: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let relation = self.relation {
-			json["relation"] = relation.asJSON()
+			json["relation"] = relation.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json

@@ -171,42 +171,42 @@ public class Provenance: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let activity = self.activity {
-			json["activity"] = activity.asJSON()
+			json["activity"] = activity.asJSON(with: options)
 		}
 		if let agent = self.agent {
-			json["agent"] = agent.map() { $0.asJSON() }
+			json["agent"] = agent.map() { $0.asJSON(with: options) }
 		}
 		if let entity = self.entity {
-			json["entity"] = entity.map() { $0.asJSON() }
+			json["entity"] = entity.map() { $0.asJSON(with: options) }
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let policy = self.policy {
 			var arr = [Any]()
 			for val in policy {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["policy"] = arr
 		}
 		if let reason = self.reason {
-			json["reason"] = reason.map() { $0.asJSON() }
+			json["reason"] = reason.map() { $0.asJSON(with: options) }
 		}
 		if let recorded = self.recorded {
-			json["recorded"] = recorded.asJSON()
+			json["recorded"] = recorded.asJSON(with: options)
 		}
 		if let signature = self.signature {
-			json["signature"] = signature.map() { $0.asJSON() }
+			json["signature"] = signature.map() { $0.asJSON(with: options) }
 		}
 		if let target = self.target {
-			json["target"] = target.map() { $0.asJSON() }
+			json["target"] = target.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -296,20 +296,20 @@ public class ProvenanceAgent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let actor = self.actor {
-			json["actor"] = actor.asJSON()
+			json["actor"] = actor.asJSON(with: options)
 		}
 		if let relatedAgent = self.relatedAgent {
-			json["relatedAgent"] = relatedAgent.map() { $0.asJSON() }
+			json["relatedAgent"] = relatedAgent.map() { $0.asJSON(with: options) }
 		}
 		if let role = self.role {
-			json["role"] = role.asJSON()
+			json["role"] = role.asJSON(with: options)
 		}
 		if let userId = self.userId {
-			json["userId"] = userId.asJSON()
+			json["userId"] = userId.asJSON(with: options)
 		}
 		
 		return json
@@ -379,14 +379,14 @@ public class ProvenanceAgentRelatedAgent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let target = self.target {
-			json["target"] = target.asJSON()
+			json["target"] = target.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -492,23 +492,23 @@ public class ProvenanceEntity: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let agent = self.agent {
-			json["agent"] = agent.asJSON()
+			json["agent"] = agent.asJSON(with: options)
 		}
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		if let reference = self.reference {
-			json["reference"] = reference.asJSON()
+			json["reference"] = reference.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.asJSON()
+			json["role"] = role.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

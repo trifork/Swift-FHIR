@@ -56,14 +56,14 @@ public class Period: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let end = self.end {
-			json["end"] = end.asJSON()
+			json["end"] = end.asJSON(with: options)
 		}
 		if let start = self.start {
-			json["start"] = start.asJSON()
+			json["start"] = start.asJSON(with: options)
 		}
 		
 		return json

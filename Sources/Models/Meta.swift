@@ -93,27 +93,27 @@ public class Meta: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let lastUpdated = self.lastUpdated {
-			json["lastUpdated"] = lastUpdated.asJSON()
+			json["lastUpdated"] = lastUpdated.asJSON(with: options)
 		}
 		if let profile = self.profile {
 			var arr = [Any]()
 			for val in profile {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["profile"] = arr
 		}
 		if let security = self.security {
-			json["security"] = security.map() { $0.asJSON() }
+			json["security"] = security.map() { $0.asJSON(with: options) }
 		}
 		if let tag = self.tag {
-			json["tag"] = tag.map() { $0.asJSON() }
+			json["tag"] = tag.map() { $0.asJSON(with: options) }
 		}
 		if let versionId = self.versionId {
-			json["versionId"] = versionId.asJSON()
+			json["versionId"] = versionId.asJSON(with: options)
 		}
 		
 		return json

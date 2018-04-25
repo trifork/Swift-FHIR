@@ -142,36 +142,36 @@ public class Questionnaire: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let group = self.group {
-			json["group"] = group.asJSON()
+			json["group"] = group.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subjectType = self.subjectType {
 			var arr = [Any]()
 			for val in subjectType {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["subjectType"] = arr
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -298,32 +298,32 @@ public class QuestionnaireGroup: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let concept = self.concept {
-			json["concept"] = concept.map() { $0.asJSON() }
+			json["concept"] = concept.map() { $0.asJSON(with: options) }
 		}
 		if let group = self.group {
-			json["group"] = group.map() { $0.asJSON() }
+			json["group"] = group.map() { $0.asJSON(with: options) }
 		}
 		if let linkId = self.linkId {
-			json["linkId"] = linkId.asJSON()
+			json["linkId"] = linkId.asJSON(with: options)
 		}
 		if let question = self.question {
-			json["question"] = question.map() { $0.asJSON() }
+			json["question"] = question.map() { $0.asJSON(with: options) }
 		}
 		if let repeats = self.repeats {
-			json["repeats"] = repeats.asJSON()
+			json["repeats"] = repeats.asJSON(with: options)
 		}
 		if let required = self.required {
-			json["required"] = required.asJSON()
+			json["required"] = required.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		
 		return json
@@ -462,35 +462,35 @@ public class QuestionnaireGroupQuestion: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with jsonOptions: FHIRJSONOptions) -> FHIRJSON {
+		var json = super.asJSON(with: jsonOptions)
 		
 		if let concept = self.concept {
-			json["concept"] = concept.map() { $0.asJSON() }
+			json["concept"] = concept.map() { $0.asJSON(with: jsonOptions) }
 		}
 		if let group = self.group {
-			json["group"] = group.map() { $0.asJSON() }
+			json["group"] = group.map() { $0.asJSON(with: jsonOptions) }
 		}
 		if let linkId = self.linkId {
-			json["linkId"] = linkId.asJSON()
+			json["linkId"] = linkId.asJSON(with: jsonOptions)
 		}
 		if let option = self.option {
-			json["option"] = option.map() { $0.asJSON() }
+			json["option"] = option.map() { $0.asJSON(with: jsonOptions) }
 		}
 		if let options = self.options {
-			json["options"] = options.asJSON()
+			json["options"] = options.asJSON(with: jsonOptions)
 		}
 		if let repeats = self.repeats {
-			json["repeats"] = repeats.asJSON()
+			json["repeats"] = repeats.asJSON(with: jsonOptions)
 		}
 		if let required = self.required {
-			json["required"] = required.asJSON()
+			json["required"] = required.asJSON(with: jsonOptions)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: jsonOptions)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: jsonOptions)
 		}
 		
 		return json

@@ -69,14 +69,14 @@ public class Binary: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let content = self.content {
-			json["content"] = content.asJSON()
+			json["content"] = content.asJSON(with: options)
 		}
 		if let contentType = self.contentType {
-			json["contentType"] = contentType.asJSON()
+			json["contentType"] = contentType.asJSON(with: options)
 		}
 		
 		return json

@@ -261,62 +261,62 @@ public class ProcedureRequest: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let asNeededBoolean = self.asNeededBoolean {
-			json["asNeededBoolean"] = asNeededBoolean.asJSON()
+			json["asNeededBoolean"] = asNeededBoolean.asJSON(with: options)
 		}
 		if let asNeededCodeableConcept = self.asNeededCodeableConcept {
-			json["asNeededCodeableConcept"] = asNeededCodeableConcept.asJSON()
+			json["asNeededCodeableConcept"] = asNeededCodeableConcept.asJSON(with: options)
 		}
 		if let bodySite = self.bodySite {
-			json["bodySite"] = bodySite.map() { $0.asJSON() }
+			json["bodySite"] = bodySite.map() { $0.asJSON(with: options) }
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let notes = self.notes {
-			json["notes"] = notes.map() { $0.asJSON() }
+			json["notes"] = notes.map() { $0.asJSON(with: options) }
 		}
 		if let orderedOn = self.orderedOn {
-			json["orderedOn"] = orderedOn.asJSON()
+			json["orderedOn"] = orderedOn.asJSON(with: options)
 		}
 		if let orderer = self.orderer {
-			json["orderer"] = orderer.asJSON()
+			json["orderer"] = orderer.asJSON(with: options)
 		}
 		if let performer = self.performer {
-			json["performer"] = performer.asJSON()
+			json["performer"] = performer.asJSON(with: options)
 		}
 		if let priority = self.priority {
-			json["priority"] = priority.asJSON()
+			json["priority"] = priority.asJSON(with: options)
 		}
 		if let reasonCodeableConcept = self.reasonCodeableConcept {
-			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON()
+			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON(with: options)
 		}
 		if let reasonReference = self.reasonReference {
-			json["reasonReference"] = reasonReference.asJSON()
+			json["reasonReference"] = reasonReference.asJSON(with: options)
 		}
 		if let scheduledDateTime = self.scheduledDateTime {
-			json["scheduledDateTime"] = scheduledDateTime.asJSON()
+			json["scheduledDateTime"] = scheduledDateTime.asJSON(with: options)
 		}
 		if let scheduledPeriod = self.scheduledPeriod {
-			json["scheduledPeriod"] = scheduledPeriod.asJSON()
+			json["scheduledPeriod"] = scheduledPeriod.asJSON(with: options)
 		}
 		if let scheduledTiming = self.scheduledTiming {
-			json["scheduledTiming"] = scheduledTiming.asJSON()
+			json["scheduledTiming"] = scheduledTiming.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		
 		return json

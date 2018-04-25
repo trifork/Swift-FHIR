@@ -147,32 +147,32 @@ public class Slot: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let comment = self.comment {
-			json["comment"] = comment.asJSON()
+			json["comment"] = comment.asJSON(with: options)
 		}
 		if let end = self.end {
-			json["end"] = end.asJSON()
+			json["end"] = end.asJSON(with: options)
 		}
 		if let freeBusyType = self.freeBusyType {
-			json["freeBusyType"] = freeBusyType.asJSON()
+			json["freeBusyType"] = freeBusyType.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let overbooked = self.overbooked {
-			json["overbooked"] = overbooked.asJSON()
+			json["overbooked"] = overbooked.asJSON(with: options)
 		}
 		if let schedule = self.schedule {
-			json["schedule"] = schedule.asJSON()
+			json["schedule"] = schedule.asJSON(with: options)
 		}
 		if let start = self.start {
-			json["start"] = start.asJSON()
+			json["start"] = start.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

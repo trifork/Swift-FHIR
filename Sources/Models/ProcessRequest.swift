@@ -234,64 +234,64 @@ public class ProcessRequest: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.asJSON()
+			json["action"] = action.asJSON(with: options)
 		}
 		if let created = self.created {
-			json["created"] = created.asJSON()
+			json["created"] = created.asJSON(with: options)
 		}
 		if let exclude = self.exclude {
 			var arr = [Any]()
 			for val in exclude {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["exclude"] = arr
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let include = self.include {
 			var arr = [Any]()
 			for val in include {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["include"] = arr
 		}
 		if let item = self.item {
-			json["item"] = item.map() { $0.asJSON() }
+			json["item"] = item.map() { $0.asJSON(with: options) }
 		}
 		if let nullify = self.nullify {
-			json["nullify"] = nullify.asJSON()
+			json["nullify"] = nullify.asJSON(with: options)
 		}
 		if let organization = self.organization {
-			json["organization"] = organization.asJSON()
+			json["organization"] = organization.asJSON(with: options)
 		}
 		if let originalRuleset = self.originalRuleset {
-			json["originalRuleset"] = originalRuleset.asJSON()
+			json["originalRuleset"] = originalRuleset.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let provider = self.provider {
-			json["provider"] = provider.asJSON()
+			json["provider"] = provider.asJSON(with: options)
 		}
 		if let reference = self.reference {
-			json["reference"] = reference.asJSON()
+			json["reference"] = reference.asJSON(with: options)
 		}
 		if let request = self.request {
-			json["request"] = request.asJSON()
+			json["request"] = request.asJSON(with: options)
 		}
 		if let response = self.response {
-			json["response"] = response.asJSON()
+			json["response"] = response.asJSON(with: options)
 		}
 		if let ruleset = self.ruleset {
-			json["ruleset"] = ruleset.asJSON()
+			json["ruleset"] = ruleset.asJSON(with: options)
 		}
 		if let target = self.target {
-			json["target"] = target.asJSON()
+			json["target"] = target.asJSON(with: options)
 		}
 		
 		return json
@@ -343,11 +343,11 @@ public class ProcessRequestItem: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let sequenceLinkId = self.sequenceLinkId {
-			json["sequenceLinkId"] = sequenceLinkId.asJSON()
+			json["sequenceLinkId"] = sequenceLinkId.asJSON(with: options)
 		}
 		
 		return json

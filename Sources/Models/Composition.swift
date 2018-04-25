@@ -233,50 +233,50 @@ public class Composition: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let attester = self.attester {
-			json["attester"] = attester.map() { $0.asJSON() }
+			json["attester"] = attester.map() { $0.asJSON(with: options) }
 		}
 		if let author = self.author {
-			json["author"] = author.map() { $0.asJSON() }
+			json["author"] = author.map() { $0.asJSON(with: options) }
 		}
 		if let class_fhir = self.class_fhir {
-			json["class"] = class_fhir.asJSON()
+			json["class"] = class_fhir.asJSON(with: options)
 		}
 		if let confidentiality = self.confidentiality {
-			json["confidentiality"] = confidentiality.asJSON()
+			json["confidentiality"] = confidentiality.asJSON(with: options)
 		}
 		if let custodian = self.custodian {
-			json["custodian"] = custodian.asJSON()
+			json["custodian"] = custodian.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let event = self.event {
-			json["event"] = event.map() { $0.asJSON() }
+			json["event"] = event.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let section = self.section {
-			json["section"] = section.map() { $0.asJSON() }
+			json["section"] = section.map() { $0.asJSON(with: options) }
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -352,21 +352,21 @@ public class CompositionAttester: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let mode = self.mode {
 			var arr = [Any]()
 			for val in mode {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["mode"] = arr
 		}
 		if let party = self.party {
-			json["party"] = party.asJSON()
+			json["party"] = party.asJSON(with: options)
 		}
 		if let time = self.time {
-			json["time"] = time.asJSON()
+			json["time"] = time.asJSON(with: options)
 		}
 		
 		return json
@@ -433,17 +433,17 @@ public class CompositionEvent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.map() { $0.asJSON() }
+			json["code"] = code.map() { $0.asJSON(with: options) }
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.map() { $0.asJSON() }
+			json["detail"] = detail.map() { $0.asJSON(with: options) }
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		
 		return json
@@ -570,32 +570,32 @@ public class CompositionSection: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let emptyReason = self.emptyReason {
-			json["emptyReason"] = emptyReason.asJSON()
+			json["emptyReason"] = emptyReason.asJSON(with: options)
 		}
 		if let entry = self.entry {
-			json["entry"] = entry.map() { $0.asJSON() }
+			json["entry"] = entry.map() { $0.asJSON(with: options) }
 		}
 		if let mode = self.mode {
-			json["mode"] = mode.asJSON()
+			json["mode"] = mode.asJSON(with: options)
 		}
 		if let orderedBy = self.orderedBy {
-			json["orderedBy"] = orderedBy.asJSON()
+			json["orderedBy"] = orderedBy.asJSON(with: options)
 		}
 		if let section = self.section {
-			json["section"] = section.map() { $0.asJSON() }
+			json["section"] = section.map() { $0.asJSON(with: options) }
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		
 		return json

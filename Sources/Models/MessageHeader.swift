@@ -183,41 +183,41 @@ public class MessageHeader: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let author = self.author {
-			json["author"] = author.asJSON()
+			json["author"] = author.asJSON(with: options)
 		}
 		if let data = self.data {
-			json["data"] = data.map() { $0.asJSON() }
+			json["data"] = data.map() { $0.asJSON(with: options) }
 		}
 		if let destination = self.destination {
-			json["destination"] = destination.map() { $0.asJSON() }
+			json["destination"] = destination.map() { $0.asJSON(with: options) }
 		}
 		if let enterer = self.enterer {
-			json["enterer"] = enterer.asJSON()
+			json["enterer"] = enterer.asJSON(with: options)
 		}
 		if let event = self.event {
-			json["event"] = event.asJSON()
+			json["event"] = event.asJSON(with: options)
 		}
 		if let reason = self.reason {
-			json["reason"] = reason.asJSON()
+			json["reason"] = reason.asJSON(with: options)
 		}
 		if let receiver = self.receiver {
-			json["receiver"] = receiver.asJSON()
+			json["receiver"] = receiver.asJSON(with: options)
 		}
 		if let response = self.response {
-			json["response"] = response.asJSON()
+			json["response"] = response.asJSON(with: options)
 		}
 		if let responsible = self.responsible {
-			json["responsible"] = responsible.asJSON()
+			json["responsible"] = responsible.asJSON(with: options)
 		}
 		if let source = self.source {
-			json["source"] = source.asJSON()
+			json["source"] = source.asJSON(with: options)
 		}
 		if let timestamp = self.timestamp {
-			json["timestamp"] = timestamp.asJSON()
+			json["timestamp"] = timestamp.asJSON(with: options)
 		}
 		
 		return json
@@ -293,17 +293,17 @@ public class MessageHeaderDestination: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let endpoint = self.endpoint {
-			json["endpoint"] = endpoint.asJSON()
+			json["endpoint"] = endpoint.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let target = self.target {
-			json["target"] = target.asJSON()
+			json["target"] = target.asJSON(with: options)
 		}
 		
 		return json
@@ -383,17 +383,17 @@ public class MessageHeaderResponse: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let details = self.details {
-			json["details"] = details.asJSON()
+			json["details"] = details.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		
 		return json
@@ -493,23 +493,23 @@ public class MessageHeaderSource: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
-			json["contact"] = contact.asJSON()
+			json["contact"] = contact.asJSON(with: options)
 		}
 		if let endpoint = self.endpoint {
-			json["endpoint"] = endpoint.asJSON()
+			json["endpoint"] = endpoint.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let software = self.software {
-			json["software"] = software.asJSON()
+			json["software"] = software.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json

@@ -152,32 +152,32 @@ public class Subscription: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let channel = self.channel {
-			json["channel"] = channel.asJSON()
+			json["channel"] = channel.asJSON(with: options)
 		}
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let criteria = self.criteria {
-			json["criteria"] = criteria.asJSON()
+			json["criteria"] = criteria.asJSON(with: options)
 		}
 		if let end = self.end {
-			json["end"] = end.asJSON()
+			json["end"] = end.asJSON(with: options)
 		}
 		if let error = self.error {
-			json["error"] = error.asJSON()
+			json["error"] = error.asJSON(with: options)
 		}
 		if let reason = self.reason {
-			json["reason"] = reason.asJSON()
+			json["reason"] = reason.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let tag = self.tag {
-			json["tag"] = tag.map() { $0.asJSON() }
+			json["tag"] = tag.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -269,20 +269,20 @@ public class SubscriptionChannel: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let endpoint = self.endpoint {
-			json["endpoint"] = endpoint.asJSON()
+			json["endpoint"] = endpoint.asJSON(with: options)
 		}
 		if let header = self.header {
-			json["header"] = header.asJSON()
+			json["header"] = header.asJSON(with: options)
 		}
 		if let payload = self.payload {
-			json["payload"] = payload.asJSON()
+			json["payload"] = payload.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

@@ -213,50 +213,50 @@ public class DataElement: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let copyright = self.copyright {
-			json["copyright"] = copyright.asJSON()
+			json["copyright"] = copyright.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let element = self.element {
-			json["element"] = element.map() { $0.asJSON() }
+			json["element"] = element.map() { $0.asJSON(with: options) }
 		}
 		if let experimental = self.experimental {
-			json["experimental"] = experimental.asJSON()
+			json["experimental"] = experimental.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let mapping = self.mapping {
-			json["mapping"] = mapping.map() { $0.asJSON() }
+			json["mapping"] = mapping.map() { $0.asJSON(with: options) }
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let stringency = self.stringency {
-			json["stringency"] = stringency.asJSON()
+			json["stringency"] = stringency.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let useContext = self.useContext {
-			json["useContext"] = useContext.map() { $0.asJSON() }
+			json["useContext"] = useContext.map() { $0.asJSON(with: options) }
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -311,14 +311,14 @@ public class DataElementContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -407,20 +407,20 @@ public class DataElementMapping: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let comments = self.comments {
-			json["comments"] = comments.asJSON()
+			json["comments"] = comments.asJSON(with: options)
 		}
 		if let identity = self.identity {
-			json["identity"] = identity.asJSON()
+			json["identity"] = identity.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let uri = self.uri {
-			json["uri"] = uri.asJSON()
+			json["uri"] = uri.asJSON(with: options)
 		}
 		
 		return json

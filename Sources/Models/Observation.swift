@@ -405,98 +405,98 @@ public class Observation: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let bodySite = self.bodySite {
-			json["bodySite"] = bodySite.asJSON()
+			json["bodySite"] = bodySite.asJSON(with: options)
 		}
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let comments = self.comments {
-			json["comments"] = comments.asJSON()
+			json["comments"] = comments.asJSON(with: options)
 		}
 		if let component = self.component {
-			json["component"] = component.map() { $0.asJSON() }
+			json["component"] = component.map() { $0.asJSON(with: options) }
 		}
 		if let dataAbsentReason = self.dataAbsentReason {
-			json["dataAbsentReason"] = dataAbsentReason.asJSON()
+			json["dataAbsentReason"] = dataAbsentReason.asJSON(with: options)
 		}
 		if let device = self.device {
-			json["device"] = device.asJSON()
+			json["device"] = device.asJSON(with: options)
 		}
 		if let effectiveDateTime = self.effectiveDateTime {
-			json["effectiveDateTime"] = effectiveDateTime.asJSON()
+			json["effectiveDateTime"] = effectiveDateTime.asJSON(with: options)
 		}
 		if let effectivePeriod = self.effectivePeriod {
-			json["effectivePeriod"] = effectivePeriod.asJSON()
+			json["effectivePeriod"] = effectivePeriod.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let interpretation = self.interpretation {
-			json["interpretation"] = interpretation.asJSON()
+			json["interpretation"] = interpretation.asJSON(with: options)
 		}
 		if let issued = self.issued {
-			json["issued"] = issued.asJSON()
+			json["issued"] = issued.asJSON(with: options)
 		}
 		if let method = self.method {
-			json["method"] = method.asJSON()
+			json["method"] = method.asJSON(with: options)
 		}
 		if let performer = self.performer {
-			json["performer"] = performer.map() { $0.asJSON() }
+			json["performer"] = performer.map() { $0.asJSON(with: options) }
 		}
 		if let referenceRange = self.referenceRange {
-			json["referenceRange"] = referenceRange.map() { $0.asJSON() }
+			json["referenceRange"] = referenceRange.map() { $0.asJSON(with: options) }
 		}
 		if let related = self.related {
-			json["related"] = related.map() { $0.asJSON() }
+			json["related"] = related.map() { $0.asJSON(with: options) }
 		}
 		if let specimen = self.specimen {
-			json["specimen"] = specimen.asJSON()
+			json["specimen"] = specimen.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let valueAttachment = self.valueAttachment {
-			json["valueAttachment"] = valueAttachment.asJSON()
+			json["valueAttachment"] = valueAttachment.asJSON(with: options)
 		}
 		if let valueCodeableConcept = self.valueCodeableConcept {
-			json["valueCodeableConcept"] = valueCodeableConcept.asJSON()
+			json["valueCodeableConcept"] = valueCodeableConcept.asJSON(with: options)
 		}
 		if let valueDateTime = self.valueDateTime {
-			json["valueDateTime"] = valueDateTime.asJSON()
+			json["valueDateTime"] = valueDateTime.asJSON(with: options)
 		}
 		if let valuePeriod = self.valuePeriod {
-			json["valuePeriod"] = valuePeriod.asJSON()
+			json["valuePeriod"] = valuePeriod.asJSON(with: options)
 		}
 		if let valueQuantity = self.valueQuantity {
-			json["valueQuantity"] = valueQuantity.asJSON()
+			json["valueQuantity"] = valueQuantity.asJSON(with: options)
 		}
 		if let valueRange = self.valueRange {
-			json["valueRange"] = valueRange.asJSON()
+			json["valueRange"] = valueRange.asJSON(with: options)
 		}
 		if let valueRatio = self.valueRatio {
-			json["valueRatio"] = valueRatio.asJSON()
+			json["valueRatio"] = valueRatio.asJSON(with: options)
 		}
 		if let valueSampledData = self.valueSampledData {
-			json["valueSampledData"] = valueSampledData.asJSON()
+			json["valueSampledData"] = valueSampledData.asJSON(with: options)
 		}
 		if let valueString = self.valueString {
-			json["valueString"] = valueString.asJSON()
+			json["valueString"] = valueString.asJSON(with: options)
 		}
 		if let valueTime = self.valueTime {
-			json["valueTime"] = valueTime.asJSON()
+			json["valueTime"] = valueTime.asJSON(with: options)
 		}
 		
 		return json
@@ -694,47 +694,47 @@ public class ObservationComponent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let dataAbsentReason = self.dataAbsentReason {
-			json["dataAbsentReason"] = dataAbsentReason.asJSON()
+			json["dataAbsentReason"] = dataAbsentReason.asJSON(with: options)
 		}
 		if let referenceRange = self.referenceRange {
-			json["referenceRange"] = referenceRange.map() { $0.asJSON() }
+			json["referenceRange"] = referenceRange.map() { $0.asJSON(with: options) }
 		}
 		if let valueAttachment = self.valueAttachment {
-			json["valueAttachment"] = valueAttachment.asJSON()
+			json["valueAttachment"] = valueAttachment.asJSON(with: options)
 		}
 		if let valueCodeableConcept = self.valueCodeableConcept {
-			json["valueCodeableConcept"] = valueCodeableConcept.asJSON()
+			json["valueCodeableConcept"] = valueCodeableConcept.asJSON(with: options)
 		}
 		if let valueDateTime = self.valueDateTime {
-			json["valueDateTime"] = valueDateTime.asJSON()
+			json["valueDateTime"] = valueDateTime.asJSON(with: options)
 		}
 		if let valuePeriod = self.valuePeriod {
-			json["valuePeriod"] = valuePeriod.asJSON()
+			json["valuePeriod"] = valuePeriod.asJSON(with: options)
 		}
 		if let valueQuantity = self.valueQuantity {
-			json["valueQuantity"] = valueQuantity.asJSON()
+			json["valueQuantity"] = valueQuantity.asJSON(with: options)
 		}
 		if let valueRange = self.valueRange {
-			json["valueRange"] = valueRange.asJSON()
+			json["valueRange"] = valueRange.asJSON(with: options)
 		}
 		if let valueRatio = self.valueRatio {
-			json["valueRatio"] = valueRatio.asJSON()
+			json["valueRatio"] = valueRatio.asJSON(with: options)
 		}
 		if let valueSampledData = self.valueSampledData {
-			json["valueSampledData"] = valueSampledData.asJSON()
+			json["valueSampledData"] = valueSampledData.asJSON(with: options)
 		}
 		if let valueString = self.valueString {
-			json["valueString"] = valueString.asJSON()
+			json["valueString"] = valueString.asJSON(with: options)
 		}
 		if let valueTime = self.valueTime {
-			json["valueTime"] = valueTime.asJSON()
+			json["valueTime"] = valueTime.asJSON(with: options)
 		}
 		
 		return json
@@ -825,23 +825,23 @@ public class ObservationReferenceRange: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let age = self.age {
-			json["age"] = age.asJSON()
+			json["age"] = age.asJSON(with: options)
 		}
 		if let high = self.high {
-			json["high"] = high.asJSON()
+			json["high"] = high.asJSON(with: options)
 		}
 		if let low = self.low {
-			json["low"] = low.asJSON()
+			json["low"] = low.asJSON(with: options)
 		}
 		if let meaning = self.meaning {
-			json["meaning"] = meaning.asJSON()
+			json["meaning"] = meaning.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		
 		return json
@@ -906,14 +906,14 @@ public class ObservationRelated: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let target = self.target {
-			json["target"] = target.asJSON()
+			json["target"] = target.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

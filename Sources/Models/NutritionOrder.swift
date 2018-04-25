@@ -189,44 +189,44 @@ public class NutritionOrder: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let allergyIntolerance = self.allergyIntolerance {
-			json["allergyIntolerance"] = allergyIntolerance.map() { $0.asJSON() }
+			json["allergyIntolerance"] = allergyIntolerance.map() { $0.asJSON(with: options) }
 		}
 		if let dateTime = self.dateTime {
-			json["dateTime"] = dateTime.asJSON()
+			json["dateTime"] = dateTime.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let enteralFormula = self.enteralFormula {
-			json["enteralFormula"] = enteralFormula.asJSON()
+			json["enteralFormula"] = enteralFormula.asJSON(with: options)
 		}
 		if let excludeFoodModifier = self.excludeFoodModifier {
-			json["excludeFoodModifier"] = excludeFoodModifier.map() { $0.asJSON() }
+			json["excludeFoodModifier"] = excludeFoodModifier.map() { $0.asJSON(with: options) }
 		}
 		if let foodPreferenceModifier = self.foodPreferenceModifier {
-			json["foodPreferenceModifier"] = foodPreferenceModifier.map() { $0.asJSON() }
+			json["foodPreferenceModifier"] = foodPreferenceModifier.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let oralDiet = self.oralDiet {
-			json["oralDiet"] = oralDiet.asJSON()
+			json["oralDiet"] = oralDiet.asJSON(with: options)
 		}
 		if let orderer = self.orderer {
-			json["orderer"] = orderer.asJSON()
+			json["orderer"] = orderer.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let supplement = self.supplement {
-			json["supplement"] = supplement.map() { $0.asJSON() }
+			json["supplement"] = supplement.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -366,35 +366,35 @@ public class NutritionOrderEnteralFormula: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let additiveProductName = self.additiveProductName {
-			json["additiveProductName"] = additiveProductName.asJSON()
+			json["additiveProductName"] = additiveProductName.asJSON(with: options)
 		}
 		if let additiveType = self.additiveType {
-			json["additiveType"] = additiveType.asJSON()
+			json["additiveType"] = additiveType.asJSON(with: options)
 		}
 		if let administration = self.administration {
-			json["administration"] = administration.map() { $0.asJSON() }
+			json["administration"] = administration.map() { $0.asJSON(with: options) }
 		}
 		if let administrationInstruction = self.administrationInstruction {
-			json["administrationInstruction"] = administrationInstruction.asJSON()
+			json["administrationInstruction"] = administrationInstruction.asJSON(with: options)
 		}
 		if let baseFormulaProductName = self.baseFormulaProductName {
-			json["baseFormulaProductName"] = baseFormulaProductName.asJSON()
+			json["baseFormulaProductName"] = baseFormulaProductName.asJSON(with: options)
 		}
 		if let baseFormulaType = self.baseFormulaType {
-			json["baseFormulaType"] = baseFormulaType.asJSON()
+			json["baseFormulaType"] = baseFormulaType.asJSON(with: options)
 		}
 		if let caloricDensity = self.caloricDensity {
-			json["caloricDensity"] = caloricDensity.asJSON()
+			json["caloricDensity"] = caloricDensity.asJSON(with: options)
 		}
 		if let maxVolumeToDeliver = self.maxVolumeToDeliver {
-			json["maxVolumeToDeliver"] = maxVolumeToDeliver.asJSON()
+			json["maxVolumeToDeliver"] = maxVolumeToDeliver.asJSON(with: options)
 		}
 		if let routeofAdministration = self.routeofAdministration {
-			json["routeofAdministration"] = routeofAdministration.asJSON()
+			json["routeofAdministration"] = routeofAdministration.asJSON(with: options)
 		}
 		
 		return json
@@ -475,20 +475,20 @@ public class NutritionOrderEnteralFormulaAdministration: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		if let rateQuantity = self.rateQuantity {
-			json["rateQuantity"] = rateQuantity.asJSON()
+			json["rateQuantity"] = rateQuantity.asJSON(with: options)
 		}
 		if let rateRatio = self.rateRatio {
-			json["rateRatio"] = rateRatio.asJSON()
+			json["rateRatio"] = rateRatio.asJSON(with: options)
 		}
 		if let schedule = self.schedule {
-			json["schedule"] = schedule.asJSON()
+			json["schedule"] = schedule.asJSON(with: options)
 		}
 		
 		return json
@@ -591,26 +591,26 @@ public class NutritionOrderOralDiet: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let fluidConsistencyType = self.fluidConsistencyType {
-			json["fluidConsistencyType"] = fluidConsistencyType.map() { $0.asJSON() }
+			json["fluidConsistencyType"] = fluidConsistencyType.map() { $0.asJSON(with: options) }
 		}
 		if let instruction = self.instruction {
-			json["instruction"] = instruction.asJSON()
+			json["instruction"] = instruction.asJSON(with: options)
 		}
 		if let nutrient = self.nutrient {
-			json["nutrient"] = nutrient.map() { $0.asJSON() }
+			json["nutrient"] = nutrient.map() { $0.asJSON(with: options) }
 		}
 		if let schedule = self.schedule {
-			json["schedule"] = schedule.map() { $0.asJSON() }
+			json["schedule"] = schedule.map() { $0.asJSON(with: options) }
 		}
 		if let texture = self.texture {
-			json["texture"] = texture.map() { $0.asJSON() }
+			json["texture"] = texture.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.map() { $0.asJSON() }
+			json["type"] = type.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -665,14 +665,14 @@ public class NutritionOrderOralDietNutrient: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let modifier = self.modifier {
-			json["modifier"] = modifier.asJSON()
+			json["modifier"] = modifier.asJSON(with: options)
 		}
 		
 		return json
@@ -728,14 +728,14 @@ public class NutritionOrderOralDietTexture: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let foodType = self.foodType {
-			json["foodType"] = foodType.asJSON()
+			json["foodType"] = foodType.asJSON(with: options)
 		}
 		if let modifier = self.modifier {
-			json["modifier"] = modifier.asJSON()
+			json["modifier"] = modifier.asJSON(with: options)
 		}
 		
 		return json
@@ -826,23 +826,23 @@ public class NutritionOrderSupplement: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let instruction = self.instruction {
-			json["instruction"] = instruction.asJSON()
+			json["instruction"] = instruction.asJSON(with: options)
 		}
 		if let productName = self.productName {
-			json["productName"] = productName.asJSON()
+			json["productName"] = productName.asJSON(with: options)
 		}
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		if let schedule = self.schedule {
-			json["schedule"] = schedule.map() { $0.asJSON() }
+			json["schedule"] = schedule.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

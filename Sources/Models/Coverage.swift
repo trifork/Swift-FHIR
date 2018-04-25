@@ -200,50 +200,50 @@ public class Coverage: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let bin = self.bin {
-			json["bin"] = bin.asJSON()
+			json["bin"] = bin.asJSON(with: options)
 		}
 		if let contract = self.contract {
-			json["contract"] = contract.map() { $0.asJSON() }
+			json["contract"] = contract.map() { $0.asJSON(with: options) }
 		}
 		if let dependent = self.dependent {
-			json["dependent"] = dependent.asJSON()
+			json["dependent"] = dependent.asJSON(with: options)
 		}
 		if let group = self.group {
-			json["group"] = group.asJSON()
+			json["group"] = group.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let issuer = self.issuer {
-			json["issuer"] = issuer.asJSON()
+			json["issuer"] = issuer.asJSON(with: options)
 		}
 		if let network = self.network {
-			json["network"] = network.asJSON()
+			json["network"] = network.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let plan = self.plan {
-			json["plan"] = plan.asJSON()
+			json["plan"] = plan.asJSON(with: options)
 		}
 		if let sequence = self.sequence {
-			json["sequence"] = sequence.asJSON()
+			json["sequence"] = sequence.asJSON(with: options)
 		}
 		if let subPlan = self.subPlan {
-			json["subPlan"] = subPlan.asJSON()
+			json["subPlan"] = subPlan.asJSON(with: options)
 		}
 		if let subscriber = self.subscriber {
-			json["subscriber"] = subscriber.asJSON()
+			json["subscriber"] = subscriber.asJSON(with: options)
 		}
 		if let subscriberId = self.subscriberId {
-			json["subscriberId"] = subscriberId.asJSON()
+			json["subscriberId"] = subscriberId.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

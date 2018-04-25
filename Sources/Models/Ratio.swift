@@ -56,14 +56,14 @@ public class Ratio: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let denominator = self.denominator {
-			json["denominator"] = denominator.asJSON()
+			json["denominator"] = denominator.asJSON(with: options)
 		}
 		if let numerator = self.numerator {
-			json["numerator"] = numerator.asJSON()
+			json["numerator"] = numerator.asJSON(with: options)
 		}
 		
 		return json

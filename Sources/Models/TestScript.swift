@@ -302,71 +302,71 @@ public class TestScript: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let copyright = self.copyright {
-			json["copyright"] = copyright.asJSON()
+			json["copyright"] = copyright.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let experimental = self.experimental {
-			json["experimental"] = experimental.asJSON()
+			json["experimental"] = experimental.asJSON(with: options)
 		}
 		if let fixture = self.fixture {
-			json["fixture"] = fixture.map() { $0.asJSON() }
+			json["fixture"] = fixture.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let metadata = self.metadata {
-			json["metadata"] = metadata.asJSON()
+			json["metadata"] = metadata.asJSON(with: options)
 		}
 		if let multiserver = self.multiserver {
-			json["multiserver"] = multiserver.asJSON()
+			json["multiserver"] = multiserver.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let profile = self.profile {
-			json["profile"] = profile.map() { $0.asJSON() }
+			json["profile"] = profile.map() { $0.asJSON(with: options) }
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let requirements = self.requirements {
-			json["requirements"] = requirements.asJSON()
+			json["requirements"] = requirements.asJSON(with: options)
 		}
 		if let setup = self.setup {
-			json["setup"] = setup.asJSON()
+			json["setup"] = setup.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let teardown = self.teardown {
-			json["teardown"] = teardown.asJSON()
+			json["teardown"] = teardown.asJSON(with: options)
 		}
 		if let test = self.test {
-			json["test"] = test.map() { $0.asJSON() }
+			json["test"] = test.map() { $0.asJSON(with: options) }
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let useContext = self.useContext {
-			json["useContext"] = useContext.map() { $0.asJSON() }
+			json["useContext"] = useContext.map() { $0.asJSON(with: options) }
 		}
 		if let variable = self.variable {
-			json["variable"] = variable.map() { $0.asJSON() }
+			json["variable"] = variable.map() { $0.asJSON(with: options) }
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -421,14 +421,14 @@ public class TestScriptContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -495,17 +495,17 @@ public class TestScriptFixture: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let autocreate = self.autocreate {
-			json["autocreate"] = autocreate.asJSON()
+			json["autocreate"] = autocreate.asJSON(with: options)
 		}
 		if let autodelete = self.autodelete {
-			json["autodelete"] = autodelete.asJSON()
+			json["autodelete"] = autodelete.asJSON(with: options)
 		}
 		if let resource = self.resource {
-			json["resource"] = resource.asJSON()
+			json["resource"] = resource.asJSON(with: options)
 		}
 		
 		return json
@@ -569,14 +569,14 @@ public class TestScriptMetadata: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let capability = self.capability {
-			json["capability"] = capability.map() { $0.asJSON() }
+			json["capability"] = capability.map() { $0.asJSON(with: options) }
 		}
 		if let link = self.link {
-			json["link"] = link.map() { $0.asJSON() }
+			json["link"] = link.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -688,30 +688,30 @@ public class TestScriptMetadataCapability: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let conformance = self.conformance {
-			json["conformance"] = conformance.asJSON()
+			json["conformance"] = conformance.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let destination = self.destination {
-			json["destination"] = destination.asJSON()
+			json["destination"] = destination.asJSON(with: options)
 		}
 		if let link = self.link {
 			var arr = [Any]()
 			for val in link {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["link"] = arr
 		}
 		if let required = self.required {
-			json["required"] = required.asJSON()
+			json["required"] = required.asJSON(with: options)
 		}
 		if let validated = self.validated {
-			json["validated"] = validated.asJSON()
+			json["validated"] = validated.asJSON(with: options)
 		}
 		
 		return json
@@ -775,14 +775,14 @@ public class TestScriptMetadataLink: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -844,14 +844,14 @@ public class TestScriptSetup: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.map() { $0.asJSON() }
+			json["action"] = action.map() { $0.asJSON(with: options) }
 		}
 		if let metadata = self.metadata {
-			json["metadata"] = metadata.asJSON()
+			json["metadata"] = metadata.asJSON(with: options)
 		}
 		
 		return json
@@ -906,14 +906,14 @@ public class TestScriptSetupAction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let assert = self.assert {
-			json["assert"] = assert.asJSON()
+			json["assert"] = assert.asJSON(with: options)
 		}
 		if let operation = self.operation {
-			json["operation"] = operation.asJSON()
+			json["operation"] = operation.asJSON(with: options)
 		}
 		
 		return json
@@ -1160,62 +1160,62 @@ public class TestScriptSetupActionAssert: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let compareToSourceId = self.compareToSourceId {
-			json["compareToSourceId"] = compareToSourceId.asJSON()
+			json["compareToSourceId"] = compareToSourceId.asJSON(with: options)
 		}
 		if let compareToSourcePath = self.compareToSourcePath {
-			json["compareToSourcePath"] = compareToSourcePath.asJSON()
+			json["compareToSourcePath"] = compareToSourcePath.asJSON(with: options)
 		}
 		if let contentType = self.contentType {
-			json["contentType"] = contentType.asJSON()
+			json["contentType"] = contentType.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let direction = self.direction {
-			json["direction"] = direction.asJSON()
+			json["direction"] = direction.asJSON(with: options)
 		}
 		if let headerField = self.headerField {
-			json["headerField"] = headerField.asJSON()
+			json["headerField"] = headerField.asJSON(with: options)
 		}
 		if let label = self.label {
-			json["label"] = label.asJSON()
+			json["label"] = label.asJSON(with: options)
 		}
 		if let minimumId = self.minimumId {
-			json["minimumId"] = minimumId.asJSON()
+			json["minimumId"] = minimumId.asJSON(with: options)
 		}
 		if let navigationLinks = self.navigationLinks {
-			json["navigationLinks"] = navigationLinks.asJSON()
+			json["navigationLinks"] = navigationLinks.asJSON(with: options)
 		}
 		if let operator_fhir = self.operator_fhir {
-			json["operator"] = operator_fhir.asJSON()
+			json["operator"] = operator_fhir.asJSON(with: options)
 		}
 		if let path = self.path {
-			json["path"] = path.asJSON()
+			json["path"] = path.asJSON(with: options)
 		}
 		if let resource = self.resource {
-			json["resource"] = resource.asJSON()
+			json["resource"] = resource.asJSON(with: options)
 		}
 		if let response = self.response {
-			json["response"] = response.asJSON()
+			json["response"] = response.asJSON(with: options)
 		}
 		if let responseCode = self.responseCode {
-			json["responseCode"] = responseCode.asJSON()
+			json["responseCode"] = responseCode.asJSON(with: options)
 		}
 		if let sourceId = self.sourceId {
-			json["sourceId"] = sourceId.asJSON()
+			json["sourceId"] = sourceId.asJSON(with: options)
 		}
 		if let validateProfileId = self.validateProfileId {
-			json["validateProfileId"] = validateProfileId.asJSON()
+			json["validateProfileId"] = validateProfileId.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		if let warningOnly = self.warningOnly {
-			json["warningOnly"] = warningOnly.asJSON()
+			json["warningOnly"] = warningOnly.asJSON(with: options)
 		}
 		
 		return json
@@ -1414,50 +1414,50 @@ public class TestScriptSetupActionOperation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let accept = self.accept {
-			json["accept"] = accept.asJSON()
+			json["accept"] = accept.asJSON(with: options)
 		}
 		if let contentType = self.contentType {
-			json["contentType"] = contentType.asJSON()
+			json["contentType"] = contentType.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let destination = self.destination {
-			json["destination"] = destination.asJSON()
+			json["destination"] = destination.asJSON(with: options)
 		}
 		if let encodeRequestUrl = self.encodeRequestUrl {
-			json["encodeRequestUrl"] = encodeRequestUrl.asJSON()
+			json["encodeRequestUrl"] = encodeRequestUrl.asJSON(with: options)
 		}
 		if let label = self.label {
-			json["label"] = label.asJSON()
+			json["label"] = label.asJSON(with: options)
 		}
 		if let params = self.params {
-			json["params"] = params.asJSON()
+			json["params"] = params.asJSON(with: options)
 		}
 		if let requestHeader = self.requestHeader {
-			json["requestHeader"] = requestHeader.map() { $0.asJSON() }
+			json["requestHeader"] = requestHeader.map() { $0.asJSON(with: options) }
 		}
 		if let resource = self.resource {
-			json["resource"] = resource.asJSON()
+			json["resource"] = resource.asJSON(with: options)
 		}
 		if let responseId = self.responseId {
-			json["responseId"] = responseId.asJSON()
+			json["responseId"] = responseId.asJSON(with: options)
 		}
 		if let sourceId = self.sourceId {
-			json["sourceId"] = sourceId.asJSON()
+			json["sourceId"] = sourceId.asJSON(with: options)
 		}
 		if let targetId = self.targetId {
-			json["targetId"] = targetId.asJSON()
+			json["targetId"] = targetId.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -1525,14 +1525,14 @@ public class TestScriptSetupActionOperationRequestHeader: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let field = self.field {
-			json["field"] = field.asJSON()
+			json["field"] = field.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -1584,11 +1584,11 @@ public class TestScriptTeardown: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.map() { $0.asJSON() }
+			json["action"] = action.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -1631,11 +1631,11 @@ public class TestScriptTeardownAction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let operation = self.operation {
-			json["operation"] = operation.asJSON()
+			json["operation"] = operation.asJSON(with: options)
 		}
 		
 		return json
@@ -1721,20 +1721,20 @@ public class TestScriptTest: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.map() { $0.asJSON() }
+			json["action"] = action.map() { $0.asJSON(with: options) }
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let metadata = self.metadata {
-			json["metadata"] = metadata.asJSON()
+			json["metadata"] = metadata.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		
 		return json
@@ -1789,14 +1789,14 @@ public class TestScriptTestAction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let assert = self.assert {
-			json["assert"] = assert.asJSON()
+			json["assert"] = assert.asJSON(with: options)
 		}
 		if let operation = self.operation {
-			json["operation"] = operation.asJSON()
+			json["operation"] = operation.asJSON(with: options)
 		}
 		
 		return json
@@ -1884,20 +1884,20 @@ public class TestScriptVariable: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let headerField = self.headerField {
-			json["headerField"] = headerField.asJSON()
+			json["headerField"] = headerField.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let path = self.path {
-			json["path"] = path.asJSON()
+			json["path"] = path.asJSON(with: options)
 		}
 		if let sourceId = self.sourceId {
-			json["sourceId"] = sourceId.asJSON()
+			json["sourceId"] = sourceId.asJSON(with: options)
 		}
 		
 		return json

@@ -98,20 +98,20 @@ public class AuditEvent: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let event = self.event {
-			json["event"] = event.asJSON()
+			json["event"] = event.asJSON(with: options)
 		}
 		if let object = self.object {
-			json["object"] = object.map() { $0.asJSON() }
+			json["object"] = object.map() { $0.asJSON(with: options) }
 		}
 		if let participant = self.participant {
-			json["participant"] = participant.map() { $0.asJSON() }
+			json["participant"] = participant.map() { $0.asJSON(with: options) }
 		}
 		if let source = self.source {
-			json["source"] = source.asJSON()
+			json["source"] = source.asJSON(with: options)
 		}
 		
 		return json
@@ -239,29 +239,29 @@ public class AuditEventEvent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.asJSON()
+			json["action"] = action.asJSON(with: options)
 		}
 		if let dateTime = self.dateTime {
-			json["dateTime"] = dateTime.asJSON()
+			json["dateTime"] = dateTime.asJSON(with: options)
 		}
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.asJSON()
+			json["outcome"] = outcome.asJSON(with: options)
 		}
 		if let outcomeDesc = self.outcomeDesc {
-			json["outcomeDesc"] = outcomeDesc.asJSON()
+			json["outcomeDesc"] = outcomeDesc.asJSON(with: options)
 		}
 		if let purposeOfEvent = self.purposeOfEvent {
-			json["purposeOfEvent"] = purposeOfEvent.map() { $0.asJSON() }
+			json["purposeOfEvent"] = purposeOfEvent.map() { $0.asJSON(with: options) }
 		}
 		if let subtype = self.subtype {
-			json["subtype"] = subtype.map() { $0.asJSON() }
+			json["subtype"] = subtype.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -410,38 +410,38 @@ public class AuditEventObject: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.map() { $0.asJSON() }
+			json["detail"] = detail.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let lifecycle = self.lifecycle {
-			json["lifecycle"] = lifecycle.asJSON()
+			json["lifecycle"] = lifecycle.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let query = self.query {
-			json["query"] = query.asJSON()
+			json["query"] = query.asJSON(with: options)
 		}
 		if let reference = self.reference {
-			json["reference"] = reference.asJSON()
+			json["reference"] = reference.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.asJSON()
+			json["role"] = role.asJSON(with: options)
 		}
 		if let securityLabel = self.securityLabel {
-			json["securityLabel"] = securityLabel.map() { $0.asJSON() }
+			json["securityLabel"] = securityLabel.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -507,14 +507,14 @@ public class AuditEventObjectDetail: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -684,45 +684,45 @@ public class AuditEventParticipant: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let altId = self.altId {
-			json["altId"] = altId.asJSON()
+			json["altId"] = altId.asJSON(with: options)
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let media = self.media {
-			json["media"] = media.asJSON()
+			json["media"] = media.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let network = self.network {
-			json["network"] = network.asJSON()
+			json["network"] = network.asJSON(with: options)
 		}
 		if let policy = self.policy {
 			var arr = [Any]()
 			for val in policy {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["policy"] = arr
 		}
 		if let purposeOfUse = self.purposeOfUse {
-			json["purposeOfUse"] = purposeOfUse.map() { $0.asJSON() }
+			json["purposeOfUse"] = purposeOfUse.map() { $0.asJSON(with: options) }
 		}
 		if let reference = self.reference {
-			json["reference"] = reference.asJSON()
+			json["reference"] = reference.asJSON(with: options)
 		}
 		if let requestor = self.requestor {
-			json["requestor"] = requestor.asJSON()
+			json["requestor"] = requestor.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.map() { $0.asJSON() }
+			json["role"] = role.map() { $0.asJSON(with: options) }
 		}
 		if let userId = self.userId {
-			json["userId"] = userId.asJSON()
+			json["userId"] = userId.asJSON(with: options)
 		}
 		
 		return json
@@ -777,14 +777,14 @@ public class AuditEventParticipantNetwork: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let address = self.address {
-			json["address"] = address.asJSON()
+			json["address"] = address.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -858,17 +858,17 @@ public class AuditEventSource: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let site = self.site {
-			json["site"] = site.asJSON()
+			json["site"] = site.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.map() { $0.asJSON() }
+			json["type"] = type.map() { $0.asJSON(with: options) }
 		}
 		
 		return json

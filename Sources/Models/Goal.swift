@@ -238,56 +238,56 @@ public class Goal: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let addresses = self.addresses {
-			json["addresses"] = addresses.map() { $0.asJSON() }
+			json["addresses"] = addresses.map() { $0.asJSON(with: options) }
 		}
 		if let author = self.author {
-			json["author"] = author.asJSON()
+			json["author"] = author.asJSON(with: options)
 		}
 		if let category = self.category {
-			json["category"] = category.map() { $0.asJSON() }
+			json["category"] = category.map() { $0.asJSON(with: options) }
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let note = self.note {
-			json["note"] = note.map() { $0.asJSON() }
+			json["note"] = note.map() { $0.asJSON(with: options) }
 		}
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.map() { $0.asJSON() }
+			json["outcome"] = outcome.map() { $0.asJSON(with: options) }
 		}
 		if let priority = self.priority {
-			json["priority"] = priority.asJSON()
+			json["priority"] = priority.asJSON(with: options)
 		}
 		if let startCodeableConcept = self.startCodeableConcept {
-			json["startCodeableConcept"] = startCodeableConcept.asJSON()
+			json["startCodeableConcept"] = startCodeableConcept.asJSON(with: options)
 		}
 		if let startDate = self.startDate {
-			json["startDate"] = startDate.asJSON()
+			json["startDate"] = startDate.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let statusDate = self.statusDate {
-			json["statusDate"] = statusDate.asJSON()
+			json["statusDate"] = statusDate.asJSON(with: options)
 		}
 		if let statusReason = self.statusReason {
-			json["statusReason"] = statusReason.asJSON()
+			json["statusReason"] = statusReason.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let targetDate = self.targetDate {
-			json["targetDate"] = targetDate.asJSON()
+			json["targetDate"] = targetDate.asJSON(with: options)
 		}
 		if let targetQuantity = self.targetQuantity {
-			json["targetQuantity"] = targetQuantity.asJSON()
+			json["targetQuantity"] = targetQuantity.asJSON(with: options)
 		}
 		
 		return json
@@ -342,14 +342,14 @@ public class GoalOutcome: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let resultCodeableConcept = self.resultCodeableConcept {
-			json["resultCodeableConcept"] = resultCodeableConcept.asJSON()
+			json["resultCodeableConcept"] = resultCodeableConcept.asJSON(with: options)
 		}
 		if let resultReference = self.resultReference {
-			json["resultReference"] = resultReference.asJSON()
+			json["resultReference"] = resultReference.asJSON(with: options)
 		}
 		
 		return json

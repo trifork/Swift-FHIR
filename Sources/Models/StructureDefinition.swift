@@ -358,87 +358,87 @@ public class StructureDefinition: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let abstract = self.abstract {
-			json["abstract"] = abstract.asJSON()
+			json["abstract"] = abstract.asJSON(with: options)
 		}
 		if let base = self.base {
-			json["base"] = base.asJSON()
+			json["base"] = base.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.map() { $0.asJSON() }
+			json["code"] = code.map() { $0.asJSON(with: options) }
 		}
 		if let constrainedType = self.constrainedType {
-			json["constrainedType"] = constrainedType.asJSON()
+			json["constrainedType"] = constrainedType.asJSON(with: options)
 		}
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let context = self.context {
 			var arr = [Any]()
 			for val in context {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["context"] = arr
 		}
 		if let contextType = self.contextType {
-			json["contextType"] = contextType.asJSON()
+			json["contextType"] = contextType.asJSON(with: options)
 		}
 		if let copyright = self.copyright {
-			json["copyright"] = copyright.asJSON()
+			json["copyright"] = copyright.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let differential = self.differential {
-			json["differential"] = differential.asJSON()
+			json["differential"] = differential.asJSON(with: options)
 		}
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		if let experimental = self.experimental {
-			json["experimental"] = experimental.asJSON()
+			json["experimental"] = experimental.asJSON(with: options)
 		}
 		if let fhirVersion = self.fhirVersion {
-			json["fhirVersion"] = fhirVersion.asJSON()
+			json["fhirVersion"] = fhirVersion.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let kind = self.kind {
-			json["kind"] = kind.asJSON()
+			json["kind"] = kind.asJSON(with: options)
 		}
 		if let mapping = self.mapping {
-			json["mapping"] = mapping.map() { $0.asJSON() }
+			json["mapping"] = mapping.map() { $0.asJSON(with: options) }
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let requirements = self.requirements {
-			json["requirements"] = requirements.asJSON()
+			json["requirements"] = requirements.asJSON(with: options)
 		}
 		if let snapshot = self.snapshot {
-			json["snapshot"] = snapshot.asJSON()
+			json["snapshot"] = snapshot.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let useContext = self.useContext {
-			json["useContext"] = useContext.map() { $0.asJSON() }
+			json["useContext"] = useContext.map() { $0.asJSON(with: options) }
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -493,14 +493,14 @@ public class StructureDefinitionContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -553,11 +553,11 @@ public class StructureDefinitionDifferential: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let element = self.element {
-			json["element"] = element.map() { $0.asJSON() }
+			json["element"] = element.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -645,20 +645,20 @@ public class StructureDefinitionMapping: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let comments = self.comments {
-			json["comments"] = comments.asJSON()
+			json["comments"] = comments.asJSON(with: options)
 		}
 		if let identity = self.identity {
-			json["identity"] = identity.asJSON()
+			json["identity"] = identity.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let uri = self.uri {
-			json["uri"] = uri.asJSON()
+			json["uri"] = uri.asJSON(with: options)
 		}
 		
 		return json
@@ -711,11 +711,11 @@ public class StructureDefinitionSnapshot: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let element = self.element {
-			json["element"] = element.map() { $0.asJSON() }
+			json["element"] = element.map() { $0.asJSON(with: options) }
 		}
 		
 		return json

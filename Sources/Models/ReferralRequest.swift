@@ -234,56 +234,56 @@ public class ReferralRequest: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let dateSent = self.dateSent {
-			json["dateSent"] = dateSent.asJSON()
+			json["dateSent"] = dateSent.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let fulfillmentTime = self.fulfillmentTime {
-			json["fulfillmentTime"] = fulfillmentTime.asJSON()
+			json["fulfillmentTime"] = fulfillmentTime.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let priority = self.priority {
-			json["priority"] = priority.asJSON()
+			json["priority"] = priority.asJSON(with: options)
 		}
 		if let reason = self.reason {
-			json["reason"] = reason.asJSON()
+			json["reason"] = reason.asJSON(with: options)
 		}
 		if let recipient = self.recipient {
-			json["recipient"] = recipient.map() { $0.asJSON() }
+			json["recipient"] = recipient.map() { $0.asJSON(with: options) }
 		}
 		if let requester = self.requester {
-			json["requester"] = requester.asJSON()
+			json["requester"] = requester.asJSON(with: options)
 		}
 		if let serviceRequested = self.serviceRequested {
-			json["serviceRequested"] = serviceRequested.map() { $0.asJSON() }
+			json["serviceRequested"] = serviceRequested.map() { $0.asJSON(with: options) }
 		}
 		if let specialty = self.specialty {
-			json["specialty"] = specialty.asJSON()
+			json["specialty"] = specialty.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let supportingInformation = self.supportingInformation {
-			json["supportingInformation"] = supportingInformation.map() { $0.asJSON() }
+			json["supportingInformation"] = supportingInformation.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

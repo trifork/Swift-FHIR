@@ -303,78 +303,78 @@ public class HealthcareService: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let appointmentRequired = self.appointmentRequired {
-			json["appointmentRequired"] = appointmentRequired.asJSON()
+			json["appointmentRequired"] = appointmentRequired.asJSON(with: options)
 		}
 		if let availabilityExceptions = self.availabilityExceptions {
-			json["availabilityExceptions"] = availabilityExceptions.asJSON()
+			json["availabilityExceptions"] = availabilityExceptions.asJSON(with: options)
 		}
 		if let availableTime = self.availableTime {
-			json["availableTime"] = availableTime.map() { $0.asJSON() }
+			json["availableTime"] = availableTime.map() { $0.asJSON(with: options) }
 		}
 		if let characteristic = self.characteristic {
-			json["characteristic"] = characteristic.map() { $0.asJSON() }
+			json["characteristic"] = characteristic.map() { $0.asJSON(with: options) }
 		}
 		if let comment = self.comment {
-			json["comment"] = comment.asJSON()
+			json["comment"] = comment.asJSON(with: options)
 		}
 		if let coverageArea = self.coverageArea {
-			json["coverageArea"] = coverageArea.map() { $0.asJSON() }
+			json["coverageArea"] = coverageArea.map() { $0.asJSON(with: options) }
 		}
 		if let eligibility = self.eligibility {
-			json["eligibility"] = eligibility.asJSON()
+			json["eligibility"] = eligibility.asJSON(with: options)
 		}
 		if let eligibilityNote = self.eligibilityNote {
-			json["eligibilityNote"] = eligibilityNote.asJSON()
+			json["eligibilityNote"] = eligibilityNote.asJSON(with: options)
 		}
 		if let extraDetails = self.extraDetails {
-			json["extraDetails"] = extraDetails.asJSON()
+			json["extraDetails"] = extraDetails.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let notAvailable = self.notAvailable {
-			json["notAvailable"] = notAvailable.map() { $0.asJSON() }
+			json["notAvailable"] = notAvailable.map() { $0.asJSON(with: options) }
 		}
 		if let photo = self.photo {
-			json["photo"] = photo.asJSON()
+			json["photo"] = photo.asJSON(with: options)
 		}
 		if let programName = self.programName {
 			var arr = [Any]()
 			for val in programName {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["programName"] = arr
 		}
 		if let providedBy = self.providedBy {
-			json["providedBy"] = providedBy.asJSON()
+			json["providedBy"] = providedBy.asJSON(with: options)
 		}
 		if let publicKey = self.publicKey {
-			json["publicKey"] = publicKey.asJSON()
+			json["publicKey"] = publicKey.asJSON(with: options)
 		}
 		if let referralMethod = self.referralMethod {
-			json["referralMethod"] = referralMethod.map() { $0.asJSON() }
+			json["referralMethod"] = referralMethod.map() { $0.asJSON(with: options) }
 		}
 		if let serviceCategory = self.serviceCategory {
-			json["serviceCategory"] = serviceCategory.asJSON()
+			json["serviceCategory"] = serviceCategory.asJSON(with: options)
 		}
 		if let serviceName = self.serviceName {
-			json["serviceName"] = serviceName.asJSON()
+			json["serviceName"] = serviceName.asJSON(with: options)
 		}
 		if let serviceProvisionCode = self.serviceProvisionCode {
-			json["serviceProvisionCode"] = serviceProvisionCode.map() { $0.asJSON() }
+			json["serviceProvisionCode"] = serviceProvisionCode.map() { $0.asJSON(with: options) }
 		}
 		if let serviceType = self.serviceType {
-			json["serviceType"] = serviceType.map() { $0.asJSON() }
+			json["serviceType"] = serviceType.map() { $0.asJSON(with: options) }
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -453,22 +453,22 @@ public class HealthcareServiceAvailableTime: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let allDay = self.allDay {
-			json["allDay"] = allDay.asJSON()
+			json["allDay"] = allDay.asJSON(with: options)
 		}
 		if let availableEndTime = self.availableEndTime {
-			json["availableEndTime"] = availableEndTime.asJSON()
+			json["availableEndTime"] = availableEndTime.asJSON(with: options)
 		}
 		if let availableStartTime = self.availableStartTime {
-			json["availableStartTime"] = availableStartTime.asJSON()
+			json["availableStartTime"] = availableStartTime.asJSON(with: options)
 		}
 		if let daysOfWeek = self.daysOfWeek {
 			var arr = [Any]()
 			for val in daysOfWeek {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["daysOfWeek"] = arr
 		}
@@ -534,14 +534,14 @@ public class HealthcareServiceNotAvailable: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let during = self.during {
-			json["during"] = during.asJSON()
+			json["during"] = during.asJSON(with: options)
 		}
 		
 		return json
@@ -605,14 +605,14 @@ public class HealthcareServiceServiceType: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let specialty = self.specialty {
-			json["specialty"] = specialty.map() { $0.asJSON() }
+			json["specialty"] = specialty.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

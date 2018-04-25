@@ -93,23 +93,23 @@ public class Medication: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let isBrand = self.isBrand {
-			json["isBrand"] = isBrand.asJSON()
+			json["isBrand"] = isBrand.asJSON(with: options)
 		}
 		if let manufacturer = self.manufacturer {
-			json["manufacturer"] = manufacturer.asJSON()
+			json["manufacturer"] = manufacturer.asJSON(with: options)
 		}
 		if let package = self.package {
-			json["package"] = package.asJSON()
+			json["package"] = package.asJSON(with: options)
 		}
 		if let product = self.product {
-			json["product"] = product.asJSON()
+			json["product"] = product.asJSON(with: options)
 		}
 		
 		return json
@@ -164,14 +164,14 @@ public class MedicationPackage: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let container = self.container {
-			json["container"] = container.asJSON()
+			json["container"] = container.asJSON(with: options)
 		}
 		if let content = self.content {
-			json["content"] = content.map() { $0.asJSON() }
+			json["content"] = content.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -235,14 +235,14 @@ public class MedicationPackageContent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let item = self.item {
-			json["item"] = item.asJSON()
+			json["item"] = item.asJSON(with: options)
 		}
 		
 		return json
@@ -309,17 +309,17 @@ public class MedicationProduct: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let batch = self.batch {
-			json["batch"] = batch.map() { $0.asJSON() }
+			json["batch"] = batch.map() { $0.asJSON(with: options) }
 		}
 		if let form = self.form {
-			json["form"] = form.asJSON()
+			json["form"] = form.asJSON(with: options)
 		}
 		if let ingredient = self.ingredient {
-			json["ingredient"] = ingredient.map() { $0.asJSON() }
+			json["ingredient"] = ingredient.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -374,14 +374,14 @@ public class MedicationProductBatch: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let expirationDate = self.expirationDate {
-			json["expirationDate"] = expirationDate.asJSON()
+			json["expirationDate"] = expirationDate.asJSON(with: options)
 		}
 		if let lotNumber = self.lotNumber {
-			json["lotNumber"] = lotNumber.asJSON()
+			json["lotNumber"] = lotNumber.asJSON(with: options)
 		}
 		
 		return json
@@ -445,14 +445,14 @@ public class MedicationProductIngredient: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let item = self.item {
-			json["item"] = item.asJSON()
+			json["item"] = item.asJSON(with: options)
 		}
 		
 		return json

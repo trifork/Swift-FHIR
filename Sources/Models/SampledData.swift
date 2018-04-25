@@ -138,29 +138,29 @@ public class SampledData: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let data = self.data {
-			json["data"] = data.asJSON()
+			json["data"] = data.asJSON(with: options)
 		}
 		if let dimensions = self.dimensions {
-			json["dimensions"] = dimensions.asJSON()
+			json["dimensions"] = dimensions.asJSON(with: options)
 		}
 		if let factor = self.factor {
-			json["factor"] = factor.asJSON()
+			json["factor"] = factor.asJSON(with: options)
 		}
 		if let lowerLimit = self.lowerLimit {
-			json["lowerLimit"] = lowerLimit.asJSON()
+			json["lowerLimit"] = lowerLimit.asJSON(with: options)
 		}
 		if let origin = self.origin {
-			json["origin"] = origin.asJSON()
+			json["origin"] = origin.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let upperLimit = self.upperLimit {
-			json["upperLimit"] = upperLimit.asJSON()
+			json["upperLimit"] = upperLimit.asJSON(with: options)
 		}
 		
 		return json

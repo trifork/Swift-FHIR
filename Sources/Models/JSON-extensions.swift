@@ -10,25 +10,25 @@ import Foundation
 
 
 extension String {
-	public func asJSON() -> String {
+    public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return self
 	}
 }
 
 extension Bool {
-	public func asJSON() -> Bool {
+	public func asJSON(with options: FHIRJSONOptions = []) -> Bool {
 		return self
 	}
 }
 
 extension Int {
-	public func asJSON() -> Int {
+	public func asJSON(with options: FHIRJSONOptions = []) -> Int {
 		return self
 	}
 }
 
 extension UInt {
-	public func asJSON() -> UInt {
+	public func asJSON(with options: FHIRJSONOptions = []) -> UInt {
 		return self
 	}
 }
@@ -81,7 +81,7 @@ extension URL {
 		return arr
 	}
 	
-	public func asJSON() -> String {
+	public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return URLTranslations.urlstringToJson?[absoluteString] ?? self.description
 	}
 }
@@ -105,7 +105,7 @@ extension NSDecimalNumber {
 		}
 	}
 	
-	public func asJSON() -> NSDecimalNumber {
+	public func asJSON(with options: FHIRJSONOptions = []) -> NSDecimalNumber {
 		return self
 	}
 }
@@ -115,7 +115,7 @@ extension Base64Binary {
 		self.init(value: string)
 	}
 	
-	public func asJSON() -> String {
+	public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return self.value ?? ""
 	}
 }
@@ -131,7 +131,7 @@ extension FHIRDate {
 		return arr
 	}
 	
-	public func asJSON() -> String {
+	public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return self.description
 	}
 }
@@ -147,7 +147,7 @@ extension FHIRTime {
 		return arr
 	}
 	
-	public func asJSON() -> String {
+	public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return self.description
 	}
 }
@@ -163,7 +163,7 @@ extension DateTime {
 		return arr
 	}
 	
-	public func asJSON() -> String {
+	public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return self.description
 	}
 }
@@ -179,7 +179,7 @@ extension Instant {
 		return arr
 	}
 	
-	public func asJSON() -> String {
+	public func asJSON(with options: FHIRJSONOptions = []) -> String {
 		return self.description
 	}
 }

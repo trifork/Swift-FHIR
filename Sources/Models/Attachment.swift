@@ -128,32 +128,32 @@ public class Attachment: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contentType = self.contentType {
-			json["contentType"] = contentType.asJSON()
+			json["contentType"] = contentType.asJSON(with: options)
 		}
 		if let creation = self.creation {
-			json["creation"] = creation.asJSON()
+			json["creation"] = creation.asJSON(with: options)
 		}
 		if let data = self.data {
-			json["data"] = data.asJSON()
+			json["data"] = data.asJSON(with: options)
 		}
 		if let hash = self.hash {
-			json["hash"] = hash.asJSON()
+			json["hash"] = hash.asJSON(with: options)
 		}
 		if let language = self.language {
-			json["language"] = language.asJSON()
+			json["language"] = language.asJSON(with: options)
 		}
 		if let size = self.size {
-			json["size"] = size.asJSON()
+			json["size"] = size.asJSON(with: options)
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json

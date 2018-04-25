@@ -153,38 +153,38 @@ public class ExplanationOfBenefit: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let created = self.created {
-			json["created"] = created.asJSON()
+			json["created"] = created.asJSON(with: options)
 		}
 		if let disposition = self.disposition {
-			json["disposition"] = disposition.asJSON()
+			json["disposition"] = disposition.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let organization = self.organization {
-			json["organization"] = organization.asJSON()
+			json["organization"] = organization.asJSON(with: options)
 		}
 		if let originalRuleset = self.originalRuleset {
-			json["originalRuleset"] = originalRuleset.asJSON()
+			json["originalRuleset"] = originalRuleset.asJSON(with: options)
 		}
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.asJSON()
+			json["outcome"] = outcome.asJSON(with: options)
 		}
 		if let request = self.request {
-			json["request"] = request.asJSON()
+			json["request"] = request.asJSON(with: options)
 		}
 		if let requestOrganization = self.requestOrganization {
-			json["requestOrganization"] = requestOrganization.asJSON()
+			json["requestOrganization"] = requestOrganization.asJSON(with: options)
 		}
 		if let requestProvider = self.requestProvider {
-			json["requestProvider"] = requestProvider.asJSON()
+			json["requestProvider"] = requestProvider.asJSON(with: options)
 		}
 		if let ruleset = self.ruleset {
-			json["ruleset"] = ruleset.asJSON()
+			json["ruleset"] = ruleset.asJSON(with: options)
 		}
 		
 		return json

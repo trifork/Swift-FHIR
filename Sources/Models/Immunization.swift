@@ -311,71 +311,71 @@ public class Immunization: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let doseQuantity = self.doseQuantity {
-			json["doseQuantity"] = doseQuantity.asJSON()
+			json["doseQuantity"] = doseQuantity.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let expirationDate = self.expirationDate {
-			json["expirationDate"] = expirationDate.asJSON()
+			json["expirationDate"] = expirationDate.asJSON(with: options)
 		}
 		if let explanation = self.explanation {
-			json["explanation"] = explanation.asJSON()
+			json["explanation"] = explanation.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let lotNumber = self.lotNumber {
-			json["lotNumber"] = lotNumber.asJSON()
+			json["lotNumber"] = lotNumber.asJSON(with: options)
 		}
 		if let manufacturer = self.manufacturer {
-			json["manufacturer"] = manufacturer.asJSON()
+			json["manufacturer"] = manufacturer.asJSON(with: options)
 		}
 		if let note = self.note {
-			json["note"] = note.map() { $0.asJSON() }
+			json["note"] = note.map() { $0.asJSON(with: options) }
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let performer = self.performer {
-			json["performer"] = performer.asJSON()
+			json["performer"] = performer.asJSON(with: options)
 		}
 		if let reaction = self.reaction {
-			json["reaction"] = reaction.map() { $0.asJSON() }
+			json["reaction"] = reaction.map() { $0.asJSON(with: options) }
 		}
 		if let reported = self.reported {
-			json["reported"] = reported.asJSON()
+			json["reported"] = reported.asJSON(with: options)
 		}
 		if let requester = self.requester {
-			json["requester"] = requester.asJSON()
+			json["requester"] = requester.asJSON(with: options)
 		}
 		if let route = self.route {
-			json["route"] = route.asJSON()
+			json["route"] = route.asJSON(with: options)
 		}
 		if let site = self.site {
-			json["site"] = site.asJSON()
+			json["site"] = site.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let vaccinationProtocol = self.vaccinationProtocol {
-			json["vaccinationProtocol"] = vaccinationProtocol.map() { $0.asJSON() }
+			json["vaccinationProtocol"] = vaccinationProtocol.map() { $0.asJSON(with: options) }
 		}
 		if let vaccineCode = self.vaccineCode {
-			json["vaccineCode"] = vaccineCode.asJSON()
+			json["vaccineCode"] = vaccineCode.asJSON(with: options)
 		}
 		if let wasNotGiven = self.wasNotGiven {
-			json["wasNotGiven"] = wasNotGiven.asJSON()
+			json["wasNotGiven"] = wasNotGiven.asJSON(with: options)
 		}
 		
 		return json
@@ -430,14 +430,14 @@ public class ImmunizationExplanation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let reason = self.reason {
-			json["reason"] = reason.map() { $0.asJSON() }
+			json["reason"] = reason.map() { $0.asJSON(with: options) }
 		}
 		if let reasonNotGiven = self.reasonNotGiven {
-			json["reasonNotGiven"] = reasonNotGiven.map() { $0.asJSON() }
+			json["reasonNotGiven"] = reasonNotGiven.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -504,17 +504,17 @@ public class ImmunizationReaction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.asJSON()
+			json["detail"] = detail.asJSON(with: options)
 		}
 		if let reported = self.reported {
-			json["reported"] = reported.asJSON()
+			json["reported"] = reported.asJSON(with: options)
 		}
 		
 		return json
@@ -658,32 +658,32 @@ public class ImmunizationVaccinationProtocol: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let authority = self.authority {
-			json["authority"] = authority.asJSON()
+			json["authority"] = authority.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let doseSequence = self.doseSequence {
-			json["doseSequence"] = doseSequence.asJSON()
+			json["doseSequence"] = doseSequence.asJSON(with: options)
 		}
 		if let doseStatus = self.doseStatus {
-			json["doseStatus"] = doseStatus.asJSON()
+			json["doseStatus"] = doseStatus.asJSON(with: options)
 		}
 		if let doseStatusReason = self.doseStatusReason {
-			json["doseStatusReason"] = doseStatusReason.asJSON()
+			json["doseStatusReason"] = doseStatusReason.asJSON(with: options)
 		}
 		if let series = self.series {
-			json["series"] = series.asJSON()
+			json["series"] = series.asJSON(with: options)
 		}
 		if let seriesDoses = self.seriesDoses {
-			json["seriesDoses"] = seriesDoses.asJSON()
+			json["seriesDoses"] = seriesDoses.asJSON(with: options)
 		}
 		if let targetDisease = self.targetDisease {
-			json["targetDisease"] = targetDisease.map() { $0.asJSON() }
+			json["targetDisease"] = targetDisease.map() { $0.asJSON(with: options) }
 		}
 		
 		return json

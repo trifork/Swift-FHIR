@@ -153,42 +153,42 @@ public class Address: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let city = self.city {
-			json["city"] = city.asJSON()
+			json["city"] = city.asJSON(with: options)
 		}
 		if let country = self.country {
-			json["country"] = country.asJSON()
+			json["country"] = country.asJSON(with: options)
 		}
 		if let district = self.district {
-			json["district"] = district.asJSON()
+			json["district"] = district.asJSON(with: options)
 		}
 		if let line = self.line {
 			var arr = [Any]()
 			for val in line {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["line"] = arr
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let postalCode = self.postalCode {
-			json["postalCode"] = postalCode.asJSON()
+			json["postalCode"] = postalCode.asJSON(with: options)
 		}
 		if let state = self.state {
-			json["state"] = state.asJSON()
+			json["state"] = state.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let use = self.use {
-			json["use"] = use.asJSON()
+			json["use"] = use.asJSON(with: options)
 		}
 		
 		return json

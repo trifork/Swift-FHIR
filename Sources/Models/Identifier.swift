@@ -104,26 +104,26 @@ public class Identifier: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let assigner = self.assigner {
-			json["assigner"] = assigner.asJSON()
+			json["assigner"] = assigner.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let system = self.system {
-			json["system"] = system.asJSON()
+			json["system"] = system.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let use = self.use {
-			json["use"] = use.asJSON()
+			json["use"] = use.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json

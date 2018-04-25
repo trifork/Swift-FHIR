@@ -164,41 +164,41 @@ public class Practitioner: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let active = self.active {
-			json["active"] = active.asJSON()
+			json["active"] = active.asJSON(with: options)
 		}
 		if let address = self.address {
-			json["address"] = address.map() { $0.asJSON() }
+			json["address"] = address.map() { $0.asJSON(with: options) }
 		}
 		if let birthDate = self.birthDate {
-			json["birthDate"] = birthDate.asJSON()
+			json["birthDate"] = birthDate.asJSON(with: options)
 		}
 		if let communication = self.communication {
-			json["communication"] = communication.map() { $0.asJSON() }
+			json["communication"] = communication.map() { $0.asJSON(with: options) }
 		}
 		if let gender = self.gender {
-			json["gender"] = gender.asJSON()
+			json["gender"] = gender.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let photo = self.photo {
-			json["photo"] = photo.map() { $0.asJSON() }
+			json["photo"] = photo.map() { $0.asJSON(with: options) }
 		}
 		if let practitionerRole = self.practitionerRole {
-			json["practitionerRole"] = practitionerRole.map() { $0.asJSON() }
+			json["practitionerRole"] = practitionerRole.map() { $0.asJSON(with: options) }
 		}
 		if let qualification = self.qualification {
-			json["qualification"] = qualification.map() { $0.asJSON() }
+			json["qualification"] = qualification.map() { $0.asJSON(with: options) }
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -301,26 +301,26 @@ public class PractitionerPractitionerRole: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let healthcareService = self.healthcareService {
-			json["healthcareService"] = healthcareService.map() { $0.asJSON() }
+			json["healthcareService"] = healthcareService.map() { $0.asJSON(with: options) }
 		}
 		if let location = self.location {
-			json["location"] = location.map() { $0.asJSON() }
+			json["location"] = location.map() { $0.asJSON(with: options) }
 		}
 		if let managingOrganization = self.managingOrganization {
-			json["managingOrganization"] = managingOrganization.asJSON()
+			json["managingOrganization"] = managingOrganization.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.asJSON()
+			json["role"] = role.asJSON(with: options)
 		}
 		if let specialty = self.specialty {
-			json["specialty"] = specialty.map() { $0.asJSON() }
+			json["specialty"] = specialty.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -406,20 +406,20 @@ public class PractitionerQualification: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let issuer = self.issuer {
-			json["issuer"] = issuer.asJSON()
+			json["issuer"] = issuer.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		
 		return json

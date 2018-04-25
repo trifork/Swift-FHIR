@@ -257,59 +257,59 @@ public class DocumentReference: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let authenticator = self.authenticator {
-			json["authenticator"] = authenticator.asJSON()
+			json["authenticator"] = authenticator.asJSON(with: options)
 		}
 		if let author = self.author {
-			json["author"] = author.map() { $0.asJSON() }
+			json["author"] = author.map() { $0.asJSON(with: options) }
 		}
 		if let class_fhir = self.class_fhir {
-			json["class"] = class_fhir.asJSON()
+			json["class"] = class_fhir.asJSON(with: options)
 		}
 		if let content = self.content {
-			json["content"] = content.map() { $0.asJSON() }
+			json["content"] = content.map() { $0.asJSON(with: options) }
 		}
 		if let context = self.context {
-			json["context"] = context.asJSON()
+			json["context"] = context.asJSON(with: options)
 		}
 		if let created = self.created {
-			json["created"] = created.asJSON()
+			json["created"] = created.asJSON(with: options)
 		}
 		if let custodian = self.custodian {
-			json["custodian"] = custodian.asJSON()
+			json["custodian"] = custodian.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let docStatus = self.docStatus {
-			json["docStatus"] = docStatus.asJSON()
+			json["docStatus"] = docStatus.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let indexed = self.indexed {
-			json["indexed"] = indexed.asJSON()
+			json["indexed"] = indexed.asJSON(with: options)
 		}
 		if let masterIdentifier = self.masterIdentifier {
-			json["masterIdentifier"] = masterIdentifier.asJSON()
+			json["masterIdentifier"] = masterIdentifier.asJSON(with: options)
 		}
 		if let relatesTo = self.relatesTo {
-			json["relatesTo"] = relatesTo.map() { $0.asJSON() }
+			json["relatesTo"] = relatesTo.map() { $0.asJSON(with: options) }
 		}
 		if let securityLabel = self.securityLabel {
-			json["securityLabel"] = securityLabel.map() { $0.asJSON() }
+			json["securityLabel"] = securityLabel.map() { $0.asJSON(with: options) }
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -373,14 +373,14 @@ public class DocumentReferenceContent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let attachment = self.attachment {
-			json["attachment"] = attachment.asJSON()
+			json["attachment"] = attachment.asJSON(with: options)
 		}
 		if let format = self.format {
-			json["format"] = format.map() { $0.asJSON() }
+			json["format"] = format.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -495,29 +495,29 @@ public class DocumentReferenceContext: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let event = self.event {
-			json["event"] = event.map() { $0.asJSON() }
+			json["event"] = event.map() { $0.asJSON(with: options) }
 		}
 		if let facilityType = self.facilityType {
-			json["facilityType"] = facilityType.asJSON()
+			json["facilityType"] = facilityType.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let practiceSetting = self.practiceSetting {
-			json["practiceSetting"] = practiceSetting.asJSON()
+			json["practiceSetting"] = practiceSetting.asJSON(with: options)
 		}
 		if let related = self.related {
-			json["related"] = related.map() { $0.asJSON() }
+			json["related"] = related.map() { $0.asJSON(with: options) }
 		}
 		if let sourcePatientInfo = self.sourcePatientInfo {
-			json["sourcePatientInfo"] = sourcePatientInfo.asJSON()
+			json["sourcePatientInfo"] = sourcePatientInfo.asJSON(with: options)
 		}
 		
 		return json
@@ -572,14 +572,14 @@ public class DocumentReferenceContextRelated: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let ref = self.ref {
-			json["ref"] = ref.asJSON()
+			json["ref"] = ref.asJSON(with: options)
 		}
 		
 		return json
@@ -647,14 +647,14 @@ public class DocumentReferenceRelatesTo: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let target = self.target {
-			json["target"] = target.asJSON()
+			json["target"] = target.asJSON(with: options)
 		}
 		
 		return json

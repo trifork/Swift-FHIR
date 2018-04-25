@@ -90,23 +90,23 @@ public class Coding: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		if let system = self.system {
-			json["system"] = system.asJSON()
+			json["system"] = system.asJSON(with: options)
 		}
 		if let userSelected = self.userSelected {
-			json["userSelected"] = userSelected.asJSON()
+			json["userSelected"] = userSelected.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json

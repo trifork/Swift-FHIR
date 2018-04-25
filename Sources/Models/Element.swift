@@ -56,14 +56,14 @@ public class Element: FHIRAbstractBase {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let extension_fhir = self.extension_fhir {
-			json["extension"] = extension_fhir.map() { $0.asJSON() }
+			json["extension"] = extension_fhir.map() { $0.asJSON(with: options) }
 		}
 		if let id = self.id {
-			json["id"] = id.asJSON()
+			json["id"] = id.asJSON(with: options)
 		}
 		
 		return json

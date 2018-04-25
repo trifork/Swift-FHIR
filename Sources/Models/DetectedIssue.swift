@@ -153,38 +153,38 @@ public class DetectedIssue: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let author = self.author {
-			json["author"] = author.asJSON()
+			json["author"] = author.asJSON(with: options)
 		}
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.asJSON()
+			json["detail"] = detail.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let implicated = self.implicated {
-			json["implicated"] = implicated.map() { $0.asJSON() }
+			json["implicated"] = implicated.map() { $0.asJSON(with: options) }
 		}
 		if let mitigation = self.mitigation {
-			json["mitigation"] = mitigation.map() { $0.asJSON() }
+			json["mitigation"] = mitigation.map() { $0.asJSON(with: options) }
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let reference = self.reference {
-			json["reference"] = reference.asJSON()
+			json["reference"] = reference.asJSON(with: options)
 		}
 		if let severity = self.severity {
-			json["severity"] = severity.asJSON()
+			json["severity"] = severity.asJSON(with: options)
 		}
 		
 		return json
@@ -262,17 +262,17 @@ public class DetectedIssueMitigation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.asJSON()
+			json["action"] = action.asJSON(with: options)
 		}
 		if let author = self.author {
-			json["author"] = author.asJSON()
+			json["author"] = author.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		
 		return json

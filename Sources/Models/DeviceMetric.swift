@@ -169,38 +169,38 @@ public class DeviceMetric: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let calibration = self.calibration {
-			json["calibration"] = calibration.map() { $0.asJSON() }
+			json["calibration"] = calibration.map() { $0.asJSON(with: options) }
 		}
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let color = self.color {
-			json["color"] = color.asJSON()
+			json["color"] = color.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let measurementPeriod = self.measurementPeriod {
-			json["measurementPeriod"] = measurementPeriod.asJSON()
+			json["measurementPeriod"] = measurementPeriod.asJSON(with: options)
 		}
 		if let operationalStatus = self.operationalStatus {
-			json["operationalStatus"] = operationalStatus.asJSON()
+			json["operationalStatus"] = operationalStatus.asJSON(with: options)
 		}
 		if let parent = self.parent {
-			json["parent"] = parent.asJSON()
+			json["parent"] = parent.asJSON(with: options)
 		}
 		if let source = self.source {
-			json["source"] = source.asJSON()
+			json["source"] = source.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let unit = self.unit {
-			json["unit"] = unit.asJSON()
+			json["unit"] = unit.asJSON(with: options)
 		}
 		
 		return json
@@ -265,17 +265,17 @@ public class DeviceMetricCalibration: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let state = self.state {
-			json["state"] = state.asJSON()
+			json["state"] = state.asJSON(with: options)
 		}
 		if let time = self.time {
-			json["time"] = time.asJSON()
+			json["time"] = time.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

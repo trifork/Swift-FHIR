@@ -165,41 +165,41 @@ public class Account: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let activePeriod = self.activePeriod {
-			json["activePeriod"] = activePeriod.asJSON()
+			json["activePeriod"] = activePeriod.asJSON(with: options)
 		}
 		if let balance = self.balance {
-			json["balance"] = balance.asJSON()
+			json["balance"] = balance.asJSON(with: options)
 		}
 		if let coveragePeriod = self.coveragePeriod {
-			json["coveragePeriod"] = coveragePeriod.asJSON()
+			json["coveragePeriod"] = coveragePeriod.asJSON(with: options)
 		}
 		if let currency = self.currency {
-			json["currency"] = currency.asJSON()
+			json["currency"] = currency.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let owner = self.owner {
-			json["owner"] = owner.asJSON()
+			json["owner"] = owner.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

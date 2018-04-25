@@ -188,44 +188,44 @@ public class Appointment: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let comment = self.comment {
-			json["comment"] = comment.asJSON()
+			json["comment"] = comment.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let end = self.end {
-			json["end"] = end.asJSON()
+			json["end"] = end.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let minutesDuration = self.minutesDuration {
-			json["minutesDuration"] = minutesDuration.asJSON()
+			json["minutesDuration"] = minutesDuration.asJSON(with: options)
 		}
 		if let participant = self.participant {
-			json["participant"] = participant.map() { $0.asJSON() }
+			json["participant"] = participant.map() { $0.asJSON(with: options) }
 		}
 		if let priority = self.priority {
-			json["priority"] = priority.asJSON()
+			json["priority"] = priority.asJSON(with: options)
 		}
 		if let reason = self.reason {
-			json["reason"] = reason.asJSON()
+			json["reason"] = reason.asJSON(with: options)
 		}
 		if let slot = self.slot {
-			json["slot"] = slot.map() { $0.asJSON() }
+			json["slot"] = slot.map() { $0.asJSON(with: options) }
 		}
 		if let start = self.start {
-			json["start"] = start.asJSON()
+			json["start"] = start.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -313,20 +313,20 @@ public class AppointmentParticipant: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let actor = self.actor {
-			json["actor"] = actor.asJSON()
+			json["actor"] = actor.asJSON(with: options)
 		}
 		if let required = self.required {
-			json["required"] = required.asJSON()
+			json["required"] = required.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.map() { $0.asJSON() }
+			json["type"] = type.map() { $0.asJSON(with: options) }
 		}
 		
 		return json

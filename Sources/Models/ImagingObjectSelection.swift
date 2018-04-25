@@ -143,29 +143,29 @@ public class ImagingObjectSelection: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let author = self.author {
-			json["author"] = author.asJSON()
+			json["author"] = author.asJSON(with: options)
 		}
 		if let authoringTime = self.authoringTime {
-			json["authoringTime"] = authoringTime.asJSON()
+			json["authoringTime"] = authoringTime.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let study = self.study {
-			json["study"] = study.map() { $0.asJSON() }
+			json["study"] = study.map() { $0.asJSON(with: options) }
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		
 		return json
@@ -257,20 +257,20 @@ public class ImagingObjectSelectionStudy: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let imagingStudy = self.imagingStudy {
-			json["imagingStudy"] = imagingStudy.asJSON()
+			json["imagingStudy"] = imagingStudy.asJSON(with: options)
 		}
 		if let series = self.series {
-			json["series"] = series.map() { $0.asJSON() }
+			json["series"] = series.map() { $0.asJSON(with: options) }
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -346,17 +346,17 @@ public class ImagingObjectSelectionStudySeries: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let instance = self.instance {
-			json["instance"] = instance.map() { $0.asJSON() }
+			json["instance"] = instance.map() { $0.asJSON(with: options) }
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -452,20 +452,20 @@ public class ImagingObjectSelectionStudySeriesInstance: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let frames = self.frames {
-			json["frames"] = frames.map() { $0.asJSON() }
+			json["frames"] = frames.map() { $0.asJSON(with: options) }
 		}
 		if let sopClass = self.sopClass {
-			json["sopClass"] = sopClass.asJSON()
+			json["sopClass"] = sopClass.asJSON(with: options)
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -533,18 +533,18 @@ public class ImagingObjectSelectionStudySeriesInstanceFrames: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let frameNumbers = self.frameNumbers {
 			var arr = [Any]()
 			for val in frameNumbers {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["frameNumbers"] = arr
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json

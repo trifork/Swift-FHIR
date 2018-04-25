@@ -237,56 +237,56 @@ public class Device: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let expiry = self.expiry {
-			json["expiry"] = expiry.asJSON()
+			json["expiry"] = expiry.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let lotNumber = self.lotNumber {
-			json["lotNumber"] = lotNumber.asJSON()
+			json["lotNumber"] = lotNumber.asJSON(with: options)
 		}
 		if let manufactureDate = self.manufactureDate {
-			json["manufactureDate"] = manufactureDate.asJSON()
+			json["manufactureDate"] = manufactureDate.asJSON(with: options)
 		}
 		if let manufacturer = self.manufacturer {
-			json["manufacturer"] = manufacturer.asJSON()
+			json["manufacturer"] = manufacturer.asJSON(with: options)
 		}
 		if let model = self.model {
-			json["model"] = model.asJSON()
+			json["model"] = model.asJSON(with: options)
 		}
 		if let note = self.note {
-			json["note"] = note.map() { $0.asJSON() }
+			json["note"] = note.map() { $0.asJSON(with: options) }
 		}
 		if let owner = self.owner {
-			json["owner"] = owner.asJSON()
+			json["owner"] = owner.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let udi = self.udi {
-			json["udi"] = udi.asJSON()
+			json["udi"] = udi.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json

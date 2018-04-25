@@ -70,21 +70,21 @@ public class Timing: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let event = self.event {
 			var arr = [Any]()
 			for val in event {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["event"] = arr
 		}
 		if let repeat_fhir = self.repeat_fhir {
-			json["repeat"] = repeat_fhir.asJSON()
+			json["repeat"] = repeat_fhir.asJSON(with: options)
 		}
 		
 		return json
@@ -271,47 +271,47 @@ public class TimingRepeat: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let boundsPeriod = self.boundsPeriod {
-			json["boundsPeriod"] = boundsPeriod.asJSON()
+			json["boundsPeriod"] = boundsPeriod.asJSON(with: options)
 		}
 		if let boundsQuantity = self.boundsQuantity {
-			json["boundsQuantity"] = boundsQuantity.asJSON()
+			json["boundsQuantity"] = boundsQuantity.asJSON(with: options)
 		}
 		if let boundsRange = self.boundsRange {
-			json["boundsRange"] = boundsRange.asJSON()
+			json["boundsRange"] = boundsRange.asJSON(with: options)
 		}
 		if let count = self.count {
-			json["count"] = count.asJSON()
+			json["count"] = count.asJSON(with: options)
 		}
 		if let duration = self.duration {
-			json["duration"] = duration.asJSON()
+			json["duration"] = duration.asJSON(with: options)
 		}
 		if let durationMax = self.durationMax {
-			json["durationMax"] = durationMax.asJSON()
+			json["durationMax"] = durationMax.asJSON(with: options)
 		}
 		if let durationUnits = self.durationUnits {
-			json["durationUnits"] = durationUnits.asJSON()
+			json["durationUnits"] = durationUnits.asJSON(with: options)
 		}
 		if let frequency = self.frequency {
-			json["frequency"] = frequency.asJSON()
+			json["frequency"] = frequency.asJSON(with: options)
 		}
 		if let frequencyMax = self.frequencyMax {
-			json["frequencyMax"] = frequencyMax.asJSON()
+			json["frequencyMax"] = frequencyMax.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let periodMax = self.periodMax {
-			json["periodMax"] = periodMax.asJSON()
+			json["periodMax"] = periodMax.asJSON(with: options)
 		}
 		if let periodUnits = self.periodUnits {
-			json["periodUnits"] = periodUnits.asJSON()
+			json["periodUnits"] = periodUnits.asJSON(with: options)
 		}
 		if let when = self.when {
-			json["when"] = when.asJSON()
+			json["when"] = when.asJSON(with: options)
 		}
 		
 		return json

@@ -170,38 +170,38 @@ public class DeviceComponent: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let languageCode = self.languageCode {
-			json["languageCode"] = languageCode.asJSON()
+			json["languageCode"] = languageCode.asJSON(with: options)
 		}
 		if let lastSystemChange = self.lastSystemChange {
-			json["lastSystemChange"] = lastSystemChange.asJSON()
+			json["lastSystemChange"] = lastSystemChange.asJSON(with: options)
 		}
 		if let measurementPrinciple = self.measurementPrinciple {
-			json["measurementPrinciple"] = measurementPrinciple.asJSON()
+			json["measurementPrinciple"] = measurementPrinciple.asJSON(with: options)
 		}
 		if let operationalStatus = self.operationalStatus {
-			json["operationalStatus"] = operationalStatus.map() { $0.asJSON() }
+			json["operationalStatus"] = operationalStatus.map() { $0.asJSON(with: options) }
 		}
 		if let parameterGroup = self.parameterGroup {
-			json["parameterGroup"] = parameterGroup.asJSON()
+			json["parameterGroup"] = parameterGroup.asJSON(with: options)
 		}
 		if let parent = self.parent {
-			json["parent"] = parent.asJSON()
+			json["parent"] = parent.asJSON(with: options)
 		}
 		if let productionSpecification = self.productionSpecification {
-			json["productionSpecification"] = productionSpecification.map() { $0.asJSON() }
+			json["productionSpecification"] = productionSpecification.map() { $0.asJSON(with: options) }
 		}
 		if let source = self.source {
-			json["source"] = source.asJSON()
+			json["source"] = source.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -268,17 +268,17 @@ public class DeviceComponentProductionSpecification: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let componentId = self.componentId {
-			json["componentId"] = componentId.asJSON()
+			json["componentId"] = componentId.asJSON(with: options)
 		}
 		if let productionSpec = self.productionSpec {
-			json["productionSpec"] = productionSpec.asJSON()
+			json["productionSpec"] = productionSpec.asJSON(with: options)
 		}
 		if let specType = self.specType {
-			json["specType"] = specType.asJSON()
+			json["specType"] = specType.asJSON(with: options)
 		}
 		
 		return json

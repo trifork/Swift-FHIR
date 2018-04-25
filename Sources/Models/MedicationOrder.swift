@@ -250,59 +250,59 @@ public class MedicationOrder: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let dateEnded = self.dateEnded {
-			json["dateEnded"] = dateEnded.asJSON()
+			json["dateEnded"] = dateEnded.asJSON(with: options)
 		}
 		if let dateWritten = self.dateWritten {
-			json["dateWritten"] = dateWritten.asJSON()
+			json["dateWritten"] = dateWritten.asJSON(with: options)
 		}
 		if let dispenseRequest = self.dispenseRequest {
-			json["dispenseRequest"] = dispenseRequest.asJSON()
+			json["dispenseRequest"] = dispenseRequest.asJSON(with: options)
 		}
 		if let dosageInstruction = self.dosageInstruction {
-			json["dosageInstruction"] = dosageInstruction.map() { $0.asJSON() }
+			json["dosageInstruction"] = dosageInstruction.map() { $0.asJSON(with: options) }
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let medicationCodeableConcept = self.medicationCodeableConcept {
-			json["medicationCodeableConcept"] = medicationCodeableConcept.asJSON()
+			json["medicationCodeableConcept"] = medicationCodeableConcept.asJSON(with: options)
 		}
 		if let medicationReference = self.medicationReference {
-			json["medicationReference"] = medicationReference.asJSON()
+			json["medicationReference"] = medicationReference.asJSON(with: options)
 		}
 		if let note = self.note {
-			json["note"] = note.asJSON()
+			json["note"] = note.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let prescriber = self.prescriber {
-			json["prescriber"] = prescriber.asJSON()
+			json["prescriber"] = prescriber.asJSON(with: options)
 		}
 		if let priorPrescription = self.priorPrescription {
-			json["priorPrescription"] = priorPrescription.asJSON()
+			json["priorPrescription"] = priorPrescription.asJSON(with: options)
 		}
 		if let reasonCodeableConcept = self.reasonCodeableConcept {
-			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON()
+			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON(with: options)
 		}
 		if let reasonEnded = self.reasonEnded {
-			json["reasonEnded"] = reasonEnded.asJSON()
+			json["reasonEnded"] = reasonEnded.asJSON(with: options)
 		}
 		if let reasonReference = self.reasonReference {
-			json["reasonReference"] = reasonReference.asJSON()
+			json["reasonReference"] = reasonReference.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let substitution = self.substitution {
-			json["substitution"] = substitution.asJSON()
+			json["substitution"] = substitution.asJSON(with: options)
 		}
 		
 		return json
@@ -408,26 +408,26 @@ public class MedicationOrderDispenseRequest: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let expectedSupplyDuration = self.expectedSupplyDuration {
-			json["expectedSupplyDuration"] = expectedSupplyDuration.asJSON()
+			json["expectedSupplyDuration"] = expectedSupplyDuration.asJSON(with: options)
 		}
 		if let medicationCodeableConcept = self.medicationCodeableConcept {
-			json["medicationCodeableConcept"] = medicationCodeableConcept.asJSON()
+			json["medicationCodeableConcept"] = medicationCodeableConcept.asJSON(with: options)
 		}
 		if let medicationReference = self.medicationReference {
-			json["medicationReference"] = medicationReference.asJSON()
+			json["medicationReference"] = medicationReference.asJSON(with: options)
 		}
 		if let numberOfRepeatsAllowed = self.numberOfRepeatsAllowed {
-			json["numberOfRepeatsAllowed"] = numberOfRepeatsAllowed.asJSON()
+			json["numberOfRepeatsAllowed"] = numberOfRepeatsAllowed.asJSON(with: options)
 		}
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		if let validityPeriod = self.validityPeriod {
-			json["validityPeriod"] = validityPeriod.asJSON()
+			json["validityPeriod"] = validityPeriod.asJSON(with: options)
 		}
 		
 		return json
@@ -626,50 +626,50 @@ public class MedicationOrderDosageInstruction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let additionalInstructions = self.additionalInstructions {
-			json["additionalInstructions"] = additionalInstructions.asJSON()
+			json["additionalInstructions"] = additionalInstructions.asJSON(with: options)
 		}
 		if let asNeededBoolean = self.asNeededBoolean {
-			json["asNeededBoolean"] = asNeededBoolean.asJSON()
+			json["asNeededBoolean"] = asNeededBoolean.asJSON(with: options)
 		}
 		if let asNeededCodeableConcept = self.asNeededCodeableConcept {
-			json["asNeededCodeableConcept"] = asNeededCodeableConcept.asJSON()
+			json["asNeededCodeableConcept"] = asNeededCodeableConcept.asJSON(with: options)
 		}
 		if let doseQuantity = self.doseQuantity {
-			json["doseQuantity"] = doseQuantity.asJSON()
+			json["doseQuantity"] = doseQuantity.asJSON(with: options)
 		}
 		if let doseRange = self.doseRange {
-			json["doseRange"] = doseRange.asJSON()
+			json["doseRange"] = doseRange.asJSON(with: options)
 		}
 		if let maxDosePerPeriod = self.maxDosePerPeriod {
-			json["maxDosePerPeriod"] = maxDosePerPeriod.asJSON()
+			json["maxDosePerPeriod"] = maxDosePerPeriod.asJSON(with: options)
 		}
 		if let method = self.method {
-			json["method"] = method.asJSON()
+			json["method"] = method.asJSON(with: options)
 		}
 		if let rateRange = self.rateRange {
-			json["rateRange"] = rateRange.asJSON()
+			json["rateRange"] = rateRange.asJSON(with: options)
 		}
 		if let rateRatio = self.rateRatio {
-			json["rateRatio"] = rateRatio.asJSON()
+			json["rateRatio"] = rateRatio.asJSON(with: options)
 		}
 		if let route = self.route {
-			json["route"] = route.asJSON()
+			json["route"] = route.asJSON(with: options)
 		}
 		if let siteCodeableConcept = self.siteCodeableConcept {
-			json["siteCodeableConcept"] = siteCodeableConcept.asJSON()
+			json["siteCodeableConcept"] = siteCodeableConcept.asJSON(with: options)
 		}
 		if let siteReference = self.siteReference {
-			json["siteReference"] = siteReference.asJSON()
+			json["siteReference"] = siteReference.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let timing = self.timing {
-			json["timing"] = timing.asJSON()
+			json["timing"] = timing.asJSON(with: options)
 		}
 		
 		return json
@@ -735,14 +735,14 @@ public class MedicationOrderSubstitution: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let reason = self.reason {
-			json["reason"] = reason.asJSON()
+			json["reason"] = reason.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

@@ -326,77 +326,77 @@ public class Procedure: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let bodySite = self.bodySite {
-			json["bodySite"] = bodySite.map() { $0.asJSON() }
+			json["bodySite"] = bodySite.map() { $0.asJSON(with: options) }
 		}
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let complication = self.complication {
-			json["complication"] = complication.map() { $0.asJSON() }
+			json["complication"] = complication.map() { $0.asJSON(with: options) }
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let focalDevice = self.focalDevice {
-			json["focalDevice"] = focalDevice.map() { $0.asJSON() }
+			json["focalDevice"] = focalDevice.map() { $0.asJSON(with: options) }
 		}
 		if let followUp = self.followUp {
-			json["followUp"] = followUp.map() { $0.asJSON() }
+			json["followUp"] = followUp.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let location = self.location {
-			json["location"] = location.asJSON()
+			json["location"] = location.asJSON(with: options)
 		}
 		if let notPerformed = self.notPerformed {
-			json["notPerformed"] = notPerformed.asJSON()
+			json["notPerformed"] = notPerformed.asJSON(with: options)
 		}
 		if let notes = self.notes {
-			json["notes"] = notes.map() { $0.asJSON() }
+			json["notes"] = notes.map() { $0.asJSON(with: options) }
 		}
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.asJSON()
+			json["outcome"] = outcome.asJSON(with: options)
 		}
 		if let performedDateTime = self.performedDateTime {
-			json["performedDateTime"] = performedDateTime.asJSON()
+			json["performedDateTime"] = performedDateTime.asJSON(with: options)
 		}
 		if let performedPeriod = self.performedPeriod {
-			json["performedPeriod"] = performedPeriod.asJSON()
+			json["performedPeriod"] = performedPeriod.asJSON(with: options)
 		}
 		if let performer = self.performer {
-			json["performer"] = performer.map() { $0.asJSON() }
+			json["performer"] = performer.map() { $0.asJSON(with: options) }
 		}
 		if let reasonCodeableConcept = self.reasonCodeableConcept {
-			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON()
+			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON(with: options)
 		}
 		if let reasonNotPerformed = self.reasonNotPerformed {
-			json["reasonNotPerformed"] = reasonNotPerformed.map() { $0.asJSON() }
+			json["reasonNotPerformed"] = reasonNotPerformed.map() { $0.asJSON(with: options) }
 		}
 		if let reasonReference = self.reasonReference {
-			json["reasonReference"] = reasonReference.asJSON()
+			json["reasonReference"] = reasonReference.asJSON(with: options)
 		}
 		if let report = self.report {
-			json["report"] = report.map() { $0.asJSON() }
+			json["report"] = report.map() { $0.asJSON(with: options) }
 		}
 		if let request = self.request {
-			json["request"] = request.asJSON()
+			json["request"] = request.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let used = self.used {
-			json["used"] = used.map() { $0.asJSON() }
+			json["used"] = used.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -461,14 +461,14 @@ public class ProcedureFocalDevice: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.asJSON()
+			json["action"] = action.asJSON(with: options)
 		}
 		if let manipulated = self.manipulated {
-			json["manipulated"] = manipulated.asJSON()
+			json["manipulated"] = manipulated.asJSON(with: options)
 		}
 		
 		return json
@@ -523,14 +523,14 @@ public class ProcedurePerformer: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let actor = self.actor {
-			json["actor"] = actor.asJSON()
+			json["actor"] = actor.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.asJSON()
+			json["role"] = role.asJSON(with: options)
 		}
 		
 		return json

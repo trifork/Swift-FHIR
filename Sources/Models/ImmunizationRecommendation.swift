@@ -82,17 +82,17 @@ public class ImmunizationRecommendation: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let recommendation = self.recommendation {
-			json["recommendation"] = recommendation.map() { $0.asJSON() }
+			json["recommendation"] = recommendation.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -234,32 +234,32 @@ public class ImmunizationRecommendationRecommendation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let dateCriterion = self.dateCriterion {
-			json["dateCriterion"] = dateCriterion.map() { $0.asJSON() }
+			json["dateCriterion"] = dateCriterion.map() { $0.asJSON(with: options) }
 		}
 		if let doseNumber = self.doseNumber {
-			json["doseNumber"] = doseNumber.asJSON()
+			json["doseNumber"] = doseNumber.asJSON(with: options)
 		}
 		if let forecastStatus = self.forecastStatus {
-			json["forecastStatus"] = forecastStatus.asJSON()
+			json["forecastStatus"] = forecastStatus.asJSON(with: options)
 		}
 		if let protocol_fhir = self.protocol_fhir {
-			json["protocol"] = protocol_fhir.asJSON()
+			json["protocol"] = protocol_fhir.asJSON(with: options)
 		}
 		if let supportingImmunization = self.supportingImmunization {
-			json["supportingImmunization"] = supportingImmunization.map() { $0.asJSON() }
+			json["supportingImmunization"] = supportingImmunization.map() { $0.asJSON(with: options) }
 		}
 		if let supportingPatientInformation = self.supportingPatientInformation {
-			json["supportingPatientInformation"] = supportingPatientInformation.map() { $0.asJSON() }
+			json["supportingPatientInformation"] = supportingPatientInformation.map() { $0.asJSON(with: options) }
 		}
 		if let vaccineCode = self.vaccineCode {
-			json["vaccineCode"] = vaccineCode.asJSON()
+			json["vaccineCode"] = vaccineCode.asJSON(with: options)
 		}
 		
 		return json
@@ -327,14 +327,14 @@ public class ImmunizationRecommendationRecommendationDateCriterion: BackboneElem
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -413,20 +413,20 @@ public class ImmunizationRecommendationRecommendationProtocol: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let authority = self.authority {
-			json["authority"] = authority.asJSON()
+			json["authority"] = authority.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let doseSequence = self.doseSequence {
-			json["doseSequence"] = doseSequence.asJSON()
+			json["doseSequence"] = doseSequence.asJSON(with: options)
 		}
 		if let series = self.series {
-			json["series"] = series.asJSON()
+			json["series"] = series.asJSON(with: options)
 		}
 		
 		return json

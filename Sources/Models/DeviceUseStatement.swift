@@ -190,48 +190,48 @@ public class DeviceUseStatement: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let bodySiteCodeableConcept = self.bodySiteCodeableConcept {
-			json["bodySiteCodeableConcept"] = bodySiteCodeableConcept.asJSON()
+			json["bodySiteCodeableConcept"] = bodySiteCodeableConcept.asJSON(with: options)
 		}
 		if let bodySiteReference = self.bodySiteReference {
-			json["bodySiteReference"] = bodySiteReference.asJSON()
+			json["bodySiteReference"] = bodySiteReference.asJSON(with: options)
 		}
 		if let device = self.device {
-			json["device"] = device.asJSON()
+			json["device"] = device.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let indication = self.indication {
-			json["indication"] = indication.map() { $0.asJSON() }
+			json["indication"] = indication.map() { $0.asJSON(with: options) }
 		}
 		if let notes = self.notes {
 			var arr = [Any]()
 			for val in notes {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["notes"] = arr
 		}
 		if let recordedOn = self.recordedOn {
-			json["recordedOn"] = recordedOn.asJSON()
+			json["recordedOn"] = recordedOn.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let timingDateTime = self.timingDateTime {
-			json["timingDateTime"] = timingDateTime.asJSON()
+			json["timingDateTime"] = timingDateTime.asJSON(with: options)
 		}
 		if let timingPeriod = self.timingPeriod {
-			json["timingPeriod"] = timingPeriod.asJSON()
+			json["timingPeriod"] = timingPeriod.asJSON(with: options)
 		}
 		if let timingTiming = self.timingTiming {
-			json["timingTiming"] = timingTiming.asJSON()
+			json["timingTiming"] = timingTiming.asJSON(with: options)
 		}
 		if let whenUsed = self.whenUsed {
-			json["whenUsed"] = whenUsed.asJSON()
+			json["whenUsed"] = whenUsed.asJSON(with: options)
 		}
 		
 		return json

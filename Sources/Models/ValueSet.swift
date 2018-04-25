@@ -269,65 +269,65 @@ public class ValueSet: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let codeSystem = self.codeSystem {
-			json["codeSystem"] = codeSystem.asJSON()
+			json["codeSystem"] = codeSystem.asJSON(with: options)
 		}
 		if let compose = self.compose {
-			json["compose"] = compose.asJSON()
+			json["compose"] = compose.asJSON(with: options)
 		}
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let copyright = self.copyright {
-			json["copyright"] = copyright.asJSON()
+			json["copyright"] = copyright.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let expansion = self.expansion {
-			json["expansion"] = expansion.asJSON()
+			json["expansion"] = expansion.asJSON(with: options)
 		}
 		if let experimental = self.experimental {
-			json["experimental"] = experimental.asJSON()
+			json["experimental"] = experimental.asJSON(with: options)
 		}
 		if let extensible = self.extensible {
-			json["extensible"] = extensible.asJSON()
+			json["extensible"] = extensible.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let immutable = self.immutable {
-			json["immutable"] = immutable.asJSON()
+			json["immutable"] = immutable.asJSON(with: options)
 		}
 		if let lockedDate = self.lockedDate {
-			json["lockedDate"] = lockedDate.asJSON()
+			json["lockedDate"] = lockedDate.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let requirements = self.requirements {
-			json["requirements"] = requirements.asJSON()
+			json["requirements"] = requirements.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let useContext = self.useContext {
-			json["useContext"] = useContext.map() { $0.asJSON() }
+			json["useContext"] = useContext.map() { $0.asJSON(with: options) }
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -420,20 +420,20 @@ public class ValueSetCodeSystem: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let caseSensitive = self.caseSensitive {
-			json["caseSensitive"] = caseSensitive.asJSON()
+			json["caseSensitive"] = caseSensitive.asJSON(with: options)
 		}
 		if let concept = self.concept {
-			json["concept"] = concept.map() { $0.asJSON() }
+			json["concept"] = concept.map() { $0.asJSON(with: options) }
 		}
 		if let system = self.system {
-			json["system"] = system.asJSON()
+			json["system"] = system.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -546,26 +546,26 @@ public class ValueSetCodeSystemConcept: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let abstract = self.abstract {
-			json["abstract"] = abstract.asJSON()
+			json["abstract"] = abstract.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let concept = self.concept {
-			json["concept"] = concept.map() { $0.asJSON() }
+			json["concept"] = concept.map() { $0.asJSON(with: options) }
 		}
 		if let definition = self.definition {
-			json["definition"] = definition.asJSON()
+			json["definition"] = definition.asJSON(with: options)
 		}
 		if let designation = self.designation {
-			json["designation"] = designation.map() { $0.asJSON() }
+			json["designation"] = designation.map() { $0.asJSON(with: options) }
 		}
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		
 		return json
@@ -642,17 +642,17 @@ public class ValueSetCodeSystemConceptDesignation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let language = self.language {
-			json["language"] = language.asJSON()
+			json["language"] = language.asJSON(with: options)
 		}
 		if let use = self.use {
-			json["use"] = use.asJSON()
+			json["use"] = use.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -720,21 +720,21 @@ public class ValueSetCompose: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let exclude = self.exclude {
-			json["exclude"] = exclude.map() { $0.asJSON() }
+			json["exclude"] = exclude.map() { $0.asJSON(with: options) }
 		}
 		if let import_fhir = self.import_fhir {
 			var arr = [Any]()
 			for val in import_fhir {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["import"] = arr
 		}
 		if let include = self.include {
-			json["include"] = include.map() { $0.asJSON() }
+			json["include"] = include.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -820,20 +820,20 @@ public class ValueSetComposeInclude: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let concept = self.concept {
-			json["concept"] = concept.map() { $0.asJSON() }
+			json["concept"] = concept.map() { $0.asJSON(with: options) }
 		}
 		if let filter = self.filter {
-			json["filter"] = filter.map() { $0.asJSON() }
+			json["filter"] = filter.map() { $0.asJSON(with: options) }
 		}
 		if let system = self.system {
-			json["system"] = system.asJSON()
+			json["system"] = system.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -909,17 +909,17 @@ public class ValueSetComposeIncludeConcept: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let designation = self.designation {
-			json["designation"] = designation.map() { $0.asJSON() }
+			json["designation"] = designation.map() { $0.asJSON(with: options) }
 		}
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		
 		return json
@@ -1004,17 +1004,17 @@ public class ValueSetComposeIncludeFilter: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let op = self.op {
-			json["op"] = op.asJSON()
+			json["op"] = op.asJSON(with: options)
 		}
 		if let property = self.property {
-			json["property"] = property.asJSON()
+			json["property"] = property.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -1069,14 +1069,14 @@ public class ValueSetContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -1193,26 +1193,26 @@ public class ValueSetExpansion: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contains = self.contains {
-			json["contains"] = contains.map() { $0.asJSON() }
+			json["contains"] = contains.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let offset = self.offset {
-			json["offset"] = offset.asJSON()
+			json["offset"] = offset.asJSON(with: options)
 		}
 		if let parameter = self.parameter {
-			json["parameter"] = parameter.map() { $0.asJSON() }
+			json["parameter"] = parameter.map() { $0.asJSON(with: options) }
 		}
 		if let timestamp = self.timestamp {
-			json["timestamp"] = timestamp.asJSON()
+			json["timestamp"] = timestamp.asJSON(with: options)
 		}
 		if let total = self.total {
-			json["total"] = total.asJSON()
+			json["total"] = total.asJSON(with: options)
 		}
 		
 		return json
@@ -1315,26 +1315,26 @@ public class ValueSetExpansionContains: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let abstract = self.abstract {
-			json["abstract"] = abstract.asJSON()
+			json["abstract"] = abstract.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let contains = self.contains {
-			json["contains"] = contains.map() { $0.asJSON() }
+			json["contains"] = contains.map() { $0.asJSON(with: options) }
 		}
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		if let system = self.system {
-			json["system"] = system.asJSON()
+			json["system"] = system.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -1459,29 +1459,29 @@ public class ValueSetExpansionParameter: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let valueBoolean = self.valueBoolean {
-			json["valueBoolean"] = valueBoolean.asJSON()
+			json["valueBoolean"] = valueBoolean.asJSON(with: options)
 		}
 		if let valueCode = self.valueCode {
-			json["valueCode"] = valueCode.asJSON()
+			json["valueCode"] = valueCode.asJSON(with: options)
 		}
 		if let valueDecimal = self.valueDecimal {
-			json["valueDecimal"] = valueDecimal.asJSON()
+			json["valueDecimal"] = valueDecimal.asJSON(with: options)
 		}
 		if let valueInteger = self.valueInteger {
-			json["valueInteger"] = valueInteger.asJSON()
+			json["valueInteger"] = valueInteger.asJSON(with: options)
 		}
 		if let valueString = self.valueString {
-			json["valueString"] = valueString.asJSON()
+			json["valueString"] = valueString.asJSON(with: options)
 		}
 		if let valueUri = self.valueUri {
-			json["valueUri"] = valueUri.asJSON()
+			json["valueUri"] = valueUri.asJSON(with: options)
 		}
 		
 		return json

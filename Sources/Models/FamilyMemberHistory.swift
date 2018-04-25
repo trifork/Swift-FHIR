@@ -290,68 +290,68 @@ public class FamilyMemberHistory: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let ageQuantity = self.ageQuantity {
-			json["ageQuantity"] = ageQuantity.asJSON()
+			json["ageQuantity"] = ageQuantity.asJSON(with: options)
 		}
 		if let ageRange = self.ageRange {
-			json["ageRange"] = ageRange.asJSON()
+			json["ageRange"] = ageRange.asJSON(with: options)
 		}
 		if let ageString = self.ageString {
-			json["ageString"] = ageString.asJSON()
+			json["ageString"] = ageString.asJSON(with: options)
 		}
 		if let bornDate = self.bornDate {
-			json["bornDate"] = bornDate.asJSON()
+			json["bornDate"] = bornDate.asJSON(with: options)
 		}
 		if let bornPeriod = self.bornPeriod {
-			json["bornPeriod"] = bornPeriod.asJSON()
+			json["bornPeriod"] = bornPeriod.asJSON(with: options)
 		}
 		if let bornString = self.bornString {
-			json["bornString"] = bornString.asJSON()
+			json["bornString"] = bornString.asJSON(with: options)
 		}
 		if let condition = self.condition {
-			json["condition"] = condition.map() { $0.asJSON() }
+			json["condition"] = condition.map() { $0.asJSON(with: options) }
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let deceasedBoolean = self.deceasedBoolean {
-			json["deceasedBoolean"] = deceasedBoolean.asJSON()
+			json["deceasedBoolean"] = deceasedBoolean.asJSON(with: options)
 		}
 		if let deceasedDate = self.deceasedDate {
-			json["deceasedDate"] = deceasedDate.asJSON()
+			json["deceasedDate"] = deceasedDate.asJSON(with: options)
 		}
 		if let deceasedQuantity = self.deceasedQuantity {
-			json["deceasedQuantity"] = deceasedQuantity.asJSON()
+			json["deceasedQuantity"] = deceasedQuantity.asJSON(with: options)
 		}
 		if let deceasedRange = self.deceasedRange {
-			json["deceasedRange"] = deceasedRange.asJSON()
+			json["deceasedRange"] = deceasedRange.asJSON(with: options)
 		}
 		if let deceasedString = self.deceasedString {
-			json["deceasedString"] = deceasedString.asJSON()
+			json["deceasedString"] = deceasedString.asJSON(with: options)
 		}
 		if let gender = self.gender {
-			json["gender"] = gender.asJSON()
+			json["gender"] = gender.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let note = self.note {
-			json["note"] = note.asJSON()
+			json["note"] = note.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let relationship = self.relationship {
-			json["relationship"] = relationship.asJSON()
+			json["relationship"] = relationship.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		
 		return json
@@ -477,29 +477,29 @@ public class FamilyMemberHistoryCondition: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let note = self.note {
-			json["note"] = note.asJSON()
+			json["note"] = note.asJSON(with: options)
 		}
 		if let onsetPeriod = self.onsetPeriod {
-			json["onsetPeriod"] = onsetPeriod.asJSON()
+			json["onsetPeriod"] = onsetPeriod.asJSON(with: options)
 		}
 		if let onsetQuantity = self.onsetQuantity {
-			json["onsetQuantity"] = onsetQuantity.asJSON()
+			json["onsetQuantity"] = onsetQuantity.asJSON(with: options)
 		}
 		if let onsetRange = self.onsetRange {
-			json["onsetRange"] = onsetRange.asJSON()
+			json["onsetRange"] = onsetRange.asJSON(with: options)
 		}
 		if let onsetString = self.onsetString {
-			json["onsetString"] = onsetString.asJSON()
+			json["onsetString"] = onsetString.asJSON(with: options)
 		}
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.asJSON()
+			json["outcome"] = outcome.asJSON(with: options)
 		}
 		
 		return json

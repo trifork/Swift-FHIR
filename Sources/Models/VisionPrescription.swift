@@ -128,32 +128,32 @@ public class VisionPrescription: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let dateWritten = self.dateWritten {
-			json["dateWritten"] = dateWritten.asJSON()
+			json["dateWritten"] = dateWritten.asJSON(with: options)
 		}
 		if let dispense = self.dispense {
-			json["dispense"] = dispense.map() { $0.asJSON() }
+			json["dispense"] = dispense.map() { $0.asJSON(with: options) }
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let prescriber = self.prescriber {
-			json["prescriber"] = prescriber.asJSON()
+			json["prescriber"] = prescriber.asJSON(with: options)
 		}
 		if let reasonCodeableConcept = self.reasonCodeableConcept {
-			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON()
+			json["reasonCodeableConcept"] = reasonCodeableConcept.asJSON(with: options)
 		}
 		if let reasonReference = self.reasonReference {
-			json["reasonReference"] = reasonReference.asJSON()
+			json["reasonReference"] = reasonReference.asJSON(with: options)
 		}
 		
 		return json
@@ -373,53 +373,53 @@ public class VisionPrescriptionDispense: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let add = self.add {
-			json["add"] = add.asJSON()
+			json["add"] = add.asJSON(with: options)
 		}
 		if let axis = self.axis {
-			json["axis"] = axis.asJSON()
+			json["axis"] = axis.asJSON(with: options)
 		}
 		if let backCurve = self.backCurve {
-			json["backCurve"] = backCurve.asJSON()
+			json["backCurve"] = backCurve.asJSON(with: options)
 		}
 		if let base = self.base {
-			json["base"] = base.asJSON()
+			json["base"] = base.asJSON(with: options)
 		}
 		if let brand = self.brand {
-			json["brand"] = brand.asJSON()
+			json["brand"] = brand.asJSON(with: options)
 		}
 		if let color = self.color {
-			json["color"] = color.asJSON()
+			json["color"] = color.asJSON(with: options)
 		}
 		if let cylinder = self.cylinder {
-			json["cylinder"] = cylinder.asJSON()
+			json["cylinder"] = cylinder.asJSON(with: options)
 		}
 		if let diameter = self.diameter {
-			json["diameter"] = diameter.asJSON()
+			json["diameter"] = diameter.asJSON(with: options)
 		}
 		if let duration = self.duration {
-			json["duration"] = duration.asJSON()
+			json["duration"] = duration.asJSON(with: options)
 		}
 		if let eye = self.eye {
-			json["eye"] = eye.asJSON()
+			json["eye"] = eye.asJSON(with: options)
 		}
 		if let notes = self.notes {
-			json["notes"] = notes.asJSON()
+			json["notes"] = notes.asJSON(with: options)
 		}
 		if let power = self.power {
-			json["power"] = power.asJSON()
+			json["power"] = power.asJSON(with: options)
 		}
 		if let prism = self.prism {
-			json["prism"] = prism.asJSON()
+			json["prism"] = prism.asJSON(with: options)
 		}
 		if let product = self.product {
-			json["product"] = product.asJSON()
+			json["product"] = product.asJSON(with: options)
 		}
 		if let sphere = self.sphere {
-			json["sphere"] = sphere.asJSON()
+			json["sphere"] = sphere.asJSON(with: options)
 		}
 		
 		return json

@@ -53,11 +53,11 @@ public class OperationOutcome: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let issue = self.issue {
-			json["issue"] = issue.map() { $0.asJSON() }
+			json["issue"] = issue.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -161,27 +161,27 @@ public class OperationOutcomeIssue: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let details = self.details {
-			json["details"] = details.asJSON()
+			json["details"] = details.asJSON(with: options)
 		}
 		if let diagnostics = self.diagnostics {
-			json["diagnostics"] = diagnostics.asJSON()
+			json["diagnostics"] = diagnostics.asJSON(with: options)
 		}
 		if let location = self.location {
 			var arr = [Any]()
 			for val in location {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["location"] = arr
 		}
 		if let severity = self.severity {
-			json["severity"] = severity.asJSON()
+			json["severity"] = severity.asJSON(with: options)
 		}
 		
 		return json

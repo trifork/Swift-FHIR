@@ -93,23 +93,23 @@ public class Quantity: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let comparator = self.comparator {
-			json["comparator"] = comparator.asJSON()
+			json["comparator"] = comparator.asJSON(with: options)
 		}
 		if let system = self.system {
-			json["system"] = system.asJSON()
+			json["system"] = system.asJSON(with: options)
 		}
 		if let unit = self.unit {
-			json["unit"] = unit.asJSON()
+			json["unit"] = unit.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json

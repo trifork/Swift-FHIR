@@ -150,35 +150,35 @@ public class QuestionnaireResponse: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let author = self.author {
-			json["author"] = author.asJSON()
+			json["author"] = author.asJSON(with: options)
 		}
 		if let authored = self.authored {
-			json["authored"] = authored.asJSON()
+			json["authored"] = authored.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let group = self.group {
-			json["group"] = group.asJSON()
+			json["group"] = group.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let questionnaire = self.questionnaire {
-			json["questionnaire"] = questionnaire.asJSON()
+			json["questionnaire"] = questionnaire.asJSON(with: options)
 		}
 		if let source = self.source {
-			json["source"] = source.asJSON()
+			json["source"] = source.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		
 		return json
@@ -281,26 +281,26 @@ public class QuestionnaireResponseGroup: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let group = self.group {
-			json["group"] = group.map() { $0.asJSON() }
+			json["group"] = group.map() { $0.asJSON(with: options) }
 		}
 		if let linkId = self.linkId {
-			json["linkId"] = linkId.asJSON()
+			json["linkId"] = linkId.asJSON(with: options)
 		}
 		if let question = self.question {
-			json["question"] = question.map() { $0.asJSON() }
+			json["question"] = question.map() { $0.asJSON(with: options) }
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		
 		return json
@@ -367,17 +367,17 @@ public class QuestionnaireResponseGroupQuestion: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let answer = self.answer {
-			json["answer"] = answer.map() { $0.asJSON() }
+			json["answer"] = answer.map() { $0.asJSON(with: options) }
 		}
 		if let linkId = self.linkId {
-			json["linkId"] = linkId.asJSON()
+			json["linkId"] = linkId.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		
 		return json
@@ -576,50 +576,50 @@ public class QuestionnaireResponseGroupQuestionAnswer: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let group = self.group {
-			json["group"] = group.map() { $0.asJSON() }
+			json["group"] = group.map() { $0.asJSON(with: options) }
 		}
 		if let valueAttachment = self.valueAttachment {
-			json["valueAttachment"] = valueAttachment.asJSON()
+			json["valueAttachment"] = valueAttachment.asJSON(with: options)
 		}
 		if let valueBoolean = self.valueBoolean {
-			json["valueBoolean"] = valueBoolean.asJSON()
+			json["valueBoolean"] = valueBoolean.asJSON(with: options)
 		}
 		if let valueCoding = self.valueCoding {
-			json["valueCoding"] = valueCoding.asJSON()
+			json["valueCoding"] = valueCoding.asJSON(with: options)
 		}
 		if let valueDate = self.valueDate {
-			json["valueDate"] = valueDate.asJSON()
+			json["valueDate"] = valueDate.asJSON(with: options)
 		}
 		if let valueDateTime = self.valueDateTime {
-			json["valueDateTime"] = valueDateTime.asJSON()
+			json["valueDateTime"] = valueDateTime.asJSON(with: options)
 		}
 		if let valueDecimal = self.valueDecimal {
-			json["valueDecimal"] = valueDecimal.asJSON()
+			json["valueDecimal"] = valueDecimal.asJSON(with: options)
 		}
 		if let valueInstant = self.valueInstant {
-			json["valueInstant"] = valueInstant.asJSON()
+			json["valueInstant"] = valueInstant.asJSON(with: options)
 		}
 		if let valueInteger = self.valueInteger {
-			json["valueInteger"] = valueInteger.asJSON()
+			json["valueInteger"] = valueInteger.asJSON(with: options)
 		}
 		if let valueQuantity = self.valueQuantity {
-			json["valueQuantity"] = valueQuantity.asJSON()
+			json["valueQuantity"] = valueQuantity.asJSON(with: options)
 		}
 		if let valueReference = self.valueReference {
-			json["valueReference"] = valueReference.asJSON()
+			json["valueReference"] = valueReference.asJSON(with: options)
 		}
 		if let valueString = self.valueString {
-			json["valueString"] = valueString.asJSON()
+			json["valueString"] = valueString.asJSON(with: options)
 		}
 		if let valueTime = self.valueTime {
-			json["valueTime"] = valueTime.asJSON()
+			json["valueTime"] = valueTime.asJSON(with: options)
 		}
 		if let valueUri = self.valueUri {
-			json["valueUri"] = valueUri.asJSON()
+			json["valueUri"] = valueUri.asJSON(with: options)
 		}
 		
 		return json

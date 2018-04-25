@@ -260,65 +260,65 @@ public class Contract: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.map() { $0.asJSON() }
+			json["action"] = action.map() { $0.asJSON(with: options) }
 		}
 		if let actionReason = self.actionReason {
-			json["actionReason"] = actionReason.map() { $0.asJSON() }
+			json["actionReason"] = actionReason.map() { $0.asJSON(with: options) }
 		}
 		if let actor = self.actor {
-			json["actor"] = actor.map() { $0.asJSON() }
+			json["actor"] = actor.map() { $0.asJSON(with: options) }
 		}
 		if let applies = self.applies {
-			json["applies"] = applies.asJSON()
+			json["applies"] = applies.asJSON(with: options)
 		}
 		if let authority = self.authority {
-			json["authority"] = authority.map() { $0.asJSON() }
+			json["authority"] = authority.map() { $0.asJSON(with: options) }
 		}
 		if let bindingAttachment = self.bindingAttachment {
-			json["bindingAttachment"] = bindingAttachment.asJSON()
+			json["bindingAttachment"] = bindingAttachment.asJSON(with: options)
 		}
 		if let bindingReference = self.bindingReference {
-			json["bindingReference"] = bindingReference.asJSON()
+			json["bindingReference"] = bindingReference.asJSON(with: options)
 		}
 		if let domain = self.domain {
-			json["domain"] = domain.map() { $0.asJSON() }
+			json["domain"] = domain.map() { $0.asJSON(with: options) }
 		}
 		if let friendly = self.friendly {
-			json["friendly"] = friendly.map() { $0.asJSON() }
+			json["friendly"] = friendly.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let issued = self.issued {
-			json["issued"] = issued.asJSON()
+			json["issued"] = issued.asJSON(with: options)
 		}
 		if let legal = self.legal {
-			json["legal"] = legal.map() { $0.asJSON() }
+			json["legal"] = legal.map() { $0.asJSON(with: options) }
 		}
 		if let rule = self.rule {
-			json["rule"] = rule.map() { $0.asJSON() }
+			json["rule"] = rule.map() { $0.asJSON(with: options) }
 		}
 		if let signer = self.signer {
-			json["signer"] = signer.map() { $0.asJSON() }
+			json["signer"] = signer.map() { $0.asJSON(with: options) }
 		}
 		if let subType = self.subType {
-			json["subType"] = subType.map() { $0.asJSON() }
+			json["subType"] = subType.map() { $0.asJSON(with: options) }
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.map() { $0.asJSON() }
+			json["subject"] = subject.map() { $0.asJSON(with: options) }
 		}
 		if let term = self.term {
-			json["term"] = term.map() { $0.asJSON() }
+			json["term"] = term.map() { $0.asJSON(with: options) }
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let valuedItem = self.valuedItem {
-			json["valuedItem"] = valuedItem.map() { $0.asJSON() }
+			json["valuedItem"] = valuedItem.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -382,14 +382,14 @@ public class ContractActor: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let entity = self.entity {
-			json["entity"] = entity.asJSON()
+			json["entity"] = entity.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.map() { $0.asJSON() }
+			json["role"] = role.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -459,14 +459,14 @@ public class ContractFriendly: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contentAttachment = self.contentAttachment {
-			json["contentAttachment"] = contentAttachment.asJSON()
+			json["contentAttachment"] = contentAttachment.asJSON(with: options)
 		}
 		if let contentReference = self.contentReference {
-			json["contentReference"] = contentReference.asJSON()
+			json["contentReference"] = contentReference.asJSON(with: options)
 		}
 		
 		return json
@@ -533,14 +533,14 @@ public class ContractLegal: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contentAttachment = self.contentAttachment {
-			json["contentAttachment"] = contentAttachment.asJSON()
+			json["contentAttachment"] = contentAttachment.asJSON(with: options)
 		}
 		if let contentReference = self.contentReference {
-			json["contentReference"] = contentReference.asJSON()
+			json["contentReference"] = contentReference.asJSON(with: options)
 		}
 		
 		return json
@@ -607,14 +607,14 @@ public class ContractRule: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contentAttachment = self.contentAttachment {
-			json["contentAttachment"] = contentAttachment.asJSON()
+			json["contentAttachment"] = contentAttachment.asJSON(with: options)
 		}
 		if let contentReference = self.contentReference {
-			json["contentReference"] = contentReference.asJSON()
+			json["contentReference"] = contentReference.asJSON(with: options)
 		}
 		
 		return json
@@ -698,17 +698,17 @@ public class ContractSigner: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let party = self.party {
-			json["party"] = party.asJSON()
+			json["party"] = party.asJSON(with: options)
 		}
 		if let signature = self.signature {
-			json["signature"] = signature.asJSON()
+			json["signature"] = signature.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -883,44 +883,44 @@ public class ContractTerm: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
-			json["action"] = action.map() { $0.asJSON() }
+			json["action"] = action.map() { $0.asJSON(with: options) }
 		}
 		if let actionReason = self.actionReason {
-			json["actionReason"] = actionReason.map() { $0.asJSON() }
+			json["actionReason"] = actionReason.map() { $0.asJSON(with: options) }
 		}
 		if let actor = self.actor {
-			json["actor"] = actor.map() { $0.asJSON() }
+			json["actor"] = actor.map() { $0.asJSON(with: options) }
 		}
 		if let applies = self.applies {
-			json["applies"] = applies.asJSON()
+			json["applies"] = applies.asJSON(with: options)
 		}
 		if let group = self.group {
-			json["group"] = group.map() { $0.asJSON() }
+			json["group"] = group.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let issued = self.issued {
-			json["issued"] = issued.asJSON()
+			json["issued"] = issued.asJSON(with: options)
 		}
 		if let subType = self.subType {
-			json["subType"] = subType.asJSON()
+			json["subType"] = subType.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let valuedItem = self.valuedItem {
-			json["valuedItem"] = valuedItem.map() { $0.asJSON() }
+			json["valuedItem"] = valuedItem.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -984,14 +984,14 @@ public class ContractTermActor: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let entity = self.entity {
-			json["entity"] = entity.asJSON()
+			json["entity"] = entity.asJSON(with: options)
 		}
 		if let role = self.role {
-			json["role"] = role.map() { $0.asJSON() }
+			json["role"] = role.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -1130,35 +1130,35 @@ public class ContractTermValuedItem: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let effectiveTime = self.effectiveTime {
-			json["effectiveTime"] = effectiveTime.asJSON()
+			json["effectiveTime"] = effectiveTime.asJSON(with: options)
 		}
 		if let entityCodeableConcept = self.entityCodeableConcept {
-			json["entityCodeableConcept"] = entityCodeableConcept.asJSON()
+			json["entityCodeableConcept"] = entityCodeableConcept.asJSON(with: options)
 		}
 		if let entityReference = self.entityReference {
-			json["entityReference"] = entityReference.asJSON()
+			json["entityReference"] = entityReference.asJSON(with: options)
 		}
 		if let factor = self.factor {
-			json["factor"] = factor.asJSON()
+			json["factor"] = factor.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let net = self.net {
-			json["net"] = net.asJSON()
+			json["net"] = net.asJSON(with: options)
 		}
 		if let points = self.points {
-			json["points"] = points.asJSON()
+			json["points"] = points.asJSON(with: options)
 		}
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		if let unitPrice = self.unitPrice {
-			json["unitPrice"] = unitPrice.asJSON()
+			json["unitPrice"] = unitPrice.asJSON(with: options)
 		}
 		
 		return json
@@ -1297,35 +1297,35 @@ public class ContractValuedItem: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let effectiveTime = self.effectiveTime {
-			json["effectiveTime"] = effectiveTime.asJSON()
+			json["effectiveTime"] = effectiveTime.asJSON(with: options)
 		}
 		if let entityCodeableConcept = self.entityCodeableConcept {
-			json["entityCodeableConcept"] = entityCodeableConcept.asJSON()
+			json["entityCodeableConcept"] = entityCodeableConcept.asJSON(with: options)
 		}
 		if let entityReference = self.entityReference {
-			json["entityReference"] = entityReference.asJSON()
+			json["entityReference"] = entityReference.asJSON(with: options)
 		}
 		if let factor = self.factor {
-			json["factor"] = factor.asJSON()
+			json["factor"] = factor.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let net = self.net {
-			json["net"] = net.asJSON()
+			json["net"] = net.asJSON(with: options)
 		}
 		if let points = self.points {
-			json["points"] = points.asJSON()
+			json["points"] = points.asJSON(with: options)
 		}
 		if let quantity = self.quantity {
-			json["quantity"] = quantity.asJSON()
+			json["quantity"] = quantity.asJSON(with: options)
 		}
 		if let unitPrice = self.unitPrice {
-			json["unitPrice"] = unitPrice.asJSON()
+			json["unitPrice"] = unitPrice.asJSON(with: options)
 		}
 		
 		return json

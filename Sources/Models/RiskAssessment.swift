@@ -152,38 +152,38 @@ public class RiskAssessment: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let basis = self.basis {
-			json["basis"] = basis.map() { $0.asJSON() }
+			json["basis"] = basis.map() { $0.asJSON(with: options) }
 		}
 		if let condition = self.condition {
-			json["condition"] = condition.asJSON()
+			json["condition"] = condition.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.asJSON()
+			json["identifier"] = identifier.asJSON(with: options)
 		}
 		if let method = self.method {
-			json["method"] = method.asJSON()
+			json["method"] = method.asJSON(with: options)
 		}
 		if let mitigation = self.mitigation {
-			json["mitigation"] = mitigation.asJSON()
+			json["mitigation"] = mitigation.asJSON(with: options)
 		}
 		if let performer = self.performer {
-			json["performer"] = performer.asJSON()
+			json["performer"] = performer.asJSON(with: options)
 		}
 		if let prediction = self.prediction {
-			json["prediction"] = prediction.map() { $0.asJSON() }
+			json["prediction"] = prediction.map() { $0.asJSON(with: options) }
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		
 		return json
@@ -319,32 +319,32 @@ public class RiskAssessmentPrediction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.asJSON()
+			json["outcome"] = outcome.asJSON(with: options)
 		}
 		if let probabilityCodeableConcept = self.probabilityCodeableConcept {
-			json["probabilityCodeableConcept"] = probabilityCodeableConcept.asJSON()
+			json["probabilityCodeableConcept"] = probabilityCodeableConcept.asJSON(with: options)
 		}
 		if let probabilityDecimal = self.probabilityDecimal {
-			json["probabilityDecimal"] = probabilityDecimal.asJSON()
+			json["probabilityDecimal"] = probabilityDecimal.asJSON(with: options)
 		}
 		if let probabilityRange = self.probabilityRange {
-			json["probabilityRange"] = probabilityRange.asJSON()
+			json["probabilityRange"] = probabilityRange.asJSON(with: options)
 		}
 		if let rationale = self.rationale {
-			json["rationale"] = rationale.asJSON()
+			json["rationale"] = rationale.asJSON(with: options)
 		}
 		if let relativeRisk = self.relativeRisk {
-			json["relativeRisk"] = relativeRisk.asJSON()
+			json["relativeRisk"] = relativeRisk.asJSON(with: options)
 		}
 		if let whenPeriod = self.whenPeriod {
-			json["whenPeriod"] = whenPeriod.asJSON()
+			json["whenPeriod"] = whenPeriod.asJSON(with: options)
 		}
 		if let whenRange = self.whenRange {
-			json["whenRange"] = whenRange.asJSON()
+			json["whenRange"] = whenRange.asJSON(with: options)
 		}
 		
 		return json

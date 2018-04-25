@@ -56,14 +56,14 @@ public class Range: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let high = self.high {
-			json["high"] = high.asJSON()
+			json["high"] = high.asJSON(with: options)
 		}
 		if let low = self.low {
-			json["low"] = low.asJSON()
+			json["low"] = low.asJSON(with: options)
 		}
 		
 		return json

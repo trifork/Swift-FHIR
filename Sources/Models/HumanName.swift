@@ -116,45 +116,45 @@ public class HumanName: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let family = self.family {
 			var arr = [Any]()
 			for val in family {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["family"] = arr
 		}
 		if let given = self.given {
 			var arr = [Any]()
 			for val in given {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["given"] = arr
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let prefix = self.prefix {
 			var arr = [Any]()
 			for val in prefix {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["prefix"] = arr
 		}
 		if let suffix = self.suffix {
 			var arr = [Any]()
 			for val in suffix {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["suffix"] = arr
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let use = self.use {
-			json["use"] = use.asJSON()
+			json["use"] = use.asJSON(with: options)
 		}
 		
 		return json

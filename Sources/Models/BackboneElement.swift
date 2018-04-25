@@ -44,11 +44,11 @@ public class BackboneElement: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let modifierExtension = self.modifierExtension {
-			json["modifierExtension"] = modifierExtension.map() { $0.asJSON() }
+			json["modifierExtension"] = modifierExtension.map() { $0.asJSON(with: options) }
 		}
 		
 		return json

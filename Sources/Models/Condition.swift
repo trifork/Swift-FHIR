@@ -351,83 +351,83 @@ public class Condition: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let abatementBoolean = self.abatementBoolean {
-			json["abatementBoolean"] = abatementBoolean.asJSON()
+			json["abatementBoolean"] = abatementBoolean.asJSON(with: options)
 		}
 		if let abatementDateTime = self.abatementDateTime {
-			json["abatementDateTime"] = abatementDateTime.asJSON()
+			json["abatementDateTime"] = abatementDateTime.asJSON(with: options)
 		}
 		if let abatementPeriod = self.abatementPeriod {
-			json["abatementPeriod"] = abatementPeriod.asJSON()
+			json["abatementPeriod"] = abatementPeriod.asJSON(with: options)
 		}
 		if let abatementQuantity = self.abatementQuantity {
-			json["abatementQuantity"] = abatementQuantity.asJSON()
+			json["abatementQuantity"] = abatementQuantity.asJSON(with: options)
 		}
 		if let abatementRange = self.abatementRange {
-			json["abatementRange"] = abatementRange.asJSON()
+			json["abatementRange"] = abatementRange.asJSON(with: options)
 		}
 		if let abatementString = self.abatementString {
-			json["abatementString"] = abatementString.asJSON()
+			json["abatementString"] = abatementString.asJSON(with: options)
 		}
 		if let asserter = self.asserter {
-			json["asserter"] = asserter.asJSON()
+			json["asserter"] = asserter.asJSON(with: options)
 		}
 		if let bodySite = self.bodySite {
-			json["bodySite"] = bodySite.map() { $0.asJSON() }
+			json["bodySite"] = bodySite.map() { $0.asJSON(with: options) }
 		}
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let clinicalStatus = self.clinicalStatus {
-			json["clinicalStatus"] = clinicalStatus.asJSON()
+			json["clinicalStatus"] = clinicalStatus.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let dateRecorded = self.dateRecorded {
-			json["dateRecorded"] = dateRecorded.asJSON()
+			json["dateRecorded"] = dateRecorded.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let evidence = self.evidence {
-			json["evidence"] = evidence.map() { $0.asJSON() }
+			json["evidence"] = evidence.map() { $0.asJSON(with: options) }
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let notes = self.notes {
-			json["notes"] = notes.asJSON()
+			json["notes"] = notes.asJSON(with: options)
 		}
 		if let onsetDateTime = self.onsetDateTime {
-			json["onsetDateTime"] = onsetDateTime.asJSON()
+			json["onsetDateTime"] = onsetDateTime.asJSON(with: options)
 		}
 		if let onsetPeriod = self.onsetPeriod {
-			json["onsetPeriod"] = onsetPeriod.asJSON()
+			json["onsetPeriod"] = onsetPeriod.asJSON(with: options)
 		}
 		if let onsetQuantity = self.onsetQuantity {
-			json["onsetQuantity"] = onsetQuantity.asJSON()
+			json["onsetQuantity"] = onsetQuantity.asJSON(with: options)
 		}
 		if let onsetRange = self.onsetRange {
-			json["onsetRange"] = onsetRange.asJSON()
+			json["onsetRange"] = onsetRange.asJSON(with: options)
 		}
 		if let onsetString = self.onsetString {
-			json["onsetString"] = onsetString.asJSON()
+			json["onsetString"] = onsetString.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let severity = self.severity {
-			json["severity"] = severity.asJSON()
+			json["severity"] = severity.asJSON(with: options)
 		}
 		if let stage = self.stage {
-			json["stage"] = stage.asJSON()
+			json["stage"] = stage.asJSON(with: options)
 		}
 		if let verificationStatus = self.verificationStatus {
-			json["verificationStatus"] = verificationStatus.asJSON()
+			json["verificationStatus"] = verificationStatus.asJSON(with: options)
 		}
 		
 		return json
@@ -482,14 +482,14 @@ public class ConditionEvidence: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.map() { $0.asJSON() }
+			json["detail"] = detail.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -544,14 +544,14 @@ public class ConditionStage: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let assessment = self.assessment {
-			json["assessment"] = assessment.map() { $0.asJSON() }
+			json["assessment"] = assessment.map() { $0.asJSON(with: options) }
 		}
 		if let summary = self.summary {
-			json["summary"] = summary.asJSON()
+			json["summary"] = summary.asJSON(with: options)
 		}
 		
 		return json

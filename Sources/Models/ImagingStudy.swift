@@ -248,56 +248,56 @@ public class ImagingStudy: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let accession = self.accession {
-			json["accession"] = accession.asJSON()
+			json["accession"] = accession.asJSON(with: options)
 		}
 		if let availability = self.availability {
-			json["availability"] = availability.asJSON()
+			json["availability"] = availability.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let interpreter = self.interpreter {
-			json["interpreter"] = interpreter.asJSON()
+			json["interpreter"] = interpreter.asJSON(with: options)
 		}
 		if let modalityList = self.modalityList {
-			json["modalityList"] = modalityList.map() { $0.asJSON() }
+			json["modalityList"] = modalityList.map() { $0.asJSON(with: options) }
 		}
 		if let numberOfInstances = self.numberOfInstances {
-			json["numberOfInstances"] = numberOfInstances.asJSON()
+			json["numberOfInstances"] = numberOfInstances.asJSON(with: options)
 		}
 		if let numberOfSeries = self.numberOfSeries {
-			json["numberOfSeries"] = numberOfSeries.asJSON()
+			json["numberOfSeries"] = numberOfSeries.asJSON(with: options)
 		}
 		if let order = self.order {
-			json["order"] = order.map() { $0.asJSON() }
+			json["order"] = order.map() { $0.asJSON(with: options) }
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let procedure = self.procedure {
-			json["procedure"] = procedure.map() { $0.asJSON() }
+			json["procedure"] = procedure.map() { $0.asJSON(with: options) }
 		}
 		if let referrer = self.referrer {
-			json["referrer"] = referrer.asJSON()
+			json["referrer"] = referrer.asJSON(with: options)
 		}
 		if let series = self.series {
-			json["series"] = series.map() { $0.asJSON() }
+			json["series"] = series.map() { $0.asJSON(with: options) }
 		}
 		if let started = self.started {
-			json["started"] = started.asJSON()
+			json["started"] = started.asJSON(with: options)
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -477,41 +477,41 @@ public class ImagingStudySeries: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let availability = self.availability {
-			json["availability"] = availability.asJSON()
+			json["availability"] = availability.asJSON(with: options)
 		}
 		if let bodySite = self.bodySite {
-			json["bodySite"] = bodySite.asJSON()
+			json["bodySite"] = bodySite.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let instance = self.instance {
-			json["instance"] = instance.map() { $0.asJSON() }
+			json["instance"] = instance.map() { $0.asJSON(with: options) }
 		}
 		if let laterality = self.laterality {
-			json["laterality"] = laterality.asJSON()
+			json["laterality"] = laterality.asJSON(with: options)
 		}
 		if let modality = self.modality {
-			json["modality"] = modality.asJSON()
+			json["modality"] = modality.asJSON(with: options)
 		}
 		if let number = self.number {
-			json["number"] = number.asJSON()
+			json["number"] = number.asJSON(with: options)
 		}
 		if let numberOfInstances = self.numberOfInstances {
-			json["numberOfInstances"] = numberOfInstances.asJSON()
+			json["numberOfInstances"] = numberOfInstances.asJSON(with: options)
 		}
 		if let started = self.started {
-			json["started"] = started.asJSON()
+			json["started"] = started.asJSON(with: options)
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -627,26 +627,26 @@ public class ImagingStudySeriesInstance: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let content = self.content {
-			json["content"] = content.map() { $0.asJSON() }
+			json["content"] = content.map() { $0.asJSON(with: options) }
 		}
 		if let number = self.number {
-			json["number"] = number.asJSON()
+			json["number"] = number.asJSON(with: options)
 		}
 		if let sopClass = self.sopClass {
-			json["sopClass"] = sopClass.asJSON()
+			json["sopClass"] = sopClass.asJSON(with: options)
 		}
 		if let title = self.title {
-			json["title"] = title.asJSON()
+			json["title"] = title.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let uid = self.uid {
-			json["uid"] = uid.asJSON()
+			json["uid"] = uid.asJSON(with: options)
 		}
 		
 		return json

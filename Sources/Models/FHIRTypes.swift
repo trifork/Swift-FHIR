@@ -16,6 +16,16 @@ public typealias FHIRJSON = [String: Any]
 
 
 /**
+Options to be respected when converting between FHIR objects and their JSON representations.
+*/
+public struct FHIRJSONOptions: OptionSet {
+    
+    public let rawValue: Int
+    public init(rawValue: Int) { self.rawValue = rawValue }
+}
+
+
+/**
 Data encoded as a base-64 string.
 */
 public struct Base64Binary: ExpressibleByStringLiteral, CustomStringConvertible, Equatable, Comparable {

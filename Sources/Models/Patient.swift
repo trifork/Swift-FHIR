@@ -261,65 +261,65 @@ public class Patient: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let active = self.active {
-			json["active"] = active.asJSON()
+			json["active"] = active.asJSON(with: options)
 		}
 		if let address = self.address {
-			json["address"] = address.map() { $0.asJSON() }
+			json["address"] = address.map() { $0.asJSON(with: options) }
 		}
 		if let animal = self.animal {
-			json["animal"] = animal.asJSON()
+			json["animal"] = animal.asJSON(with: options)
 		}
 		if let birthDate = self.birthDate {
-			json["birthDate"] = birthDate.asJSON()
+			json["birthDate"] = birthDate.asJSON(with: options)
 		}
 		if let careProvider = self.careProvider {
-			json["careProvider"] = careProvider.map() { $0.asJSON() }
+			json["careProvider"] = careProvider.map() { $0.asJSON(with: options) }
 		}
 		if let communication = self.communication {
-			json["communication"] = communication.map() { $0.asJSON() }
+			json["communication"] = communication.map() { $0.asJSON(with: options) }
 		}
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let deceasedBoolean = self.deceasedBoolean {
-			json["deceasedBoolean"] = deceasedBoolean.asJSON()
+			json["deceasedBoolean"] = deceasedBoolean.asJSON(with: options)
 		}
 		if let deceasedDateTime = self.deceasedDateTime {
-			json["deceasedDateTime"] = deceasedDateTime.asJSON()
+			json["deceasedDateTime"] = deceasedDateTime.asJSON(with: options)
 		}
 		if let gender = self.gender {
-			json["gender"] = gender.asJSON()
+			json["gender"] = gender.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let link = self.link {
-			json["link"] = link.map() { $0.asJSON() }
+			json["link"] = link.map() { $0.asJSON(with: options) }
 		}
 		if let managingOrganization = self.managingOrganization {
-			json["managingOrganization"] = managingOrganization.asJSON()
+			json["managingOrganization"] = managingOrganization.asJSON(with: options)
 		}
 		if let maritalStatus = self.maritalStatus {
-			json["maritalStatus"] = maritalStatus.asJSON()
+			json["maritalStatus"] = maritalStatus.asJSON(with: options)
 		}
 		if let multipleBirthBoolean = self.multipleBirthBoolean {
-			json["multipleBirthBoolean"] = multipleBirthBoolean.asJSON()
+			json["multipleBirthBoolean"] = multipleBirthBoolean.asJSON(with: options)
 		}
 		if let multipleBirthInteger = self.multipleBirthInteger {
-			json["multipleBirthInteger"] = multipleBirthInteger.asJSON()
+			json["multipleBirthInteger"] = multipleBirthInteger.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.map() { $0.asJSON() }
+			json["name"] = name.map() { $0.asJSON(with: options) }
 		}
 		if let photo = self.photo {
-			json["photo"] = photo.map() { $0.asJSON() }
+			json["photo"] = photo.map() { $0.asJSON(with: options) }
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -395,17 +395,17 @@ public class PatientAnimal: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let breed = self.breed {
-			json["breed"] = breed.asJSON()
+			json["breed"] = breed.asJSON(with: options)
 		}
 		if let genderStatus = self.genderStatus {
-			json["genderStatus"] = genderStatus.asJSON()
+			json["genderStatus"] = genderStatus.asJSON(with: options)
 		}
 		if let species = self.species {
-			json["species"] = species.asJSON()
+			json["species"] = species.asJSON(with: options)
 		}
 		
 		return json
@@ -469,14 +469,14 @@ public class PatientCommunication: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let language = self.language {
-			json["language"] = language.asJSON()
+			json["language"] = language.asJSON(with: options)
 		}
 		if let preferred = self.preferred {
-			json["preferred"] = preferred.asJSON()
+			json["preferred"] = preferred.asJSON(with: options)
 		}
 		
 		return json
@@ -589,29 +589,29 @@ public class PatientContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let address = self.address {
-			json["address"] = address.asJSON()
+			json["address"] = address.asJSON(with: options)
 		}
 		if let gender = self.gender {
-			json["gender"] = gender.asJSON()
+			json["gender"] = gender.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let organization = self.organization {
-			json["organization"] = organization.asJSON()
+			json["organization"] = organization.asJSON(with: options)
 		}
 		if let period = self.period {
-			json["period"] = period.asJSON()
+			json["period"] = period.asJSON(with: options)
 		}
 		if let relationship = self.relationship {
-			json["relationship"] = relationship.map() { $0.asJSON() }
+			json["relationship"] = relationship.map() { $0.asJSON(with: options) }
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -679,14 +679,14 @@ public class PatientLink: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let other = self.other {
-			json["other"] = other.asJSON()
+			json["other"] = other.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

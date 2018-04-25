@@ -79,9 +79,10 @@ open class FHIRAbstractBase: CustomStringConvertible {
 	/**
 	Represent the receiver in FHIRJSON, ready to be used for JSON serialization.
 	
-	- returns: The FHIRJSON reperesentation of the receiver
+    - parameter options: JSON serialization options
+	- returns:           The FHIRJSON reperesentation of the receiver
 	*/
-	open func asJSON() -> FHIRJSON {
+    open func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
 		return FHIRJSON()
 	}
 	

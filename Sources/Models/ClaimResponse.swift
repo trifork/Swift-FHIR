@@ -344,86 +344,86 @@ public class ClaimResponse: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let addItem = self.addItem {
-			json["addItem"] = addItem.map() { $0.asJSON() }
+			json["addItem"] = addItem.map() { $0.asJSON(with: options) }
 		}
 		if let coverage = self.coverage {
-			json["coverage"] = coverage.map() { $0.asJSON() }
+			json["coverage"] = coverage.map() { $0.asJSON(with: options) }
 		}
 		if let created = self.created {
-			json["created"] = created.asJSON()
+			json["created"] = created.asJSON(with: options)
 		}
 		if let disposition = self.disposition {
-			json["disposition"] = disposition.asJSON()
+			json["disposition"] = disposition.asJSON(with: options)
 		}
 		if let error = self.error {
-			json["error"] = error.map() { $0.asJSON() }
+			json["error"] = error.map() { $0.asJSON(with: options) }
 		}
 		if let form = self.form {
-			json["form"] = form.asJSON()
+			json["form"] = form.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let item = self.item {
-			json["item"] = item.map() { $0.asJSON() }
+			json["item"] = item.map() { $0.asJSON(with: options) }
 		}
 		if let note = self.note {
-			json["note"] = note.map() { $0.asJSON() }
+			json["note"] = note.map() { $0.asJSON(with: options) }
 		}
 		if let organization = self.organization {
-			json["organization"] = organization.asJSON()
+			json["organization"] = organization.asJSON(with: options)
 		}
 		if let originalRuleset = self.originalRuleset {
-			json["originalRuleset"] = originalRuleset.asJSON()
+			json["originalRuleset"] = originalRuleset.asJSON(with: options)
 		}
 		if let outcome = self.outcome {
-			json["outcome"] = outcome.asJSON()
+			json["outcome"] = outcome.asJSON(with: options)
 		}
 		if let payeeType = self.payeeType {
-			json["payeeType"] = payeeType.asJSON()
+			json["payeeType"] = payeeType.asJSON(with: options)
 		}
 		if let paymentAdjustment = self.paymentAdjustment {
-			json["paymentAdjustment"] = paymentAdjustment.asJSON()
+			json["paymentAdjustment"] = paymentAdjustment.asJSON(with: options)
 		}
 		if let paymentAdjustmentReason = self.paymentAdjustmentReason {
-			json["paymentAdjustmentReason"] = paymentAdjustmentReason.asJSON()
+			json["paymentAdjustmentReason"] = paymentAdjustmentReason.asJSON(with: options)
 		}
 		if let paymentAmount = self.paymentAmount {
-			json["paymentAmount"] = paymentAmount.asJSON()
+			json["paymentAmount"] = paymentAmount.asJSON(with: options)
 		}
 		if let paymentDate = self.paymentDate {
-			json["paymentDate"] = paymentDate.asJSON()
+			json["paymentDate"] = paymentDate.asJSON(with: options)
 		}
 		if let paymentRef = self.paymentRef {
-			json["paymentRef"] = paymentRef.asJSON()
+			json["paymentRef"] = paymentRef.asJSON(with: options)
 		}
 		if let request = self.request {
-			json["request"] = request.asJSON()
+			json["request"] = request.asJSON(with: options)
 		}
 		if let requestOrganization = self.requestOrganization {
-			json["requestOrganization"] = requestOrganization.asJSON()
+			json["requestOrganization"] = requestOrganization.asJSON(with: options)
 		}
 		if let requestProvider = self.requestProvider {
-			json["requestProvider"] = requestProvider.asJSON()
+			json["requestProvider"] = requestProvider.asJSON(with: options)
 		}
 		if let reserved = self.reserved {
-			json["reserved"] = reserved.asJSON()
+			json["reserved"] = reserved.asJSON(with: options)
 		}
 		if let ruleset = self.ruleset {
-			json["ruleset"] = ruleset.asJSON()
+			json["ruleset"] = ruleset.asJSON(with: options)
 		}
 		if let totalBenefit = self.totalBenefit {
-			json["totalBenefit"] = totalBenefit.asJSON()
+			json["totalBenefit"] = totalBenefit.asJSON(with: options)
 		}
 		if let totalCost = self.totalCost {
-			json["totalCost"] = totalCost.asJSON()
+			json["totalCost"] = totalCost.asJSON(with: options)
 		}
 		if let unallocDeductable = self.unallocDeductable {
-			json["unallocDeductable"] = unallocDeductable.asJSON()
+			json["unallocDeductable"] = unallocDeductable.asJSON(with: options)
 		}
 		
 		return json
@@ -535,34 +535,34 @@ public class ClaimResponseAddItem: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let adjudication = self.adjudication {
-			json["adjudication"] = adjudication.map() { $0.asJSON() }
+			json["adjudication"] = adjudication.map() { $0.asJSON(with: options) }
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.map() { $0.asJSON() }
+			json["detail"] = detail.map() { $0.asJSON(with: options) }
 		}
 		if let fee = self.fee {
-			json["fee"] = fee.asJSON()
+			json["fee"] = fee.asJSON(with: options)
 		}
 		if let noteNumberLinkId = self.noteNumberLinkId {
 			var arr = [Any]()
 			for val in noteNumberLinkId {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["noteNumberLinkId"] = arr
 		}
 		if let sequenceLinkId = self.sequenceLinkId {
 			var arr = [Any]()
 			for val in sequenceLinkId {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["sequenceLinkId"] = arr
 		}
 		if let service = self.service {
-			json["service"] = service.asJSON()
+			json["service"] = service.asJSON(with: options)
 		}
 		
 		return json
@@ -638,17 +638,17 @@ public class ClaimResponseAddItemAdjudication: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -724,17 +724,17 @@ public class ClaimResponseAddItemDetail: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let adjudication = self.adjudication {
-			json["adjudication"] = adjudication.map() { $0.asJSON() }
+			json["adjudication"] = adjudication.map() { $0.asJSON(with: options) }
 		}
 		if let fee = self.fee {
-			json["fee"] = fee.asJSON()
+			json["fee"] = fee.asJSON(with: options)
 		}
 		if let service = self.service {
-			json["service"] = service.asJSON()
+			json["service"] = service.asJSON(with: options)
 		}
 		
 		return json
@@ -810,17 +810,17 @@ public class ClaimResponseAddItemDetailAdjudication: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -968,36 +968,36 @@ public class ClaimResponseCoverage: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let businessArrangement = self.businessArrangement {
-			json["businessArrangement"] = businessArrangement.asJSON()
+			json["businessArrangement"] = businessArrangement.asJSON(with: options)
 		}
 		if let claimResponse = self.claimResponse {
-			json["claimResponse"] = claimResponse.asJSON()
+			json["claimResponse"] = claimResponse.asJSON(with: options)
 		}
 		if let coverage = self.coverage {
-			json["coverage"] = coverage.asJSON()
+			json["coverage"] = coverage.asJSON(with: options)
 		}
 		if let focal = self.focal {
-			json["focal"] = focal.asJSON()
+			json["focal"] = focal.asJSON(with: options)
 		}
 		if let originalRuleset = self.originalRuleset {
-			json["originalRuleset"] = originalRuleset.asJSON()
+			json["originalRuleset"] = originalRuleset.asJSON(with: options)
 		}
 		if let preAuthRef = self.preAuthRef {
 			var arr = [Any]()
 			for val in preAuthRef {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["preAuthRef"] = arr
 		}
 		if let relationship = self.relationship {
-			json["relationship"] = relationship.asJSON()
+			json["relationship"] = relationship.asJSON(with: options)
 		}
 		if let sequence = self.sequence {
-			json["sequence"] = sequence.asJSON()
+			json["sequence"] = sequence.asJSON(with: options)
 		}
 		
 		return json
@@ -1085,20 +1085,20 @@ public class ClaimResponseError: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let detailSequenceLinkId = self.detailSequenceLinkId {
-			json["detailSequenceLinkId"] = detailSequenceLinkId.asJSON()
+			json["detailSequenceLinkId"] = detailSequenceLinkId.asJSON(with: options)
 		}
 		if let sequenceLinkId = self.sequenceLinkId {
-			json["sequenceLinkId"] = sequenceLinkId.asJSON()
+			json["sequenceLinkId"] = sequenceLinkId.asJSON(with: options)
 		}
 		if let subdetailSequenceLinkId = self.subdetailSequenceLinkId {
-			json["subdetailSequenceLinkId"] = subdetailSequenceLinkId.asJSON()
+			json["subdetailSequenceLinkId"] = subdetailSequenceLinkId.asJSON(with: options)
 		}
 		
 		return json
@@ -1186,24 +1186,24 @@ public class ClaimResponseItem: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let adjudication = self.adjudication {
-			json["adjudication"] = adjudication.map() { $0.asJSON() }
+			json["adjudication"] = adjudication.map() { $0.asJSON(with: options) }
 		}
 		if let detail = self.detail {
-			json["detail"] = detail.map() { $0.asJSON() }
+			json["detail"] = detail.map() { $0.asJSON(with: options) }
 		}
 		if let noteNumber = self.noteNumber {
 			var arr = [Any]()
 			for val in noteNumber {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["noteNumber"] = arr
 		}
 		if let sequenceLinkId = self.sequenceLinkId {
-			json["sequenceLinkId"] = sequenceLinkId.asJSON()
+			json["sequenceLinkId"] = sequenceLinkId.asJSON(with: options)
 		}
 		
 		return json
@@ -1279,17 +1279,17 @@ public class ClaimResponseItemAdjudication: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -1365,17 +1365,17 @@ public class ClaimResponseItemDetail: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let adjudication = self.adjudication {
-			json["adjudication"] = adjudication.map() { $0.asJSON() }
+			json["adjudication"] = adjudication.map() { $0.asJSON(with: options) }
 		}
 		if let sequenceLinkId = self.sequenceLinkId {
-			json["sequenceLinkId"] = sequenceLinkId.asJSON()
+			json["sequenceLinkId"] = sequenceLinkId.asJSON(with: options)
 		}
 		if let subDetail = self.subDetail {
-			json["subDetail"] = subDetail.map() { $0.asJSON() }
+			json["subDetail"] = subDetail.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -1451,17 +1451,17 @@ public class ClaimResponseItemDetailAdjudication: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -1525,14 +1525,14 @@ public class ClaimResponseItemDetailSubDetail: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let adjudication = self.adjudication {
-			json["adjudication"] = adjudication.map() { $0.asJSON() }
+			json["adjudication"] = adjudication.map() { $0.asJSON(with: options) }
 		}
 		if let sequenceLinkId = self.sequenceLinkId {
-			json["sequenceLinkId"] = sequenceLinkId.asJSON()
+			json["sequenceLinkId"] = sequenceLinkId.asJSON(with: options)
 		}
 		
 		return json
@@ -1608,17 +1608,17 @@ public class ClaimResponseItemDetailSubDetailAdjudication: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let amount = self.amount {
-			json["amount"] = amount.asJSON()
+			json["amount"] = amount.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let value = self.value {
-			json["value"] = value.asJSON()
+			json["value"] = value.asJSON(with: options)
 		}
 		
 		return json
@@ -1685,17 +1685,17 @@ public class ClaimResponseNote: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let number = self.number {
-			json["number"] = number.asJSON()
+			json["number"] = number.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json

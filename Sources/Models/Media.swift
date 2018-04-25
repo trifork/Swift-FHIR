@@ -188,44 +188,44 @@ public class Media: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let content = self.content {
-			json["content"] = content.asJSON()
+			json["content"] = content.asJSON(with: options)
 		}
 		if let deviceName = self.deviceName {
-			json["deviceName"] = deviceName.asJSON()
+			json["deviceName"] = deviceName.asJSON(with: options)
 		}
 		if let duration = self.duration {
-			json["duration"] = duration.asJSON()
+			json["duration"] = duration.asJSON(with: options)
 		}
 		if let frames = self.frames {
-			json["frames"] = frames.asJSON()
+			json["frames"] = frames.asJSON(with: options)
 		}
 		if let height = self.height {
-			json["height"] = height.asJSON()
+			json["height"] = height.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let operator_fhir = self.operator_fhir {
-			json["operator"] = operator_fhir.asJSON()
+			json["operator"] = operator_fhir.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		if let subtype = self.subtype {
-			json["subtype"] = subtype.asJSON()
+			json["subtype"] = subtype.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let view = self.view {
-			json["view"] = view.asJSON()
+			json["view"] = view.asJSON(with: options)
 		}
 		if let width = self.width {
-			json["width"] = width.asJSON()
+			json["width"] = width.asJSON(with: options)
 		}
 		
 		return json

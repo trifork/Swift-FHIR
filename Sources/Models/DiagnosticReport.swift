@@ -284,62 +284,62 @@ public class DiagnosticReport: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let codedDiagnosis = self.codedDiagnosis {
-			json["codedDiagnosis"] = codedDiagnosis.map() { $0.asJSON() }
+			json["codedDiagnosis"] = codedDiagnosis.map() { $0.asJSON(with: options) }
 		}
 		if let conclusion = self.conclusion {
-			json["conclusion"] = conclusion.asJSON()
+			json["conclusion"] = conclusion.asJSON(with: options)
 		}
 		if let effectiveDateTime = self.effectiveDateTime {
-			json["effectiveDateTime"] = effectiveDateTime.asJSON()
+			json["effectiveDateTime"] = effectiveDateTime.asJSON(with: options)
 		}
 		if let effectivePeriod = self.effectivePeriod {
-			json["effectivePeriod"] = effectivePeriod.asJSON()
+			json["effectivePeriod"] = effectivePeriod.asJSON(with: options)
 		}
 		if let encounter = self.encounter {
-			json["encounter"] = encounter.asJSON()
+			json["encounter"] = encounter.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let image = self.image {
-			json["image"] = image.map() { $0.asJSON() }
+			json["image"] = image.map() { $0.asJSON(with: options) }
 		}
 		if let imagingStudy = self.imagingStudy {
-			json["imagingStudy"] = imagingStudy.map() { $0.asJSON() }
+			json["imagingStudy"] = imagingStudy.map() { $0.asJSON(with: options) }
 		}
 		if let issued = self.issued {
-			json["issued"] = issued.asJSON()
+			json["issued"] = issued.asJSON(with: options)
 		}
 		if let performer = self.performer {
-			json["performer"] = performer.asJSON()
+			json["performer"] = performer.asJSON(with: options)
 		}
 		if let presentedForm = self.presentedForm {
-			json["presentedForm"] = presentedForm.map() { $0.asJSON() }
+			json["presentedForm"] = presentedForm.map() { $0.asJSON(with: options) }
 		}
 		if let request = self.request {
-			json["request"] = request.map() { $0.asJSON() }
+			json["request"] = request.map() { $0.asJSON(with: options) }
 		}
 		if let result = self.result {
-			json["result"] = result.map() { $0.asJSON() }
+			json["result"] = result.map() { $0.asJSON(with: options) }
 		}
 		if let specimen = self.specimen {
-			json["specimen"] = specimen.map() { $0.asJSON() }
+			json["specimen"] = specimen.map() { $0.asJSON(with: options) }
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let subject = self.subject {
-			json["subject"] = subject.asJSON()
+			json["subject"] = subject.asJSON(with: options)
 		}
 		
 		return json
@@ -404,14 +404,14 @@ public class DiagnosticReportImage: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let comment = self.comment {
-			json["comment"] = comment.asJSON()
+			json["comment"] = comment.asJSON(with: options)
 		}
 		if let link = self.link {
-			json["link"] = link.asJSON()
+			json["link"] = link.asJSON(with: options)
 		}
 		
 		return json

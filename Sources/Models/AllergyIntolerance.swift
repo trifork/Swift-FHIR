@@ -214,50 +214,50 @@ public class AllergyIntolerance: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let criticality = self.criticality {
-			json["criticality"] = criticality.asJSON()
+			json["criticality"] = criticality.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let lastOccurence = self.lastOccurence {
-			json["lastOccurence"] = lastOccurence.asJSON()
+			json["lastOccurence"] = lastOccurence.asJSON(with: options)
 		}
 		if let note = self.note {
-			json["note"] = note.asJSON()
+			json["note"] = note.asJSON(with: options)
 		}
 		if let onset = self.onset {
-			json["onset"] = onset.asJSON()
+			json["onset"] = onset.asJSON(with: options)
 		}
 		if let patient = self.patient {
-			json["patient"] = patient.asJSON()
+			json["patient"] = patient.asJSON(with: options)
 		}
 		if let reaction = self.reaction {
-			json["reaction"] = reaction.map() { $0.asJSON() }
+			json["reaction"] = reaction.map() { $0.asJSON(with: options) }
 		}
 		if let recordedDate = self.recordedDate {
-			json["recordedDate"] = recordedDate.asJSON()
+			json["recordedDate"] = recordedDate.asJSON(with: options)
 		}
 		if let recorder = self.recorder {
-			json["recorder"] = recorder.asJSON()
+			json["recorder"] = recorder.asJSON(with: options)
 		}
 		if let reporter = self.reporter {
-			json["reporter"] = reporter.asJSON()
+			json["reporter"] = reporter.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let substance = self.substance {
-			json["substance"] = substance.asJSON()
+			json["substance"] = substance.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -393,32 +393,32 @@ public class AllergyIntoleranceReaction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let certainty = self.certainty {
-			json["certainty"] = certainty.asJSON()
+			json["certainty"] = certainty.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let exposureRoute = self.exposureRoute {
-			json["exposureRoute"] = exposureRoute.asJSON()
+			json["exposureRoute"] = exposureRoute.asJSON(with: options)
 		}
 		if let manifestation = self.manifestation {
-			json["manifestation"] = manifestation.map() { $0.asJSON() }
+			json["manifestation"] = manifestation.map() { $0.asJSON(with: options) }
 		}
 		if let note = self.note {
-			json["note"] = note.asJSON()
+			json["note"] = note.asJSON(with: options)
 		}
 		if let onset = self.onset {
-			json["onset"] = onset.asJSON()
+			json["onset"] = onset.asJSON(with: options)
 		}
 		if let severity = self.severity {
-			json["severity"] = severity.asJSON()
+			json["severity"] = severity.asJSON(with: options)
 		}
 		if let substance = self.substance {
-			json["substance"] = substance.asJSON()
+			json["substance"] = substance.asJSON(with: options)
 		}
 		
 		return json

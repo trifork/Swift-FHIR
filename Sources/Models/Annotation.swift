@@ -89,20 +89,20 @@ public class Annotation: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let authorReference = self.authorReference {
-			json["authorReference"] = authorReference.asJSON()
+			json["authorReference"] = authorReference.asJSON(with: options)
 		}
 		if let authorString = self.authorString {
-			json["authorString"] = authorString.asJSON()
+			json["authorString"] = authorString.asJSON(with: options)
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		if let time = self.time {
-			json["time"] = time.asJSON()
+			json["time"] = time.asJSON(with: options)
 		}
 		
 		return json

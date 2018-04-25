@@ -54,14 +54,16 @@ public class Reference: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+    override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+        var json = super.asJSON(with: options)
 		
 		if let display = self.display {
-			json["display"] = display.asJSON()
+			json["display"] = display.asJSON(with: options)
 		}
 		if let reference = self.reference {
-			json["reference"] = reference.asJSON()
+            let referenceString: String
+                referenceString = reference
+			json["reference"] = referenceString.asJSON(with: options)
 		}
 		
 		return json

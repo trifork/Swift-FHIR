@@ -133,14 +133,14 @@ open class FHIRServerJSONRequestHandler: FHIRServerRequestHandler {
 	}
 	
 	open var json: FHIRJSON?
-	
+    open var jsonOptions = [] as FHIRJSONOptions
 	
 	override open func prepareData() throws {
 		guard nil == data else {
 			return
 		}
 		if nil == json {
-			json = resource?.asJSON()
+            json = resource?.asJSON(with: jsonOptions)
 		}
 		if let json = json {
 			data = try JSONSerialization.data(withJSONObject: json, options: [])

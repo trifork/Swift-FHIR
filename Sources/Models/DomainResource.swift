@@ -80,20 +80,20 @@ public class DomainResource: Resource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let contained = self.contained {
-			json["contained"] = contained.map() { $0.asJSON() }
+			json["contained"] = contained.map() { $0.asJSON(with: options) }
 		}
 		if let extension_fhir = self.extension_fhir {
-			json["extension"] = extension_fhir.map() { $0.asJSON() }
+			json["extension"] = extension_fhir.map() { $0.asJSON(with: options) }
 		}
 		if let modifierExtension = self.modifierExtension {
-			json["modifierExtension"] = modifierExtension.map() { $0.asJSON() }
+			json["modifierExtension"] = modifierExtension.map() { $0.asJSON(with: options) }
 		}
 		if let text = self.text {
-			json["text"] = text.asJSON()
+			json["text"] = text.asJSON(with: options)
 		}
 		
 		return json

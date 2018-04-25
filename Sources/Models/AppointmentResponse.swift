@@ -139,32 +139,32 @@ public class AppointmentResponse: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let actor = self.actor {
-			json["actor"] = actor.asJSON()
+			json["actor"] = actor.asJSON(with: options)
 		}
 		if let appointment = self.appointment {
-			json["appointment"] = appointment.asJSON()
+			json["appointment"] = appointment.asJSON(with: options)
 		}
 		if let comment = self.comment {
-			json["comment"] = comment.asJSON()
+			json["comment"] = comment.asJSON(with: options)
 		}
 		if let end = self.end {
-			json["end"] = end.asJSON()
+			json["end"] = end.asJSON(with: options)
 		}
 		if let identifier = self.identifier {
-			json["identifier"] = identifier.map() { $0.asJSON() }
+			json["identifier"] = identifier.map() { $0.asJSON(with: options) }
 		}
 		if let participantStatus = self.participantStatus {
-			json["participantStatus"] = participantStatus.asJSON()
+			json["participantStatus"] = participantStatus.asJSON(with: options)
 		}
 		if let participantType = self.participantType {
-			json["participantType"] = participantType.map() { $0.asJSON() }
+			json["participantType"] = participantType.map() { $0.asJSON(with: options) }
 		}
 		if let start = self.start {
-			json["start"] = start.asJSON()
+			json["start"] = start.asJSON(with: options)
 		}
 		
 		return json

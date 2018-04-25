@@ -310,75 +310,75 @@ public class Conformance: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let acceptUnknown = self.acceptUnknown {
-			json["acceptUnknown"] = acceptUnknown.asJSON()
+			json["acceptUnknown"] = acceptUnknown.asJSON(with: options)
 		}
 		if let contact = self.contact {
-			json["contact"] = contact.map() { $0.asJSON() }
+			json["contact"] = contact.map() { $0.asJSON(with: options) }
 		}
 		if let copyright = self.copyright {
-			json["copyright"] = copyright.asJSON()
+			json["copyright"] = copyright.asJSON(with: options)
 		}
 		if let date = self.date {
-			json["date"] = date.asJSON()
+			json["date"] = date.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let document = self.document {
-			json["document"] = document.map() { $0.asJSON() }
+			json["document"] = document.map() { $0.asJSON(with: options) }
 		}
 		if let experimental = self.experimental {
-			json["experimental"] = experimental.asJSON()
+			json["experimental"] = experimental.asJSON(with: options)
 		}
 		if let fhirVersion = self.fhirVersion {
-			json["fhirVersion"] = fhirVersion.asJSON()
+			json["fhirVersion"] = fhirVersion.asJSON(with: options)
 		}
 		if let format = self.format {
 			var arr = [Any]()
 			for val in format {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["format"] = arr
 		}
 		if let implementation = self.implementation {
-			json["implementation"] = implementation.asJSON()
+			json["implementation"] = implementation.asJSON(with: options)
 		}
 		if let kind = self.kind {
-			json["kind"] = kind.asJSON()
+			json["kind"] = kind.asJSON(with: options)
 		}
 		if let messaging = self.messaging {
-			json["messaging"] = messaging.map() { $0.asJSON() }
+			json["messaging"] = messaging.map() { $0.asJSON(with: options) }
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let profile = self.profile {
-			json["profile"] = profile.map() { $0.asJSON() }
+			json["profile"] = profile.map() { $0.asJSON(with: options) }
 		}
 		if let publisher = self.publisher {
-			json["publisher"] = publisher.asJSON()
+			json["publisher"] = publisher.asJSON(with: options)
 		}
 		if let requirements = self.requirements {
-			json["requirements"] = requirements.asJSON()
+			json["requirements"] = requirements.asJSON(with: options)
 		}
 		if let rest = self.rest {
-			json["rest"] = rest.map() { $0.asJSON() }
+			json["rest"] = rest.map() { $0.asJSON(with: options) }
 		}
 		if let software = self.software {
-			json["software"] = software.asJSON()
+			json["software"] = software.asJSON(with: options)
 		}
 		if let status = self.status {
-			json["status"] = status.asJSON()
+			json["status"] = status.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
@@ -433,14 +433,14 @@ public class ConformanceContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let telecom = self.telecom {
-			json["telecom"] = telecom.map() { $0.asJSON() }
+			json["telecom"] = telecom.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -520,17 +520,17 @@ public class ConformanceDocument: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		if let mode = self.mode {
-			json["mode"] = mode.asJSON()
+			json["mode"] = mode.asJSON(with: options)
 		}
 		if let profile = self.profile {
-			json["profile"] = profile.asJSON()
+			json["profile"] = profile.asJSON(with: options)
 		}
 		
 		return json
@@ -595,14 +595,14 @@ public class ConformanceImplementation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let url = self.url {
-			json["url"] = url.asJSON()
+			json["url"] = url.asJSON(with: options)
 		}
 		
 		return json
@@ -690,20 +690,20 @@ public class ConformanceMessaging: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		if let endpoint = self.endpoint {
-			json["endpoint"] = endpoint.map() { $0.asJSON() }
+			json["endpoint"] = endpoint.map() { $0.asJSON(with: options) }
 		}
 		if let event = self.event {
-			json["event"] = event.map() { $0.asJSON() }
+			json["event"] = event.map() { $0.asJSON(with: options) }
 		}
 		if let reliableCache = self.reliableCache {
-			json["reliableCache"] = reliableCache.asJSON()
+			json["reliableCache"] = reliableCache.asJSON(with: options)
 		}
 		
 		return json
@@ -771,14 +771,14 @@ public class ConformanceMessagingEndpoint: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let address = self.address {
-			json["address"] = address.asJSON()
+			json["address"] = address.asJSON(with: options)
 		}
 		if let protocol_fhir = self.protocol_fhir {
-			json["protocol"] = protocol_fhir.asJSON()
+			json["protocol"] = protocol_fhir.asJSON(with: options)
 		}
 		
 		return json
@@ -918,29 +918,29 @@ public class ConformanceMessagingEvent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let category = self.category {
-			json["category"] = category.asJSON()
+			json["category"] = category.asJSON(with: options)
 		}
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		if let focus = self.focus {
-			json["focus"] = focus.asJSON()
+			json["focus"] = focus.asJSON(with: options)
 		}
 		if let mode = self.mode {
-			json["mode"] = mode.asJSON()
+			json["mode"] = mode.asJSON(with: options)
 		}
 		if let request = self.request {
-			json["request"] = request.asJSON()
+			json["request"] = request.asJSON(with: options)
 		}
 		if let response = self.response {
-			json["response"] = response.asJSON()
+			json["response"] = response.asJSON(with: options)
 		}
 		
 		return json
@@ -1092,39 +1092,39 @@ public class ConformanceRest: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let compartment = self.compartment {
 			var arr = [Any]()
 			for val in compartment {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["compartment"] = arr
 		}
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		if let interaction = self.interaction {
-			json["interaction"] = interaction.map() { $0.asJSON() }
+			json["interaction"] = interaction.map() { $0.asJSON(with: options) }
 		}
 		if let mode = self.mode {
-			json["mode"] = mode.asJSON()
+			json["mode"] = mode.asJSON(with: options)
 		}
 		if let operation = self.operation {
-			json["operation"] = operation.map() { $0.asJSON() }
+			json["operation"] = operation.map() { $0.asJSON(with: options) }
 		}
 		if let resource = self.resource {
-			json["resource"] = resource.map() { $0.asJSON() }
+			json["resource"] = resource.map() { $0.asJSON(with: options) }
 		}
 		if let searchParam = self.searchParam {
-			json["searchParam"] = searchParam.map() { $0.asJSON() }
+			json["searchParam"] = searchParam.map() { $0.asJSON(with: options) }
 		}
 		if let security = self.security {
-			json["security"] = security.asJSON()
+			json["security"] = security.asJSON(with: options)
 		}
 		if let transactionMode = self.transactionMode {
-			json["transactionMode"] = transactionMode.asJSON()
+			json["transactionMode"] = transactionMode.asJSON(with: options)
 		}
 		
 		return json
@@ -1188,14 +1188,14 @@ public class ConformanceRestInteraction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		
 		return json
@@ -1263,14 +1263,14 @@ public class ConformanceRestOperation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let definition = self.definition {
-			json["definition"] = definition.asJSON()
+			json["definition"] = definition.asJSON(with: options)
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		
 		return json
@@ -1458,52 +1458,52 @@ public class ConformanceRestResource: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let conditionalCreate = self.conditionalCreate {
-			json["conditionalCreate"] = conditionalCreate.asJSON()
+			json["conditionalCreate"] = conditionalCreate.asJSON(with: options)
 		}
 		if let conditionalDelete = self.conditionalDelete {
-			json["conditionalDelete"] = conditionalDelete.asJSON()
+			json["conditionalDelete"] = conditionalDelete.asJSON(with: options)
 		}
 		if let conditionalUpdate = self.conditionalUpdate {
-			json["conditionalUpdate"] = conditionalUpdate.asJSON()
+			json["conditionalUpdate"] = conditionalUpdate.asJSON(with: options)
 		}
 		if let interaction = self.interaction {
-			json["interaction"] = interaction.map() { $0.asJSON() }
+			json["interaction"] = interaction.map() { $0.asJSON(with: options) }
 		}
 		if let profile = self.profile {
-			json["profile"] = profile.asJSON()
+			json["profile"] = profile.asJSON(with: options)
 		}
 		if let readHistory = self.readHistory {
-			json["readHistory"] = readHistory.asJSON()
+			json["readHistory"] = readHistory.asJSON(with: options)
 		}
 		if let searchInclude = self.searchInclude {
 			var arr = [Any]()
 			for val in searchInclude {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["searchInclude"] = arr
 		}
 		if let searchParam = self.searchParam {
-			json["searchParam"] = searchParam.map() { $0.asJSON() }
+			json["searchParam"] = searchParam.map() { $0.asJSON(with: options) }
 		}
 		if let searchRevInclude = self.searchRevInclude {
 			var arr = [Any]()
 			for val in searchRevInclude {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["searchRevInclude"] = arr
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		if let updateCreate = self.updateCreate {
-			json["updateCreate"] = updateCreate.asJSON()
+			json["updateCreate"] = updateCreate.asJSON(with: options)
 		}
 		if let versioning = self.versioning {
-			json["versioning"] = versioning.asJSON()
+			json["versioning"] = versioning.asJSON(with: options)
 		}
 		
 		return json
@@ -1567,14 +1567,14 @@ public class ConformanceRestResourceInteraction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
-			json["code"] = code.asJSON()
+			json["code"] = code.asJSON(with: options)
 		}
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		
 		return json
@@ -1703,41 +1703,41 @@ public class ConformanceRestResourceSearchParam: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let chain = self.chain {
 			var arr = [Any]()
 			for val in chain {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["chain"] = arr
 		}
 		if let definition = self.definition {
-			json["definition"] = definition.asJSON()
+			json["definition"] = definition.asJSON(with: options)
 		}
 		if let documentation = self.documentation {
-			json["documentation"] = documentation.asJSON()
+			json["documentation"] = documentation.asJSON(with: options)
 		}
 		if let modifier = self.modifier {
 			var arr = [Any]()
 			for val in modifier {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["modifier"] = arr
 		}
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let target = self.target {
 			var arr = [Any]()
 			for val in target {
-				arr.append(val.asJSON())
+				arr.append(val.asJSON(with: options))
 			}
 			json["target"] = arr
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -1816,20 +1816,20 @@ public class ConformanceRestSecurity: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let certificate = self.certificate {
-			json["certificate"] = certificate.map() { $0.asJSON() }
+			json["certificate"] = certificate.map() { $0.asJSON(with: options) }
 		}
 		if let cors = self.cors {
-			json["cors"] = cors.asJSON()
+			json["cors"] = cors.asJSON(with: options)
 		}
 		if let description_fhir = self.description_fhir {
-			json["description"] = description_fhir.asJSON()
+			json["description"] = description_fhir.asJSON(with: options)
 		}
 		if let service = self.service {
-			json["service"] = service.map() { $0.asJSON() }
+			json["service"] = service.map() { $0.asJSON(with: options) }
 		}
 		
 		return json
@@ -1882,14 +1882,14 @@ public class ConformanceRestSecurityCertificate: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let blob = self.blob {
-			json["blob"] = blob.asJSON()
+			json["blob"] = blob.asJSON(with: options)
 		}
 		if let type = self.type {
-			json["type"] = type.asJSON()
+			json["type"] = type.asJSON(with: options)
 		}
 		
 		return json
@@ -1966,17 +1966,17 @@ public class ConformanceSoftware: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON() -> FHIRJSON {
-		var json = super.asJSON()
+	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
-			json["name"] = name.asJSON()
+			json["name"] = name.asJSON(with: options)
 		}
 		if let releaseDate = self.releaseDate {
-			json["releaseDate"] = releaseDate.asJSON()
+			json["releaseDate"] = releaseDate.asJSON(with: options)
 		}
 		if let version = self.version {
-			json["version"] = version.asJSON()
+			json["version"] = version.asJSON(with: options)
 		}
 		
 		return json
