@@ -22,6 +22,8 @@ public struct FHIRJSONOptions: OptionSet {
     
     public let rawValue: Int
     public init(rawValue: Int) { self.rawValue = rawValue }
+    
+    public static let stripVersionsFromReferences = FHIRJSONOptions(rawValue: 1 << 0)
 }
 
 

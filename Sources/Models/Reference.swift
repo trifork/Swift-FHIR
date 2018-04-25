@@ -62,7 +62,11 @@ public class Reference: Element {
 		}
 		if let reference = self.reference {
             let referenceString: String
+            if options.contains(.stripVersionsFromReferences), let versionIdIndex = reference.range(of: "/_history")?.lowerBound {
+                referenceString = String(reference[..<versionIdIndex])
+            } else {
                 referenceString = reference
+            }
 			json["reference"] = referenceString.asJSON(with: options)
 		}
 		
