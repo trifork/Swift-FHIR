@@ -150,7 +150,7 @@ public class QuestionnaireResponse: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let author = self.author {
@@ -281,7 +281,7 @@ public class QuestionnaireResponseGroup: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let group = self.group {
@@ -367,7 +367,7 @@ public class QuestionnaireResponseGroupQuestion: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let answer = self.answer {
@@ -576,7 +576,7 @@ public class QuestionnaireResponseGroupQuestionAnswer: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let group = self.group {

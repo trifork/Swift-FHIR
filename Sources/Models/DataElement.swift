@@ -213,7 +213,7 @@ public class DataElement: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
@@ -311,7 +311,7 @@ public class DataElementContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
@@ -407,7 +407,7 @@ public class DataElementMapping: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let comments = self.comments {

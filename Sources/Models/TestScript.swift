@@ -302,7 +302,7 @@ public class TestScript: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let contact = self.contact {
@@ -421,7 +421,7 @@ public class TestScriptContact: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let name = self.name {
@@ -495,7 +495,7 @@ public class TestScriptFixture: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let autocreate = self.autocreate {
@@ -569,7 +569,7 @@ public class TestScriptMetadata: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let capability = self.capability {
@@ -688,7 +688,7 @@ public class TestScriptMetadataCapability: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let conformance = self.conformance {
@@ -775,7 +775,7 @@ public class TestScriptMetadataLink: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let description_fhir = self.description_fhir {
@@ -844,7 +844,7 @@ public class TestScriptSetup: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
@@ -906,7 +906,7 @@ public class TestScriptSetupAction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let assert = self.assert {
@@ -1160,7 +1160,7 @@ public class TestScriptSetupActionAssert: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let compareToSourceId = self.compareToSourceId {
@@ -1414,7 +1414,7 @@ public class TestScriptSetupActionOperation: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let accept = self.accept {
@@ -1525,7 +1525,7 @@ public class TestScriptSetupActionOperationRequestHeader: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let field = self.field {
@@ -1584,7 +1584,7 @@ public class TestScriptTeardown: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
@@ -1631,7 +1631,7 @@ public class TestScriptTeardownAction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let operation = self.operation {
@@ -1721,7 +1721,7 @@ public class TestScriptTest: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let action = self.action {
@@ -1789,7 +1789,7 @@ public class TestScriptTestAction: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let assert = self.assert {
@@ -1884,7 +1884,7 @@ public class TestScriptVariable: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let headerField = self.headerField {

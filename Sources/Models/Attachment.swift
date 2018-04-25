@@ -128,7 +128,7 @@ public class Attachment: Element {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let contentType = self.contentType {

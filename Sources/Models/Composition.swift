@@ -233,7 +233,7 @@ public class Composition: DomainResource {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let attester = self.attester {
@@ -352,7 +352,7 @@ public class CompositionAttester: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let mode = self.mode {
@@ -433,7 +433,7 @@ public class CompositionEvent: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let code = self.code {
@@ -570,7 +570,7 @@ public class CompositionSection: BackboneElement {
 		return errors.isEmpty ? nil : errors
 	}
 	
-	override public func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	override public func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		
 		if let code = self.code {

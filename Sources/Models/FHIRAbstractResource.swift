@@ -48,7 +48,7 @@ open class FHIRAbstractResource: FHIRAbstractBase {
 	}
 	
 	/** Serialize the receiver to JSON. */
-	open override func asJSON(with options: FHIRJSONOptions = []) -> FHIRJSON {
+	open override func asJSON(with options: FHIRJSONOptions) -> FHIRJSON {
 		var json = super.asJSON(with: options)
 		json["resourceType"] = type(of: self).resourceType
 		
