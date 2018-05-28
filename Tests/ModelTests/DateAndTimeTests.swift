@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import SwiftFHIR
+@testable import SwiftFHIR
 
 
 class DateTests: XCTestCase {
@@ -685,5 +685,137 @@ class InstantTests: XCTestCase {
 			XCTAssertTrue(false, "Failed to parse perfectly fine HTTP date")
 		}
 	}
+}
+
+
+// Tests moved from Cura
+class TimeZoneTests: XCTestCase {
+
+    let utc = TimeZone(identifier: "UTC")!
+    let cet_no_dst = TimeZone(secondsFromGMT: 1*60*60)!
+    let cet_dst = TimeZone(secondsFromGMT: 2*60*60)!
+    let dateline_tz = TimeZone(secondsFromGMT: 12*60*60)!
+    let allTimeZones = (-24...24 /*half-hours*/).map { TimeZone(secondsFromGMT: $0*30*60)! }
+    let selectedTimeZones = [-24, -23, 22, -2, -1, 0, 1, 2, 22, 23, 24/*half-hours*/].map { TimeZone(secondsFromGMT: $0*30*60)! }
+    //swiftlint:enable identifier_name
+
+    private static func runTestInTimeZone(_ timeZone: TimeZone, _ body: () -> Void) {
+        let saved = DateNSDateConverter.sharedConverterCurrentTimeZone
+        DateNSDateConverter.sharedConverterCurrentTimeZone = DateNSDateConverter(timeZone: timeZone)
+        defer {
+            DateNSDateConverter.sharedConverterCurrentTimeZone = saved
+        }
+        body()
+    }
+
+    func testDateToFHIRDateAndTime_Zulu() {
+        TimeZoneTests.runTestInTimeZone(utc) {
+            // Test at all hours
+            for hour in 0...23 {
+                for minute in stride(from: 0, to: 59, by: 30) {
+                    let date = parseDate(String(format: "01-04-2020 %02d:%02d Z", hour, minute))
+                    let dateCurrentTZ = date.fhir_asDate()
+                    let timeCurrentTZ = date.fhir_asTime()
+
+                    XCTAssertEqual(dateCurrentTZ.description, "2020-04-01")
+                    XCTAssertEqual(timeCurrentTZ.description, String(format: "%02d:%02d:00", hour, minute))
+                }
+            }
+        }
+    }
+
+    func testDateToFHIRDateAndTime_CET() {
+        TimeZoneTests.runTestInTimeZone(cet_no_dst) {
+            // Test at all hours
+            for hour in 0...23 {
+                for minute in stride(from: 0, to: 59, by: 30) {
+                    let date = parseDate(String(format: "01-04-2020 %02d:%02d +01:00", hour, minute))
+                    let dateCurrentTZ = date.fhir_asDate()
+                    let timeCurrentTZ = date.fhir_asTime()
+
+                    XCTAssertEqual(dateCurrentTZ.description, "2020-04-01")
+                    XCTAssertEqual(timeCurrentTZ.description, String(format: "%02d:%02d:00", hour, minute))
+                }
+            }
+        }
+    }
+
+    func testFHIRDateToDate_allTimeZones() {
+        for timeZone in allTimeZones {
+            TimeZoneTests.runTestInTimeZone(timeZone) {
+                let fhirDate = FHIRDate(year: 2020, month: 04, day: 01)
+                let date1 = fhirDate.nsDate
+                let date2 = fhirDate.nsDate.addingTimeInterval((23*60*60)+59*60)
+                let expectedDate1 = parseDate("01-04-2020 00:00 " + timeZoneToString(timeZone))
+                let expectedDate2 = parseDate("01-04-2020 23:59 " + timeZoneToString(timeZone))
+
+                XCTAssertEqual(date1, expectedDate1, " in timezone \(Double(timeZone.secondsFromGMT()) / 3600.0)")
+                XCTAssertEqual(date2, expectedDate2, " in timezone \(Double(timeZone.secondsFromGMT()) / 3600.0)")
+            }
+        }
+    }
+
+    func testRoundTrip_allTimeZones() {
+        for timeZone in selectedTimeZones {
+            TimeZoneTests.runTestInTimeZone(timeZone) {
+                let tzName = timeZoneToString(timeZone)
+                for hour in [0, 1, 22, 23] {
+                    for minute in stride(from: 0, to: 59, by: 30) {
+                        for second in stride(from: 0, to: 59, by: 30) {
+                            let dateWithSeconds = parseDateWithSeconds(String(format: "01-04-2020 %02d:%02d:%02d ", hour, minute, second) + tzName)
+
+                            let date = dateWithSeconds.fhir_asDate()
+                            let time = dateWithSeconds.fhir_asTime()
+                            let date2 = DateTime(date: date, time: time, timeZone: timeZone).nsDate
+
+                            XCTAssertEqual(dateWithSeconds, date2) //, " in timezone \(Double(tz.secondsFromGMT()) / 3600.0)")
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    // MARK: - Utility functions
+    private let timeFormat: String = "dd-MM-yyyy HH:mm ZZZZ"
+    private func parseDate(_ dateString: String) -> Date {
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = timeFormat
+        if let date = dateFormatter.date(from: dateString) {
+            return date
+        }
+        fatalError("Could not parse date: \(dateString)")
+    }
+    private let timeFormatSeconds: String = "dd-MM-yyyy HH:mm:ss ZZZZ"
+    private func parseDateWithSeconds(_ dateString: String) -> Date {
+        let dateFormatter: DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = timeFormatSeconds
+        if let date = dateFormatter.date(from: dateString) {
+            return date
+        }
+        fatalError("Could not parse date: \(dateString)")
+    }
+
+    private func timeZoneToString(_ timeZone: TimeZone) -> String {
+        // From Swift-FHIR:
+        if "UTC" == timeZone.identifier || "GMT" == timeZone.identifier {
+            return "Z"
+        }
+
+        /* The following Swift_FHIR code has a bug! E.g. handling of "-11:30" = secs=-41400, or non-integral timezones in general.
+         let secsFromGMT = tz.secondsFromGMT()
+         let hr = abs((secsFromGMT / 3600) - (secsFromGMT % 3600))
+         let min = abs((secsFromGMT % 3600) / 60)
+         */
+        //Bugfix:
+        let secsFromGMT = timeZone.secondsFromGMT()
+        let posSign = secsFromGMT >= 0
+        let secs = abs(secsFromGMT)
+        let hour = (secs - (secs % 3600)) / 3600
+        let min = (secs % 3600) / 60
+        return (posSign ? "+" : "-") + String(format: "%02d:%02d", hour, min)
+    }
+
 }
 
