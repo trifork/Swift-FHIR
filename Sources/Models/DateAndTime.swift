@@ -12,7 +12,7 @@ import Foundation
 /**
 A protocol for all our date and time structs.
 */
-protocol DateAndTime: CustomStringConvertible, Comparable, Equatable {
+protocol DateAndTime: CustomStringConvertible, Comparable {
 	
 	var nsDate: Date { get }
 }
@@ -84,18 +84,19 @@ public struct FHIRDate: DateAndTime {
 	}
 	
 	/**
-	- returns: Today's date
+	- returns: Today's date in the current timezone
 	*/
 	public static var today: FHIRDate {
-		let (date, _, _) = DateNSDateConverter.sharedConverter.parse(date: Date())
+		let (date, _, _) = DateNSDateConverter.sharedConverterCurrentTimeZone.parse(date: Date())
 		return date
 	}
 	
 	
 	// MARK: Protocols
-	
+
+    /// Returns the date as a Foundation Date using the current timezone
 	public var nsDate: Date {
-		return DateNSDateConverter.sharedConverter.create(fromDate: self)
+		return DateNSDateConverter.sharedConverterCurrentTimeZone.create(fromDate: self)
 	}
 	
 	public var description: String {
@@ -244,18 +245,19 @@ public struct FHIRTime: DateAndTime {
 	/**
 	The time right now.
 	
-	- returns: The clock time of right now.
+	- returns: The clock time of right now in current timezone.
 	*/
 	public static var now: FHIRTime {
-		let (_, time, _) = DateNSDateConverter.sharedConverter.parse(date: Date())
+		let (_, time, _) = DateNSDateConverter.sharedConverterCurrentTimeZone.parse(date: Date())
 		return time
 	}
 	
 	
 	// MARK: Protocols
-	
+
+    /// Returns the time in current timezone the day will be set to the reference date.
 	public var nsDate: Date {
-		return DateNSDateConverter.sharedConverter.create(fromTime: self)
+		return DateNSDateConverter.sharedConverterCurrentTimeZone.create(fromTime: self)
 	}
 	
 	// TODO: this implementation uses a workaround using string coercion instead of format: "%02d:%02d:%@" because %@ with String is not
@@ -380,7 +382,7 @@ public struct DateTime: DateAndTime {
 	
 	
 	// MARK: Protocols
-	
+
 	public var nsDate: Date {
 		if let time = time, let tz = timeZone {
 			return DateNSDateConverter.sharedConverter.create(date: date, time: time, timeZone: tz)
@@ -563,15 +565,16 @@ Converts between NSDate and our FHIRDate, FHIRTime, DateTime and Instance struct
 class DateNSDateConverter {
 	
 	/// The singleton instance
-	static var sharedConverter = DateNSDateConverter()
-	
+    static var sharedConverter = DateNSDateConverter()
+    static var sharedConverterCurrentTimeZone = DateNSDateConverter(timeZone: TimeZone.current)
+
 	let calendar: Calendar
-	let utc: TimeZone
+	let timeZone: TimeZone
 	
-	init() {
-		utc = TimeZone(abbreviation: "UTC")!
+    init(timeZone: TimeZone? = nil) {
+		self.timeZone = timeZone ?? TimeZone(abbreviation: "UTC")!
 		var cal = Calendar(identifier: Calendar.Identifier.gregorian)
-		cal.timeZone = utc
+		cal.timeZone = self.timeZone
 		calendar = cal
 	}
 	
@@ -589,7 +592,7 @@ class DateNSDateConverter {
 		let comp = calendar.dateComponents(flags, from: inDate)
 		
 		let date = FHIRDate(year: comp.year!, month: UInt8(comp.month!), day: UInt8(comp.day!))
-		let zone = comp.timeZone ?? utc
+		let zone = comp.timeZone ?? timeZone
 		let secs = Double(comp.second!) + (Double(comp.nanosecond!) / 1000000000)
 		let time = FHIRTime(hour: UInt8(comp.hour!), minute: UInt8(comp.minute!), second: secs)
 		
@@ -613,7 +616,7 @@ class DateNSDateConverter {
 	
     func _create(date: FHIRDate?, time: FHIRTime?, timeZone: TimeZone?) -> Date {
         var comp = DateComponents()
-        comp.timeZone = timeZone ?? utc
+        comp.timeZone = timeZone ?? timeZone
         
         if let date = date {
             comp.year = date.year
@@ -652,7 +655,7 @@ class DateAndTimeParser {
 	
 	/// The singleton instance
 	static var sharedParser = DateAndTimeParser()
-	
+
 	/**
 	Parses a date string in "YYYY[-MM[-DD]]" and a time string in "hh:mm[:ss[.sss]]" (extended ISO 8601) format,
 	separated by "T" and followed by either "Z" or a valid time zone offset in the "±hh[:?mm]" format.
@@ -767,13 +770,13 @@ public extension Date {
 	
 	/** Create a `FHIRDate` instance from the receiver. */
 	func fhir_asDate() -> FHIRDate {
-		let (date, _, _) = DateNSDateConverter.sharedConverter.parse(date: self)
+		let (date, _, _) = DateNSDateConverter.sharedConverterCurrentTimeZone.parse(date: self)
 		return date
 	}
 	
 	/** Create a `Time` instance from the receiver. */
 	func fhir_asTime() -> FHIRTime {
-		let (_, time, _) = DateNSDateConverter.sharedConverter.parse(date: self)
+		let (_, time, _) = DateNSDateConverter.sharedConverterCurrentTimeZone.parse(date: self)
 		return time
 	}
 	

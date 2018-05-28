@@ -93,6 +93,25 @@ class DateTests: XCTestCase {
 		let ns = date.nsDate
 		XCTAssertEqual(date, ns.fhir_asDate(), "Conversion to NSDate and back again must not alter `Date`")
 	}
+
+    func testCloseToMidnight() {
+        let inDate = Date(timeIntervalSince1970: 1527199938) // Just past midnight 25/5 in Denmark
+
+        let fhirDate = inDate.fhir_asDate()
+        XCTAssertEqual(25, fhirDate.day)
+
+        // Test nsDate
+        var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
+        calendar.timeZone = TimeZone.current
+
+        let flags: Set<Calendar.Component> = [.year, .month, .day, .hour, .minute, .second, .nanosecond, .timeZone]
+
+        let comps1 = calendar.dateComponents(flags, from: inDate)
+        let comps2 = calendar.dateComponents(flags, from: fhirDate.nsDate)
+        XCTAssertEqual(comps1.year, comps2.year)
+        XCTAssertEqual(comps1.month, comps2.month)
+        XCTAssertEqual(comps1.day, comps2.day)
+    }
 }
 
 
