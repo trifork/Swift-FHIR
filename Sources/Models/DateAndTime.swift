@@ -12,7 +12,10 @@ import Foundation
 /**
 A protocol for all our date and time structs.
 */
-protocol DateAndTime: CustomStringConvertible, Comparable {}
+protocol DateAndTime: CustomStringConvertible, Comparable, Equatable {
+	
+	var nsDate: Date { get }
+}
 
 
 /**
@@ -90,6 +93,10 @@ public struct FHIRDate: DateAndTime {
 	
 	
 	// MARK: Protocols
+	
+	public var nsDate: Date {
+		return DateNSDateConverter.sharedConverter.create(fromDate: self)
+	}
 	
 	public var description: String {
 		if let m = month {
@@ -246,6 +253,10 @@ public struct FHIRTime: DateAndTime {
 	
 	
 	// MARK: Protocols
+	
+	public var nsDate: Date {
+		return DateNSDateConverter.sharedConverter.create(fromTime: self)
+	}
 	
 	// TODO: this implementation uses a workaround using string coercion instead of format: "%02d:%02d:%@" because %@ with String is not
 	// supported on Linux (SR-957)
@@ -753,6 +764,18 @@ class DateAndTimeParser {
 Extend Date to be able to return DateAndTime instances.
 */
 public extension Date {
+	
+	/** Create a `FHIRDate` instance from the receiver. */
+	func fhir_asDate() -> FHIRDate {
+		let (date, _, _) = DateNSDateConverter.sharedConverter.parse(date: self)
+		return date
+	}
+	
+	/** Create a `Time` instance from the receiver. */
+	func fhir_asTime() -> FHIRTime {
+		let (_, time, _) = DateNSDateConverter.sharedConverter.parse(date: self)
+		return time
+	}
 	
 	/** Create a `DateTime` instance from the receiver. */
 	func fhir_asDateTime() -> DateTime {

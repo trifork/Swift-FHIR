@@ -88,6 +88,11 @@ class DateTests: XCTestCase {
 		XCTAssertTrue(a == a)
 	}
 	
+	func testConversion() {
+		let date = FHIRDate(string: "1981-03-28")!
+		let ns = date.nsDate
+		XCTAssertEqual(date, ns.fhir_asDate(), "Conversion to NSDate and back again must not alter `Date`")
+	}
 }
 
 
@@ -254,6 +259,11 @@ class TimeTests: XCTestCase {
 		XCTAssertFalse(a == b)
 	}
 	
+	func testConversion() {
+		let time = FHIRTime(string: "15:42:03")!
+		let ns = time.nsDate
+		XCTAssertEqual(time, ns.fhir_asTime(), "Conversion to NSDate and back again must not alter `Time`")
+	}
 }
 
 
