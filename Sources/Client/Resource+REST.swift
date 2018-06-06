@@ -96,16 +96,24 @@ public extension Resource {
 	}
 	
 	/**
-	Reads the resource from the given path on the given server.
+	Reads the resource from the given path on the given server using the given query parameters.
 	
 	This method creates a FHIRServerJSONRequestHandler for a GET request and deserializes the returned JSON into an instance on success.
 	
 	- parameter path: The relative path on the server from which to read resource data from
+    - parameter queryParameters: The query parameters to use
 	- parameter server: The server to use
 	- parameter callback: The callback to execute once done. The callback is NOT guaranteed to be executed on the main thread!
 	*/
-	public class func readFrom(_ path: String, server: FHIRServer, callback: @escaping FHIRResourceErrorCallback) {
-		server.performRequest(.GET, path: path, resource: nil, additionalHeaders: nil) { response in
+	public class func readFrom(_ path: String, queryParameters: [String: String]? = nil, server: FHIRServer, callback: @escaping FHIRResourceErrorCallback) {
+        var urlComponents = URLComponents()
+        urlComponents.path = path
+        urlComponents.queryItems = queryParameters?.map { URLQueryItem(name: $0.key, value: $0.value) }
+        guard let pathWithQuery = urlComponents.string else {
+            callback(nil, FHIRError.requestNotSent("Path/query preparation failed"))
+            return
+        }
+        server.performRequest(.GET, path: pathWithQuery, resource: nil, additionalHeaders: nil) { response in
 			if let error = response.error {
 				callback(nil, error)
 			}
